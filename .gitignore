@@ -1,0 +1,14 @@
+# typrscript
+# tsconfig.json
+
+# next js
+# next-env.d.ts
+/.next
+/out
+
+# package
+package-lock.json
+/node_modules
+
+# os
+/.idea
