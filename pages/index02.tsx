@@ -8,7 +8,7 @@ function Index (props) {
 export async function getStaticProps(context) {
   return {
     props: {
-      message: `Next.js!`
+      message: `this is index02 page!`
     }
   };
 };
