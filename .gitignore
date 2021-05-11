@@ -5,6 +5,7 @@
 # next-env.d.ts
 /.next
 /out
+/build
 
 # package
 package-lock.json
