@@ -1,8 +1,17 @@
+import GlobalStyle from "../src/styles/GlobalStyle";
+import BannerContainer from "../src/containers/banner/BannerContainer";
+
 function Index (props) {
   const { message } = props;
-  return <div>
-    Welcome to {message}
-  </div>;
+  return (
+    <div>
+      <GlobalStyle />
+      <BannerContainer>
+        <p>배너입니다.</p>
+      </BannerContainer>
+      Welcome to {message}
+    </div>
+  );
 };
 
 export async function getStaticProps(context) {

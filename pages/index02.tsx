@@ -1,8 +1,13 @@
+import GlobalStyle from "../src/styles/GlobalStyle";
+
 function Index (props) {
   const { message } = props;
-  return <div>
-    Welcome to {message}
-  </div>;
+  return (
+    <div>
+      <GlobalStyle/>
+      Welcome to {message}
+    </div>
+  );
 };
 
 export async function getStaticProps(context) {

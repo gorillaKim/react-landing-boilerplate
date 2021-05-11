@@ -1,5 +1,5 @@
 module.exports = {
   // "distDir": "build",
-  "exportTrailingSlash": true,
-  "assetPrefix": "https://~~~"
+  // "exportTrailingSlash": true,
+  // "assetPrefix": "https://~~~"
 }
