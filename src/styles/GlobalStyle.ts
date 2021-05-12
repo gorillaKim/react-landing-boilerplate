@@ -52,7 +52,7 @@ const GlobalStyle = createGlobalStyle`
   }
   * {
     font-family: "Noto Sans KR, Roboto";
-    box-sizing: border-box;
+    box-sizing: content-box;
   }
   :root {
     --cornflower: #5c6aff;
