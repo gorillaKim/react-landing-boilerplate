@@ -1,14 +1,14 @@
 import GlobalStyle from "../src/styles/GlobalStyle";
-import Banner from "../src/components/Banner";
+import BannerContainer from "../src/containers/banner/BannerContainer";
+import Navbar from "../src/components/Navbar";
 
 function Index (props) {
   const { message } = props;
   return (
     <div>
       <GlobalStyle />
-      <Banner>
-        <p>배너입니다.</p>
-      </Banner>
+      <BannerContainer/>
+      <Navbar/>
       nav
       section
       footer
