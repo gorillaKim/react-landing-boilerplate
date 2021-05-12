@@ -1,5 +1,5 @@
-import React, { FC } from "react";
-import styled from "styled-components";
+import React, { FC } from "react"
+import styled from "styled-components"
 
 const MenuLayout = styled.div`
   display: flex;
@@ -69,7 +69,7 @@ const MenuCenter = styled.ul`
 const CenterItem = styled.li`
   padding: 35px 25px;
   text-decoration: none;
-`;
+`
 
 const MenuItemLink = styled.a`
   font-family: NotoSansKR;
@@ -197,4 +197,4 @@ const Menu: FC<MenuProps> = () => {
   )
 }
 
-export default Menu;
+export default Menu

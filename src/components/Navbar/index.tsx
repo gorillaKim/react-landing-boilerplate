@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
-import styled from "styled-components";
-import {Container} from '../Styled/Layout';
-import Logo from "./Logo";
-import Menu from "./Menu";
+import React, { FC } from 'react'
+import styled from "styled-components"
+import {Container} from '../Styled/Layout'
+import Logo from "./Logo"
+import Menu from "./Menu"
 
 const NavbarSection = styled.section`
   display: flex;
@@ -13,9 +13,6 @@ const NavbarSection = styled.section`
   // test for
   background-color: gray;
 `
-const NavbarContainer = styled(Container)`
-  max-width: 1280px;
-`
 
 interface NavbarProps {
 
@@ -23,13 +20,13 @@ interface NavbarProps {
 
 const Navbar: FC<NavbarProps> = () => {
   return (
-    <NavbarContainer>
+    <Container>
       <NavbarSection>
         <Logo/>
         <Menu/>
       </NavbarSection>
-    </NavbarContainer>
+    </Container>
   )
 }
 
-export default Navbar;
+export default Navbar
