@@ -1,41 +1,46 @@
 import React, { FC } from "react"
 import styled from "styled-components"
+import {cssBreakPoint} from "../../styles/constant";
 
-const MenuLayout = styled.div`
+
+const MenuLayout = styled(({...restProps})=> <div {...restProps} />)`
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
   list-style: none;
 
-  @media (max-width: var(--break-tablet)) {
-    flex-direction: column;
-    animation-duration: 0.5s;
-    animation-timing-function: ease-in-out;
-    animation-name: slideHeader;
-    animation-fill-mode: forwards;
-    animation-direction: reverse;
-    background: var(--white);
+  @media (max-width: ${cssBreakPoint.tablet}) {
+    display: none;
     height: 100%;
+    
+    &.active {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    &.deactive {
+      height: 100%;
+    }
   }
 `
 
 const Title = styled.ul`
   display: none;
 
-  @media (max-width: var(--break-tablet)) {
+  @media (${cssBreakPoint.tablet}) {
     width: 100%;
   }
 `
 
 const TitleList = styled.li`
-  @media (max-width: var(--break-tablet)) {
+  @media (max-width: ${cssBreakPoint.tablet}) {
     padding: 35px 15px;
     color: var(--black);
   }
 `
 
-const TitleListLink = styled.a`
+const ItemLink = styled.a`
   font-family: NotoSansKR;
   font-size: 18px;
   font-weight: normal;
@@ -46,8 +51,10 @@ const TitleListLink = styled.a`
   text-align: left;
   text-decoration: none;
   color: var(--white);
-  
-  @media (max-width: var(--break-tablet)) {
+`
+
+const TitleListLink = styled(ItemLink)`
+  @media (max-width: ${cssBreakPoint.tablet}) {
     font-size: 30px;
     color: var(--black);
   }
@@ -59,7 +66,7 @@ const MenuCenter = styled.ul`
   width: fit-content;
   margin: 0 auto;
   list-style: none;
-  @media (max-width: var(--break-tablet)) {
+  @media (max-width: ${cssBreakPoint.tablet}) {
     flex-direction: column;
     align-items: start;
     width: 100%;
@@ -71,21 +78,8 @@ const CenterItem = styled.li`
   text-decoration: none;
 `
 
-const MenuItemLink = styled.a`
-  font-family: NotoSansKR;
-  font-size: 18px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: -0.9px;
-  text-align: left;
-  color: var(--white);
-  text-decoration: none;
-`
-
-const CenterItemLink = styled(MenuItemLink)`
-  @media (max-width: var(--break-tablet)) {
+const CenterItemLink = styled(ItemLink)`
+  @media (max-width: ${cssBreakPoint.tablet}) {
     font-size: 30px;
     letter-spacing: -1.5px;
     text-align: left;
@@ -98,7 +92,7 @@ const MenuRight = styled.ul`
   width: fit-content;
   text-decoration: none;
 
-  @media (max-width: var(--break-tablet)) {
+  @media (max-width: ${cssBreakPoint.tablet}) {
     width: 100%;
     position: fixed;
     display: flex;
@@ -123,19 +117,29 @@ const RightItem = styled.li`
     padding: 9px 30px;
     background-color: var(--cornflower);
   }
-  @media (max-width: var(--break-tablet)) {
+  @media (max-width: ${cssBreakPoint.tablet}) {
     width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0;
     border-top: 1px solid var(--light-periwinkle);
+    
+    &:first-child {
+      margin-right: 0;
+      border-right: 1px solid var(--light-periwinkle);
+      background-color: var(--white);
+    }
+    &:last-child > a{
+      border-radius: 0px;
+      padding: 18px 61.7px;
+      color: var(--white);
+    }
   }
 `
 
-const RightItemLink =  styled(MenuItemLink)`
-  
-  @media (max-width: var(--break-tablet)) {
+const RightItemLink =  styled(ItemLink)`
+  @media (max-width: ${cssBreakPoint.tablet}) {
     width: 100%;
     padding: 18px 61.7px;
     border-radius: 0;
@@ -147,12 +151,12 @@ const RightItemLink =  styled(MenuItemLink)`
 `
 
 interface MenuProps {
-
+  isActive: boolean
 }
 
-const Menu: FC<MenuProps> = () => {
+const Menu: FC<MenuProps> = ({isActive= false}) => {
   return (
-    <MenuLayout>
+    <MenuLayout className={isActive ? 'active' : 'deactive'} >
       <Title>
         <TitleList>
           <TitleListLink

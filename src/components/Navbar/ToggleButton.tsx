@@ -32,10 +32,12 @@ interface IShowElementOption {
 }
 
 interface ToggleProps {
-  duration: string,
-  rotateOption: IToggleRotateOption,
-  rotateReverseOption: IToggleRotateOption,
-  showElementOption: IShowElementOption,
+  duration: string
+  rotateOption: IToggleRotateOption
+  rotateReverseOption: IToggleRotateOption
+  showElementOption: IShowElementOption
+  children: React.ReactNode
+  onClick: ()=>void
 }
 
 const Toggle = styled(({ duration, rotateOption, rotateReverseOption, showElementOption, ...restProps}: ToggleProps) => <ul {...restProps} />)`
@@ -87,40 +89,41 @@ const ToggleList = styled.li`
 interface ToggleButtonProps {
   onClickToggle: () => void,
   toggle: boolean
+  sticky: boolean
 }
 
-const ToggleButton: FC<ToggleButtonProps> = ({onClickToggle, toggle=true}) => {
+const ToggleButton: FC<ToggleButtonProps> = ({onClickToggle, toggle=true, sticky=false}) => {
   const duration = '0.7s'
-  const rotateOption = {
+  const backgroundColor = (trigger) => trigger ? 'var(--greyish-brown)' : 'var(--white)'
+  const rotateDefaultOption = {
     start: {
       top: '20px',
       bottom: 'unset',
       height: '4px',
       rotate: '0deg',
-      backgroundColor: 'var(--greyish-brown)',
+      backgroundColor: backgroundColor(!sticky),
     },
     end: {
-      top: 'unset',
-      bottom: 'unset',
       height: '2.2px',
+      backgroundColor: backgroundColor(sticky),
+    }
+  }
+  const rotateOption = {
+    start: rotateDefaultOption.start,
+    end: {
+      ...rotateDefaultOption.end,
+      top: '0',
+      bottom: 'inherit',
       rotate: '45deg',
-      backgroundColor: 'var(--white)',
     }
   }
   const rotateReversOption = {
-    start: {
-      top: '20px',
-      bottom: 'unset',
-      height: '4px',
-      rotate: '0deg',
-      backgroundColor: 'var(--greyish-brown)',
-    },
+    start: rotateDefaultOption.start,
     end: {
+      ...rotateDefaultOption.end,
       top: 'inherit',
       bottom: '0',
-      height: '2.2px',
       rotate: '-45deg',
-      backgroundColor: 'var(--white)',
     }
   }
   const showElementOption = {
@@ -128,10 +131,10 @@ const ToggleButton: FC<ToggleButtonProps> = ({onClickToggle, toggle=true}) => {
       top: '11px',
       height: '4px',
       display: 'block',
-      opacity: 'unset',
+      opacity: '1',
       visibility: 'visible',
       zIndex: 'unset',
-      backgroundColor: 'var(--greyish-brown)',
+      backgroundColor: backgroundColor(sticky),
     },
     end: {
       top: '20px',
@@ -139,8 +142,8 @@ const ToggleButton: FC<ToggleButtonProps> = ({onClickToggle, toggle=true}) => {
       display: 'unset',
       opacity: '0',
       visibility: 'hidden',
-      zIndex: '-1',
-      backgroundColor: 'var(--white)',
+      zIndex: 'unset',
+      backgroundColor: backgroundColor(!sticky),
     },
   }
   const reverseToAnimation = (option, trigger) => {
