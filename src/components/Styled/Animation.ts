@@ -1,12 +1,12 @@
 import { keyframes } from 'styled-components';
 
 /* animation */
-export const slideHeader = keyframes`
+export const slideHeader = ({start, end}) => keyframes`
   0% {
-    right: -210%;
+    right: ${start.right}; // -210%;
   }
   100% {
-    right: 0%;
+    right:${end.right}; // 0%
   }
 `
 export const rotate = ({start, end}) => keyframes`
@@ -36,9 +36,11 @@ export const showElement = ({start, end}) => keyframes`
   }
   100% {
     top: ${end.top};
-    display: ${end.display};
+    height: ${end.height};
+    opacity: ${end.opacity};
+    z-index: ${end.zIndex};
     visibility: ${end.visibility};
-    background-color: ${start.backgroundColor};
+    background-color: ${end.backgroundColor};
   }
 `
 export const swipeDown = keyframes`
@@ -93,21 +95,21 @@ export const importText = keyframes`
     font-weight: bold;
   }
 `
-export const navbar = keyframes`
+export const navbar = ({start, end}) => keyframes`
   0% {
-    display: flex;
+    display: ${start.display};
   }
   100% {
-    display: inline;
-    height: auto;
+    display: ${end.display};
   }
 `
-export const header = keyframes`
+export const header = ({start, end}) => keyframes`
   0% {
-    background-color: transparent;
+    background-color: ${start.backgroundColor};
+    color: var(--black);
   }
   100% {
-    background-color: #ffffff;
+    background-color: ${end.backgroundColor};
     color: var(--black);
   }
 `
