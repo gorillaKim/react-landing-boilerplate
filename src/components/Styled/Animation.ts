@@ -1,7 +1,15 @@
 import { keyframes } from 'styled-components';
 
 /* animation */
-export const slideHeader = ({start, end}) => keyframes`
+interface IslideHeader {
+  start: {
+    right: string
+  }
+  end: {
+    right: string
+  }
+}
+export const slideHeader = ({start, end}:IslideHeader) => keyframes`
   0% {
     right: ${start.right}; // -210%;
   }
@@ -9,7 +17,23 @@ export const slideHeader = ({start, end}) => keyframes`
     right:${end.right}; // 0%
   }
 `
-export const rotate = ({start, end}) => keyframes`
+interface Irotate {
+  start: {
+    top: string
+    height: string
+    rotate: string
+    bottom: string
+    backgroundColor: string
+  }
+  end: {
+    top: string
+    height: string
+    rotate: string
+    bottom: string
+    backgroundColor: string
+  }
+}
+export const rotate = ({start, end}:Irotate) => keyframes`
   0% {
     top: ${start.top}; // 0
     bottom: ${start.bottom}; // unset
@@ -25,7 +49,27 @@ export const rotate = ({start, end}) => keyframes`
     background-color: ${start.backgroundColor};
   }
 `
-export const showElement = ({start, end}) => keyframes`
+interface IshowElement {
+  start: {
+    top: string
+    height: string
+    display: string
+    opacity: string
+    visibility: string
+    zIndex: string
+    backgroundColor: string
+  },
+  end: {
+    top: string
+    height: string
+    display: string
+    opacity: string
+    visibility: string
+    zIndex: string
+    backgroundColor: string
+  }
+}
+export const showElement = ({start, end}:IshowElement) => keyframes`
   0% {
     top: ${start.top};
     height: ${start.height};
@@ -95,7 +139,15 @@ export const importText = keyframes`
     font-weight: bold;
   }
 `
-export const navbar = ({start, end}) => keyframes`
+interface Inavbar {
+  start: {
+    display: string
+  }
+  end: {
+    display: string
+  }
+}
+export const navbar = ({start, end}:Inavbar) => keyframes`
   0% {
     display: ${start.display};
   }
@@ -103,7 +155,17 @@ export const navbar = ({start, end}) => keyframes`
     display: ${end.display};
   }
 `
-export const header = ({start, end}) => keyframes`
+interface Iheader {
+  start: {
+    backgroundColor: string
+    color: string
+  }
+  end: {
+    backgroundColor: string
+    color: string
+  }
+}
+export const header = ({start, end}:Iheader) => keyframes`
   0% {
     background-color: ${start.backgroundColor};
     color: var(--black);

@@ -94,18 +94,21 @@ interface ToggleButtonProps {
 
 const ToggleButton: FC<ToggleButtonProps> = ({onClickToggle, toggle=true, sticky=false}) => {
   const duration = '0.7s'
-  const backgroundColor = (trigger) => trigger ? 'var(--greyish-brown)' : 'var(--white)'
+  interface IbackgroundColor {
+    trigger: boolean
+  }
+  const backgroundColor = ({trigger}:IbackgroundColor) => trigger ? 'var(--greyish-brown)' : 'var(--white)'
   const rotateDefaultOption = {
     start: {
       top: '20px',
       bottom: 'unset',
       height: '4px',
       rotate: '0deg',
-      backgroundColor: backgroundColor(!sticky),
+      backgroundColor: backgroundColor({trigger: !sticky}),
     },
     end: {
       height: '2.2px',
-      backgroundColor: backgroundColor(sticky),
+      backgroundColor: backgroundColor({trigger:sticky}),
     }
   }
   const rotateOption = {
@@ -134,7 +137,7 @@ const ToggleButton: FC<ToggleButtonProps> = ({onClickToggle, toggle=true, sticky
       opacity: '1',
       visibility: 'visible',
       zIndex: 'unset',
-      backgroundColor: backgroundColor(sticky),
+      backgroundColor: backgroundColor({trigger:sticky}),
     },
     end: {
       top: '20px',
@@ -143,10 +146,14 @@ const ToggleButton: FC<ToggleButtonProps> = ({onClickToggle, toggle=true, sticky
       opacity: '0',
       visibility: 'hidden',
       zIndex: 'unset',
-      backgroundColor: backgroundColor(!sticky),
+      backgroundColor: backgroundColor({trigger:!sticky}),
     },
   }
-  const reverseToAnimation = (option, trigger) => {
+  interface IReverseToAnimation {
+    option: any
+    trigger: boolean
+  }
+  const reverseToAnimation = ({option, trigger}:IReverseToAnimation) => {
     return trigger
       ? {
         start: option.start,
@@ -161,9 +168,9 @@ const ToggleButton: FC<ToggleButtonProps> = ({onClickToggle, toggle=true, sticky
   return (
     <Toggle
       duration={duration}
-      rotateOption={reverseToAnimation(rotateOption, toggle)}
-      rotateReverseOption={reverseToAnimation(rotateReversOption, toggle)}
-      showElementOption={reverseToAnimation(showElementOption, toggle)}
+      rotateOption={reverseToAnimation({option: rotateOption, trigger: toggle})}
+      rotateReverseOption={reverseToAnimation({option: rotateReversOption, trigger: toggle})}
+      showElementOption={reverseToAnimation({option: showElementOption, trigger: toggle})}
       onClick={onClickToggle}
     >
       <ToggleList/>
