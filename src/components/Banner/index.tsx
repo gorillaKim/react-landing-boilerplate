@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import styled from "styled-components";
 import {Container} from '../Styled/Layout';
+import {cssBreakPoint} from "../../styles/constant";
 
 const BannerSection = styled.section`
   font-family: NotoSansKR;
@@ -12,6 +13,7 @@ const BannerSection = styled.section`
   letter-spacing: -0.9px;
   background-color: var(--cornflower);
   color: var(--white);
+  width: 100vw;
 `;
 
 const BannerContent = styled.div`
