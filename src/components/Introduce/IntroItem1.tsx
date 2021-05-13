@@ -1,12 +1,14 @@
 import React, { ReactElement } from 'react'
 import styled from "styled-components"
 import { WrapperProps } from './IntroduceType'
+import { cssBreakPoint } from '../../styles/constant'
 
 const Wrapper = styled.div<WrapperProps>`
   display: ${(props) => props.active.first? 'flex': 'none'};
   justify-content: space-around;
-  @media (max-width: var(--break-tablet)) {
-    display: ${(props) => props.active.first? 'block': 'none'} !important;
+  @media (max-width: ${cssBreakPoint.tablet}) {
+    display: ${(props) => props.active.first? 'block': 'none'};
+    margin-top: 4rem;
   }
 `
 const Left = styled.div``
@@ -16,6 +18,9 @@ const Right = styled.div`
   justify-content: space-between;
   height: 16rem;
   margin-top: 12%;
+  @media(max-width: ${cssBreakPoint.tablet}) {
+    margin-top: 3.5rem;
+  }
 `
 //righttext1
 const InnerRightText = styled.div`
@@ -55,6 +60,19 @@ const RightText = styled.div`
   letter-spacing: -1px;
   font-size: 20px;
   color: var(--greyish-brown);
+  @media (max-width: ${cssBreakPoint.tablet}) {
+    text-align: center;
+    align-items: center;
+  }
+  @media (max-width: ${cssBreakPoint.mobileMd}) {
+    height: 12rem;
+    & div {
+      margin-bottom: 25px;
+    }
+    & p {
+      margin-bottom: 25px;
+    }
+  }
 `
 const ToolTip = styled.div`
   position: relative;
@@ -62,6 +80,9 @@ const ToolTip = styled.div`
   left: .2rem;
   &:hover .hover-text {
     display: block !important;
+  }
+  @media (max-width: ${cssBreakPoint.tablet}) {
+    display: none;
   }
 `
 const ToolTipImg = styled.img`
@@ -76,11 +97,25 @@ const H3 = styled.h3`
   font-size: 24px;
   font-weight: bold;
 `
+const ContentImg = styled.img`
+  width: 85%;
+  @media (max-width: ${cssBreakPoint.tablet}) {
+    width: 60%;
+  }
+  @media (max-width: ${cssBreakPoint.mobileMd}) {
+    width: 100%;
+  }
+`
+const MobileBlock = styled.span`
+  @media (max-width: ${cssBreakPoint.mobileMd}) {
+    display: block;
+  }
+`
 const IntroItem1 = ({ active }: any): ReactElement => {
   return (
     <Wrapper active={active}>
       <Left>
-        <img width={'85%'} src="./static/image/introduce/Group%2016.svg" alt="introduce automation"/>
+        <ContentImg src="./static/image/introduce/Group%2016.svg" alt="introduce automation"/>
       </Left>
       <Right>
         <RightText>
@@ -96,8 +131,8 @@ const IntroItem1 = ({ active }: any): ReactElement => {
               <ToolTipImg src="./static/image/introduce/Slice%2019.svg" alt="i icon"/>
             </ToolTip>
           </div>
-          <p>매체별 광고 세팅과 효율 측정의 어려움을&nbsp;<span className="mobile-block">레버에서 해결해보세요.</span><br/>
-            여러 광고를 통합하여 확인하고&nbsp;<span className="mobile-block">데이터에 대한 해석까지 받아볼 수 있습니다.</span>
+          <p>매체별 광고 세팅과 효율 측정의 어려움을&nbsp;<MobileBlock className="mobile-block">레버에서 해결해보세요.</MobileBlock><br/>
+            여러 광고를 통합하여 확인하고&nbsp;<MobileBlock className="mobile-block">데이터에 대한 해석까지 받아볼 수 있습니다.</MobileBlock>
           </p>
           <H3>당신의 광고는 밤낮으로 최적화됩니다.</H3>
         </RightText>

@@ -1,12 +1,19 @@
 import React, {FC, ReactElement, useState} from 'react'
 import styled from "styled-components"
 import { IntroduceBtnGroupProps } from './IntroduceType'
+import {cssBreakPoint} from "../../styles/constant";
 
 const ButtonGroup = styled.div`
   //opacity: 0;
   display: flex;
   justify-content: center;
   text-align: center;
+  @media (max-width: ${cssBreakPoint.mobileMd}) {
+    flex-direction: column;
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 3rem;
+  }
 `
 const Button = styled.div`
   border: 1px solid var(--light-periwinkle);
@@ -21,6 +28,10 @@ const Button = styled.div`
   font-weight: normal;
   letter-spacing: -0.9px;
   color: var(--greyish-brown);
+  @media (max-width: ${cssBreakPoint.mobileMd}) {
+    margin: 0.3rem 0;
+    width: auto;
+  }
 `
 const activeToogle = {
   backgroundColor: '#5c6aff',

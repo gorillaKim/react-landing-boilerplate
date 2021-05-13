@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react'
 import styled from "styled-components"
 import { WrapperProps } from './IntroduceType'
+import {cssBreakPoint} from "../../styles/constant";
 
 const Wrapper = styled.div<WrapperProps>`
   display: ${(props)=> props.active.third? 'block': 'none'};
@@ -15,6 +16,16 @@ const Wrapper = styled.div<WrapperProps>`
     letter-spacing: -0.9px;
     color: var(--greyish-brown);
   }
+  @media (max-width: ${cssBreakPoint.tablet}) {
+    &:nth-child(2) {
+      flex-direction: row-reverse;
+    }
+  }
+  @media (max-width: ${cssBreakPoint.mobileMd}) {
+    .pc-view {
+      display: none;
+    }
+  }
 `
 const InnerPc =  styled.div`
   display: flex;
@@ -25,6 +36,14 @@ const InnerPc =  styled.div`
 `
 const InnerMobile = styled.div`
   display: none;
+  @media (max-width: ${cssBreakPoint.mobileMd}) {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: 32rem;
+    max-width: 20rem;
+    margin: 5rem auto 0;
+  }
 `
 const Circle = styled.div`
   width: 230px;
@@ -38,11 +57,22 @@ const Circle = styled.div`
   flex-direction: column;
   line-height: 1.4rem;
   //opacity: 0;
+  @media (max-width: ${cssBreakPoint.tablet}) {
+    width: 170px;
+    height: 170px;
+  }
+  @media (max-width: ${cssBreakPoint.mobileMd}) {
+    width: 150px;
+    height: 150px;
+  }
 `
 const Arrow = styled.div`
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
   margin: 0 2rem;
+  @media (max-width: ${cssBreakPoint.tablet}) {
+    visibility: hidden;
+  }
 `
 const ArrowLeft = styled(Arrow)`
   border-right: 10px solid var(--light-periwinkle);
@@ -50,7 +80,7 @@ const ArrowLeft = styled(Arrow)`
 const ArrowRight = styled(Arrow)`
   border-left: 10px solid var(--light-periwinkle);
 `
-const ArrowDown = styled.div`
+const ArrowDown = styled(Arrow)`
   position: absolute;
   border-top: 10px solid var(--light-periwinkle);
   border-right: 8px solid transparent;
@@ -61,7 +91,7 @@ const ArrowDown = styled.div`
 const IntroItem3 = ({ active }: any): ReactElement => {
   return(
     <Wrapper active={active}>
-      <InnerPc>
+      <InnerPc className={"pc-view"}>
         <Circle>
           <span>STEP 01</span>
           <p>레버 문의하기</p>
@@ -78,7 +108,7 @@ const IntroItem3 = ({ active }: any): ReactElement => {
           <ArrowDown />
         </Circle>
       </InnerPc>
-      <InnerPc id="reverse-order">
+      <InnerPc className={"pc-view"} id="reverse-order">
         <Circle>
           <span>STEP 06</span>
           <p>마케팅 시작하기</p>

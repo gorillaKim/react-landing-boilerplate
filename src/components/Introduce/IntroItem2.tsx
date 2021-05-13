@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react'
 import styled from "styled-components"
 import { WrapperProps, DescBoxProps} from './IntroduceType'
+import {cssBreakPoint} from "../../styles/constant";
 
 const imgUrl = {
   google: './static/image/introduce/Slice%2086.svg',
@@ -92,11 +93,25 @@ const DescBox2 = styled.div`
 const Inner = styled.div`
   display: flex;
   text-align: left;
+  @media (max-width: ${cssBreakPoint.mobileMd}) {
+    flex-direction: column;
+    padding-top: 2rem;
+  }
 `
 const ReportBox = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-around;
+  @media (max-width: ${cssBreakPoint.tablet}) {
+    & div :last-child {
+      display: none;
+    }
+  }
+  @media (max-width: ${cssBreakPoint.mobileMd}) {
+    & div :nth-child(2) {
+      display: none;
+    }
+  }
 `
 const ReportImg = styled.div`
   display: flex;
@@ -139,7 +154,7 @@ const ReportImg = styled.div`
 const List = styled.ul`
   padding-left: 1.5rem;
   font-size: 15px;
-  & li:not(:first-child){
+  & li:not(:first-child) {
     line-height: 2.2;
     letter-spacing: -0.75px;
     text-align: left;
@@ -147,6 +162,10 @@ const List = styled.ul`
     &::before {
       content: "✓ ";
     }
+  }
+  @media (max-width: ${cssBreakPoint.mobileMd}) {
+    margin-top: 2rem;
+    padding: 0;
   }
 `
 const ListTitle  = styled.li`
