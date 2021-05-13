@@ -64,10 +64,6 @@ const GlobalStyle = createGlobalStyle`
     --light-periwinkle: #cdd1ff;
     --white: #f5f5f5;
     --warm-grey: #898989;
-    
-    --break-tablet: 1024px;
-    --break-md-mobile: 768px;
-    --break-xs-mobile: 320px;
   }
 `;
 

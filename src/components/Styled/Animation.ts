@@ -5,53 +5,46 @@ export const slideHeader = keyframes`
   0% {
     right: -210%;
   }
-
   100% {
     right: 0%;
   }
 `
-export const rotate = keyframes`
+export const rotate = ({start, end}) => keyframes`
   0% {
-    top: 0;
-    height: 4px;
-    transform: rotate(0deg);
+    top: ${start.top}; // 0
+    bottom: ${start.bottom}; // unset
+    height: ${start.height}; // 4
+    transform: rotate(${start.rotate}) // 0
+    background-color: ${start.backgroundColor};
   }
   100% {
-    height: 2.2px;
-    border: unset;
-    transform: rotate(45deg);
+    top: ${start.top}; // unset
+    bottom: ${start.bottom}; // unset
+    height: ${end.height}; // 2.2
+    transform: rotate(${end.rotate}); // 45
+    background-color: ${start.backgroundColor};
   }
 `
-export const rotateReverse = keyframes`
+export const showElement = ({start, end}) => keyframes`
   0% {
-    bottom: 0;
-    height: 4px;
-    transform: rotate(0deg);
+    top: ${start.top};
+    height: ${start.height};
+    opacity: ${start.opacity};
+    z-index: ${start.zIndex};
+    visibility: ${start.visibility};
+    background-color: ${start.backgroundColor};
   }
   100% {
-    height: 2.2px;
-    border: unset;
-    transform: rotate(-45deg);
-  } 
-`
-export const showElement = keyframes`
-  0% {
-    top: 0px;
-    height: 2.2px;
-    opacity: 0;
-    z-index: -1;
-  visibility: hidden;
-  }
-  100% {
-    top: 11px;
-    display: block;
-    visibility: visible;
+    top: ${end.top};
+    display: ${end.display};
+    visibility: ${end.visibility};
+    background-color: ${start.backgroundColor};
   }
 `
 export const swipeDown = keyframes`
   0% {
     transform: translateY(-50px);
-  opacity: 0;
+    opacity: 0;
   }
   100% {
     transform: translateY(0);
