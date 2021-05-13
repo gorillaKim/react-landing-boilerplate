@@ -2,6 +2,7 @@ import React, {FC, ReactElement, useState} from 'react'
 import styled from "styled-components"
 import { IntroduceBtnGroupProps } from './IntroduceType'
 import {cssBreakPoint} from "../../styles/constant";
+import { swipeUp } from '../Styled/Animation'
 
 const ButtonGroup = styled.div`
   //opacity: 0;
@@ -14,6 +15,10 @@ const ButtonGroup = styled.div`
     margin: 0 auto;
     margin-top: 3rem;
   }
+  animation-name: ${swipeUp};
+  animation-delay: 0.5s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 `
 const Button = styled.div`
   border: 1px solid var(--light-periwinkle);

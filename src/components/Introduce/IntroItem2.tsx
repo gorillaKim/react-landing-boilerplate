@@ -2,6 +2,8 @@ import React, { ReactElement } from 'react'
 import styled from "styled-components"
 import { WrapperProps, DescBoxProps} from './IntroduceType'
 import {cssBreakPoint} from "../../styles/constant";
+import { showElement, swipeUp } from '../Styled/Animation'
+import { IntroduceWrapperStart as start, IntroduceWrapperEnd as end } from './KeyFrameProps'
 
 const imgUrl = {
   google: './static/image/introduce/Slice%2086.svg',
@@ -12,6 +14,9 @@ const Wrapper = styled.div<WrapperProps>`
   display: ${(props): string => props.active.second? 'flex': 'none'};
   flex-direction: column;
   height: 100%;
+  animation-name: ${showElement({ start, end })};
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
 `
 const InnerWrapper = styled.div`
   display: flex;
@@ -176,6 +181,9 @@ const ListTitle  = styled.li`
   letter-spacing: -0.75px;
   text-align: left;
   margin-bottom: 1rem;
+  animation-name: ${swipeUp};
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 `
 const IntroItem2 = ({ active }: any): ReactElement => {
   return(

@@ -1,7 +1,9 @@
 import React, { ReactElement } from 'react'
 import styled from "styled-components"
 import { WrapperProps } from './IntroduceType'
-import {cssBreakPoint} from "../../styles/constant";
+import { cssBreakPoint } from "../../styles/constant";
+import { showElement, swipeRight } from '../Styled/Animation'
+import { IntroduceWrapperStart as start, IntroduceWrapperEnd as end } from './KeyFrameProps'
 
 const Wrapper = styled.div<WrapperProps>`
   display: ${(props)=> props.active.third? 'block': 'none'};
@@ -26,6 +28,10 @@ const Wrapper = styled.div<WrapperProps>`
       display: none;
     }
   }
+  animation-name: ${showElement({ start, end })};
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  
 `
 const InnerPc =  styled.div`
   display: flex;
@@ -33,6 +39,30 @@ const InnerPc =  styled.div`
   text-align: center;
   align-items: center;
   margin-bottom: 2.5rem;
+  &.up {
+    .circle:nth-child(3) {
+      animation-delay: .5s;
+    }
+    .circle:nth-child(5) {
+      animation-delay: 1s;
+    }
+  }
+  &.down {
+    .circle:nth-child(5) {
+      animation-delay: 1.5s;
+    }
+    .circle:nth-child(3) {
+      animation-delay: 2s;
+    }
+    .circle:nth-child(1) {
+      animation-delay: 2.5s;
+    }
+  }
+  @media (max-width: ${cssBreakPoint.tablet}) {
+    &.down {
+      flex-direction: row-reverse;
+    }
+  }
 `
 const InnerMobile = styled.div`
   display: none;
@@ -57,6 +87,9 @@ const Circle = styled.div`
   flex-direction: column;
   line-height: 1.4rem;
   //opacity: 0;
+  animation-name: ${swipeRight};
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
   @media (max-width: ${cssBreakPoint.tablet}) {
     width: 170px;
     height: 170px;
@@ -91,61 +124,61 @@ const ArrowDown = styled(Arrow)`
 const IntroItem3 = ({ active }: any): ReactElement => {
   return(
     <Wrapper active={active}>
-      <InnerPc className={"pc-view"}>
-        <Circle>
+      <InnerPc className={"pc-view up"}>
+        <Circle className={'circle'}>
           <span>STEP 01</span>
           <p>레버 문의하기</p>
         </Circle>
         <ArrowRight />
-        <Circle>
+        <Circle className={'circle'}>
           <span>STEP 02</span>
           <p>세일즈팀과 미팅</p>
         </Circle>
         <ArrowRight />
-        <Circle>
+        <Circle className={'circle'}>
           <span>STEP 03</span>
           <p>담당 매니저 배정<br/>및 컨설팅</p>
           <ArrowDown />
         </Circle>
       </InnerPc>
-      <InnerPc className={"pc-view"} id="reverse-order">
-        <Circle>
+      <InnerPc className={"pc-view down"} id="reverse-order">
+        <Circle className={'circle'}>
           <span>STEP 06</span>
           <p>마케팅 시작하기</p>
         </Circle>
         <ArrowLeft />
-        <Circle>
+        <Circle className={'circle'}>
           <span>STEP 05</span>
           <p>마케팅 인사이트 도출<br/>및 최적화</p>
         </Circle>
         <ArrowLeft />
-        <Circle>
+        <Circle className={'circle'}>
           <span>STEP 04</span>
           <p>알고리즘을 통한<br/>광고 최적화</p>
         </Circle>
       </InnerPc>
       <InnerMobile className="inner__mobile">
-        <Circle>
+        <Circle className={'circle'}>
           <span>STEP 01</span>
           <p>레버 문의하기</p>
         </Circle>
-        <Circle>
+        <Circle className={'circle'}>
           <span>STEP 02</span>
           <p>세일즈팀과 미팅</p>
         </Circle>
-        <Circle>
+        <Circle className={'circle'}>
           <span>STEP 03</span>
           <p>담당 매니저 배정<br/>및 컨설팅</p>
         </Circle>
-        <Circle>
+        <Circle className={'circle'}>
           <span>STEP 04</span>
           <p>알고리즘을 통한<br/>광고 최적화</p>
         </Circle>
-        <Circle>
+        <Circle className={'circle'}>
           <span>STEP 05</span>
           <p>마케팅 인사이트 도출<br/>및 최적화</p>
         </Circle>
-        <Circle>
+        <Circle className={'circle'}>
           <span>STEP 06</span>
           <p>마케팅 시작하기</p>
         </Circle>

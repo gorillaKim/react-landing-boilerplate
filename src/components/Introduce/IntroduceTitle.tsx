@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react'
 import styled from "styled-components"
+import { swipeUp } from '../Styled/Animation'
 
 const Wrapper = styled.div`
   text-align: center;
@@ -10,6 +11,9 @@ const H1 = styled.h1`
   letter-spacing: -2.5px;
   color: var(--black);
   margin: 0;
+  animation-name: ${swipeUp};
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 `
 const P = styled.p`
   margin-top: 0.5rem;
@@ -17,6 +21,9 @@ const P = styled.p`
   font-weight: normal;
   letter-spacing: -0.9px;
   color: var(--greyish-brown);
+  animation-name: ${swipeUp};
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 `
 const IntroduceTitle = (): ReactElement => {
   return(

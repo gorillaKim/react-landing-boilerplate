@@ -2,6 +2,8 @@ import React, { ReactElement } from 'react'
 import styled from "styled-components"
 import { WrapperProps } from './IntroduceType'
 import { cssBreakPoint } from '../../styles/constant'
+import { showElement } from '../Styled/Animation'
+import { IntroduceWrapperStart as start, IntroduceWrapperEnd as end } from './KeyFrameProps'
 
 const Wrapper = styled.div<WrapperProps>`
   display: ${(props) => props.active.first? 'flex': 'none'};
@@ -10,6 +12,9 @@ const Wrapper = styled.div<WrapperProps>`
     display: ${(props) => props.active.first? 'block': 'none'};
     margin-top: 4rem;
   }
+  animation-name: ${showElement({ start, end })};
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
 `
 const Left = styled.div``
 const Right = styled.div`
