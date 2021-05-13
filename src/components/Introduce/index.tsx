@@ -1,12 +1,14 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useState } from 'react'
 import styled from "styled-components"
+import {Container} from '../Styled/Layout';
 import IntroduceTitle from './IntroduceTitle'
 import IntroduceBtnGroup from './IntroduceBtnGroup'
 import IntroItem1 from './IntroItem1'
 import IntroItem2 from './IntroItem2'
+import IntroItem3 from './IntroItem3'
+import { activeStateProps } from './IntroduceType'
 
-const Container = styled.div`
-  max-width: 1280px;
+const IntroduceContainer = styled(Container)`
   padding-top: 8rem;
   padding-bottom: 6rem;
   text-align: center;
@@ -20,18 +22,26 @@ const IntroduceSection = styled.div`
   line-height: normal;
 `
 const Introduce = (): ReactElement => {
+  const [active,setActive] = useState<activeStateProps>({
+    'first': true,
+    'second': false,
+    'third': false,
+  })
   return (
     <IntroduceSection>
-      <Container>
+      <IntroduceContainer >
         <IntroduceTitle />
         <IntroduceBtnGroup
+          active={active}
+          setActive={setActive}
           first={'디지털 마케팅 자동화'}
           second={'보고서 형태'}
           third={'레버 프로세스'}
         />
-        <IntroItem1/>
-        <IntroItem2/>
-      </Container>
+        <IntroItem1 active={active}/>
+        <IntroItem2 active={active} />
+        <IntroItem3 active={active}/>
+      </IntroduceContainer>
     </IntroduceSection>
   )
 }

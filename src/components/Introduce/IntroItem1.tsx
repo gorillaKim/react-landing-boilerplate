@@ -1,10 +1,13 @@
-import React, { FC, ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 import styled from "styled-components"
+import { WrapperProps } from './IntroduceType'
 
-const Wrapper = styled.div`
-  display: none;
-  //display: flex;
+const Wrapper = styled.div<WrapperProps>`
+  display: ${(props) => props.active.first? 'flex': 'none'};
   justify-content: space-around;
+  @media (max-width: var(--break-tablet)) {
+    display: ${(props) => props.active.first? 'block': 'none'} !important;
+  }
 `
 const Left = styled.div``
 const Right = styled.div`
@@ -73,9 +76,9 @@ const H3 = styled.h3`
   font-size: 24px;
   font-weight: bold;
 `
-const IntroItem1 = (): ReactElement => {
+const IntroItem1 = ({ active }: any): ReactElement => {
   return (
-    <Wrapper>
+    <Wrapper active={active}>
       <Left>
         <img width={'85%'} src="./static/image/introduce/Group%2016.svg" alt="introduce automation"/>
       </Left>
