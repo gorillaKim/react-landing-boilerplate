@@ -1,11 +1,18 @@
+import styled from "styled-components"
 import GlobalStyle from "../src/styles/GlobalStyle";
 import BannerContainer from "../src/containers/banner/BannerContainer";
 import Navbar from "../src/components/Navbar";
 
+const PageContainer = styled.div`
+  background-color: gray; 
+  position: relative;
+  height: 200vh;
+`
+
 function Index (props) {
   const { message } = props;
   return (
-    <div>
+    <PageContainer>
       <GlobalStyle />
       <BannerContainer/>
       <Navbar/>
@@ -13,7 +20,7 @@ function Index (props) {
       section
       footer
       Welcome to {message}
-    </div>
+    </PageContainer>
   );
 };
 
