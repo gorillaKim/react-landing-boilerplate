@@ -126,15 +126,22 @@ const Navbar: FC<NavbarProps> = () => {
       setSticky(window.pageYOffset>51)
     })
   },[])
+  useEffect(()=>{
+    document.body.style.overflow = toggle ? "hidden" : "unset"
+  }, [toggle])
+
   const onClickToggle = () => setToggle(toggle => !toggle)
-  console.log(sticky)
   return (
     <HeaderSection
       className= {`${toggle ? "active " : "deactive"} ${sticky ? 'sticky' : ''}`}
       headerOption={headerOption}
       slideHeaderOption={slideHeaderOption}
     >
-      <ToggleButton onClickToggle={onClickToggle} toggle={toggle} sticky={sticky}/>
+      <ToggleButton
+        onClickToggle={onClickToggle}
+        toggle={toggle}
+        sticky={sticky}
+      />
       <Container>
         <NavbarSection className={toggle ? "active" : "deactive"} navbarOption={navbarOption}>
           <Logo isActive={toggle||sticky}/>

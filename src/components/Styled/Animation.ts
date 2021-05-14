@@ -1,14 +1,7 @@
-import { keyframes } from 'styled-components';
+import { keyframes } from 'styled-components'
+import { IslideHeader, Irotate, IshowElement, Inavbar, Iheader } from '../../types/animation'
 
 /* animation */
-interface IslideHeader {
-  start: {
-    right: string
-  }
-  end: {
-    right: string
-  }
-}
 export const slideHeader = ({start, end}:IslideHeader) => keyframes`
   0% {
     right: ${start.right}; // -210%;
@@ -17,22 +10,6 @@ export const slideHeader = ({start, end}:IslideHeader) => keyframes`
     right:${end.right}; // 0%
   }
 `
-interface Irotate {
-  start: {
-    top: string
-    height: string
-    rotate: string
-    bottom: string
-    backgroundColor: string
-  }
-  end: {
-    top: string
-    height: string
-    rotate: string
-    bottom: string
-    backgroundColor: string
-  }
-}
 export const rotate = ({start, end}:Irotate) => keyframes`
   0% {
     top: ${start.top}; // 0
@@ -49,26 +26,6 @@ export const rotate = ({start, end}:Irotate) => keyframes`
     background-color: ${start.backgroundColor};
   }
 `
-interface IshowElement {
-  start: {
-    top: string
-    height: string
-    display: string
-    opacity: string
-    visibility: string
-    zIndex: string
-    backgroundColor: string
-  },
-  end: {
-    top: string
-    height: string
-    display: string
-    opacity: string
-    visibility: string
-    zIndex: string
-    backgroundColor: string
-  }
-}
 export const showElement = ({start, end}:IshowElement) => keyframes`
   0% {
     top: ${start.top};
@@ -139,14 +96,6 @@ export const importText = keyframes`
     font-weight: bold;
   }
 `
-interface Inavbar {
-  start: {
-    display: string
-  }
-  end: {
-    display: string
-  }
-}
 export const navbar = ({start, end}:Inavbar) => keyframes`
   0% {
     display: ${start.display};
@@ -155,16 +104,6 @@ export const navbar = ({start, end}:Inavbar) => keyframes`
     display: ${end.display};
   }
 `
-interface Iheader {
-  start: {
-    backgroundColor: string
-    color: string
-  }
-  end: {
-    backgroundColor: string
-    color: string
-  }
-}
 export const header = ({start, end}:Iheader) => keyframes`
   0% {
     background-color: ${start.backgroundColor};

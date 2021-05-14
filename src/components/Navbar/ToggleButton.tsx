@@ -87,7 +87,7 @@ const ToggleList = styled.li`
 `
 
 interface ToggleButtonProps {
-  onClickToggle: () => void,
+  onClickToggle: () => void
   toggle: boolean
   sticky: boolean
 }
@@ -104,11 +104,11 @@ const ToggleButton: FC<ToggleButtonProps> = ({onClickToggle, toggle=true, sticky
       bottom: 'unset',
       height: '4px',
       rotate: '0deg',
-      backgroundColor: backgroundColor({trigger: !sticky}),
+      backgroundColor: backgroundColor({trigger: toggle? true : !sticky}),
     },
     end: {
       height: '2.2px',
-      backgroundColor: backgroundColor({trigger:sticky}),
+      backgroundColor: backgroundColor({trigger: toggle? true : sticky}),
     }
   }
   const rotateOption = {
@@ -137,7 +137,7 @@ const ToggleButton: FC<ToggleButtonProps> = ({onClickToggle, toggle=true, sticky
       opacity: '1',
       visibility: 'visible',
       zIndex: 'unset',
-      backgroundColor: backgroundColor({trigger:sticky}),
+      backgroundColor: backgroundColor({trigger: toggle? true : sticky}),
     },
     end: {
       top: '20px',
@@ -146,11 +146,14 @@ const ToggleButton: FC<ToggleButtonProps> = ({onClickToggle, toggle=true, sticky
       opacity: '0',
       visibility: 'hidden',
       zIndex: 'unset',
-      backgroundColor: backgroundColor({trigger:!sticky}),
+      backgroundColor: backgroundColor({trigger: toggle? true : !sticky}),
     },
   }
   interface IReverseToAnimation {
-    option: any
+    option: {
+      start: any
+      end: any
+    }
     trigger: boolean
   }
   const reverseToAnimation = ({option, trigger}:IReverseToAnimation) => {
