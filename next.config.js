@@ -2,7 +2,7 @@ module.exports = {
   // "distDir": "build",
   // "exportTrailingSlash": true,
   // "assetPrefix": "https://~~~",
-  basePath: '/build',
+  basePath: '',
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,

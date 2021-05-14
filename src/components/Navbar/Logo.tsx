@@ -1,10 +1,9 @@
 import React, { FC } from "react"
 import styled from "styled-components"
 import {cssBreakPoint} from "../../styles/constant"
-// @ts-ignore
-import WhiteLogoSVG from "../../../public/static/image/icon/lever_new_logo_w.svg"
-// @ts-ignore
-import BlackLogoSVG from "../../../public/static/image/icon/lever_new_logo.svg"
+import WhiteLogoSVG from '../../../public/static/image/icon/lever_new_logo_w.svg'
+import BlackLogoSVG from '../../../public/static/image/icon/lever_new_logo.svg'
+import {LogoProps} from "../../types/navbar";
 
 const LogoLayout = styled.div`
   width: fit-content;
@@ -42,9 +41,6 @@ const BlackLogoIcon = styled(BlackLogoSVG)`
   }
 `
 
-interface LogoProps {
-  isActive: boolean
-}
 
 const Logo: FC<LogoProps> = ({isActive= false}) => {
   return (

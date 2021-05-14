@@ -4,29 +4,10 @@ import {Container} from '../Styled/Layout'
 import Logo from "./Logo"
 import Menu from "./Menu"
 import ToggleButton from './ToggleButton'
-import {navbar, slideHeader} from "../Styled/Animation"
-import {cssBreakPoint} from "../../styles/constant";
+import {navbar, slideHeader} from '../Styled/Animation'
+import {cssBreakPoint} from '../../styles/constant'
+import {IHeaderSection, INavbarSection, NavbarProps} from '../../types/navbar'
 
-interface IHeaderSection {
-  headerOption: {
-    start: {
-      backgroundColor: string;
-    },
-    end: {
-      backgroundColor: string;
-    }
-  }
-  slideHeaderOption: {
-    start: {
-      right: string,
-    }
-    end: {
-      right: string,
-    }
-  }
-  children: React.ReactNode
-  className: string
-}
 const HeaderSection = styled(({headerOption, slideHeaderOption,...restProps}:IHeaderSection)=> <section {...restProps}/>)`
   display: inline-block;
   position: -webkit-sticky; /* Safari */
@@ -58,18 +39,6 @@ const HeaderSection = styled(({headerOption, slideHeaderOption,...restProps}:IHe
     }
   }
 `
-interface INavbarSection {
-  navbarOption: {
-    start: {
-      display: string;
-    },
-    end: {
-      display: string;
-    }
-  },
-  children: React.ReactNode,
-  className: string
-}
 const NavbarSection = styled(({navbarOption, ...restProps}:INavbarSection) => <section {...restProps}/>)`
   display: flex;
   flex-direction: row;
@@ -88,9 +57,6 @@ const NavbarSection = styled(({navbarOption, ...restProps}:INavbarSection) => <s
     }
   }
 `
-
-interface NavbarProps {
-}
 
 const Navbar: FC<NavbarProps> = () => {
   const [toggle, setToggle] = useState(false)

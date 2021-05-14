@@ -1,9 +1,10 @@
 import React, { FC } from "react"
 import styled from "styled-components"
 import {cssBreakPoint} from "../../styles/constant";
+import {MenuProps} from "../../types/navbar";
 
 
-const MenuLayout = styled(({...restProps})=> <div {...restProps} />)`
+const MenuLayout = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -150,9 +151,6 @@ const RightItemLink =  styled(ItemLink)`
   }
 `
 
-interface MenuProps {
-  isActive: boolean
-}
 
 const Menu: FC<MenuProps> = ({isActive= false}) => {
   return (

@@ -2,43 +2,7 @@ import React, {FC} from "react"
 import styled from "styled-components"
 import {rotate, showElement } from "../Styled/Animation";
 import {cssBreakPoint} from "../../styles/constant";
-
-interface IToggleProps {
-  top: string
-  height: string
-  rotate: string
-  bottom: string
-  backgroundColor: string
-}
-
-interface IShowElementProps {
-  top: string
-  height: string
-  display: string
-  opacity: string
-  visibility: string
-  zIndex: string
-  backgroundColor: string
-}
-
-interface IToggleRotateOption {
-  start: IToggleProps
-  end: IToggleProps
-}
-
-interface IShowElementOption {
-  start: IShowElementProps
-  end: IShowElementProps
-}
-
-interface ToggleProps {
-  duration: string
-  rotateOption: IToggleRotateOption
-  rotateReverseOption: IToggleRotateOption
-  showElementOption: IShowElementOption
-  children: React.ReactNode
-  onClick: ()=>void
-}
+import {ToggleButtonProps, ToggleProps} from "../../types/navbar";
 
 const Toggle = styled(({ duration, rotateOption, rotateReverseOption, showElementOption, ...restProps}: ToggleProps) => <ul {...restProps} />)`
   display: none;
@@ -86,11 +50,6 @@ const ToggleList = styled.li`
   }
 `
 
-interface ToggleButtonProps {
-  onClickToggle: () => void
-  toggle: boolean
-  sticky: boolean
-}
 
 const ToggleButton: FC<ToggleButtonProps> = ({onClickToggle, toggle=true, sticky=false}) => {
   const duration = '0.7s'

@@ -13,7 +13,6 @@ const BannerSection = styled.section`
   letter-spacing: -0.9px;
   background-color: var(--cornflower);
   color: var(--white);
-  width: 100vw;
 `;
 
 const BannerContent = styled.div`
