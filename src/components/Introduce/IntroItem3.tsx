@@ -2,11 +2,14 @@ import React, { ReactElement } from 'react'
 import styled from "styled-components"
 import { WrapperProps } from './IntroduceType'
 import { cssBreakPoint } from "../../styles/constant";
-import { showElement, swipeRight } from '../Styled/Animation'
+import { showElement, swipeRight, swipeUp } from '../Styled/Animation'
 import { IntroduceWrapperStart as start, IntroduceWrapperEnd as end } from './KeyFrameProps'
 
 const Wrapper = styled.div<WrapperProps>`
   display: ${(props)=> props.active.third? 'block': 'none'};
+  animation-name: ${showElement({ start, end })};
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
   & span {
     font-family: Roboto;
     font-size: 16px;
@@ -28,10 +31,6 @@ const Wrapper = styled.div<WrapperProps>`
       display: none;
     }
   }
-  animation-name: ${showElement({ start, end })};
-  animation-duration: 0.5s;
-  animation-timing-function: ease-in;
-  
 `
 const InnerPc =  styled.div`
   display: flex;
@@ -39,6 +38,11 @@ const InnerPc =  styled.div`
   text-align: center;
   align-items: center;
   margin-bottom: 2.5rem;
+  & .circle {
+    animation-name: ${swipeRight};
+    animation-duration: 0.7s;
+    animation-fill-mode: forwards;
+  }
   &.up {
     .circle:nth-child(3) {
       animation-delay: .5s;
@@ -66,6 +70,12 @@ const InnerPc =  styled.div`
 `
 const InnerMobile = styled.div`
   display: none;
+  animation-name: ${swipeUp};
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  & div:nth-child(n) {
+    opacity: 1;
+  }
   @media (max-width: ${cssBreakPoint.mobileMd}) {
     display: flex;
     justify-content: space-between;
@@ -86,10 +96,7 @@ const Circle = styled.div`
   align-items: center;
   flex-direction: column;
   line-height: 1.4rem;
-  //opacity: 0;
-  animation-name: ${swipeRight};
-  animation-duration: 0.7s;
-  animation-fill-mode: forwards;
+  opacity: 0;
   @media (max-width: ${cssBreakPoint.tablet}) {
     width: 170px;
     height: 170px;
@@ -158,27 +165,27 @@ const IntroItem3 = ({ active }: any): ReactElement => {
         </Circle>
       </InnerPc>
       <InnerMobile className="inner__mobile">
-        <Circle className={'circle'}>
+        <Circle>
           <span>STEP 01</span>
           <p>레버 문의하기</p>
         </Circle>
-        <Circle className={'circle'}>
+        <Circle>
           <span>STEP 02</span>
           <p>세일즈팀과 미팅</p>
         </Circle>
-        <Circle className={'circle'}>
+        <Circle>
           <span>STEP 03</span>
           <p>담당 매니저 배정<br/>및 컨설팅</p>
         </Circle>
-        <Circle className={'circle'}>
+        <Circle>
           <span>STEP 04</span>
           <p>알고리즘을 통한<br/>광고 최적화</p>
         </Circle>
-        <Circle className={'circle'}>
+        <Circle>
           <span>STEP 05</span>
           <p>마케팅 인사이트 도출<br/>및 최적화</p>
         </Circle>
-        <Circle className={'circle'}>
+        <Circle>
           <span>STEP 06</span>
           <p>마케팅 시작하기</p>
         </Circle>

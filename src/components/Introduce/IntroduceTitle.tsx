@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react'
 import styled from "styled-components"
 import { swipeUp } from '../Styled/Animation'
+import { cssBreakPoint } from '../../styles/constant'
 
 const Wrapper = styled.div`
   text-align: center;
@@ -25,12 +26,17 @@ const P = styled.p`
   animation-duration: 1s;
   animation-fill-mode: forwards;
 `
+const Span = styled.span`
+  @media (max-width: ${cssBreakPoint.tablet}) {
+    display: block;
+  }
+`
 const IntroduceTitle = (): ReactElement => {
   return(
     <Wrapper>
       <H1>레버 서비스 소개</H1>
       <P>디지털 마케팅의 어려움을 잘 알고 있는 레버<br/>
-        <span>AI 알고리즘+마케팅 전문가로&nbsp;</span><span>여러분의 어려움을 해결해드립니다.</span>
+        <Span>AI 알고리즘+마케팅 전문가로&nbsp;</Span><Span>여러분의 어려움을 해결해드립니다.</Span>
       </P>
     </Wrapper>
   )
