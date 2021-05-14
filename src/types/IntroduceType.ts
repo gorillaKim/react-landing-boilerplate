@@ -4,8 +4,8 @@ export interface activeStateProps {
   third: boolean,
 }
 export interface IntroduceBtnGroupProps {
+  onClickActive: (e: React.MouseEvent) => void
   active: any,
-  setActive: any,
   first: string,
   second: string,
   third: string,

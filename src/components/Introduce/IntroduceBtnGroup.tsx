@@ -42,44 +42,17 @@ const Button = styled.div`
   }
 `
 const IntroduceBtnGroup: FC<IntroduceBtnGroupProps> = ({
+  onClickActive,
   active,
-  setActive,
   first,
   second,
   third
 }): ReactElement => {
-  const handleClick = (event: React.MouseEvent): void => {
-    const clicked = (event.target as HTMLElement);
-    if(clicked.innerText === `${first}`) {
-      setActive({
-        ...active,
-        'first': true,
-        'second': false,
-        'third': false,
-      })
-    }
-    else if(clicked.innerText === `${second}`) {
-      setActive({
-        ...active,
-        'first': false,
-        'second': true,
-        'third': false,
-      })
-    }
-    else {
-      setActive({
-        ...active,
-        'first': false,
-        'second': false,
-        'third': true,
-      })
-    }
-  }
   return (
     <ButtonGroup>
-      <Button className={active['first']? 'activeToggle': undefined} onClick={handleClick}>{first}</Button>
-      <Button className={active['second']? 'activeToggle': undefined} onClick={handleClick}>{second}</Button>
-      <Button className={active['third']? 'activeToggle': undefined} onClick={handleClick}>{third}</Button>
+      <Button id='first' className={active['first'] && 'activeToggle'} onClick={onClickActive}>{first}</Button>
+      <Button id='second' className={active['second'] && 'activeToggle'} onClick={onClickActive}>{second}</Button>
+      <Button id='third' className={active['third'] && 'activeToggle'} onClick={onClickActive}>{third}</Button>
     </ButtonGroup>
   )
 }
