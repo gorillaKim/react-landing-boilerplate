@@ -1,10 +1,27 @@
 import React, { ReactElement } from 'react'
 import styled from "styled-components"
-import { WrapperProps } from './IntroduceType'
+import { WrapperProps } from '../../types/IntroduceType'
 import { cssBreakPoint } from "../../styles/constant";
 import { showElement, swipeRight, swipeUp } from '../Styled/Animation'
-import { IntroduceWrapperStart as start, IntroduceWrapperEnd as end } from './KeyFrameProps'
 
+const start = {
+  'top': '0px',
+  'height': '2.2px',
+  'opacity': '0',
+  'zIndex': '-1',
+  'display': 'unset',
+  'visibility': 'hidden',
+  'backgroundColor': 'transparent',
+}
+const end = {
+  'top': '11px',
+  'height': '0px',
+  'opacity': '1',
+  'zIndex': '1',
+  'display': 'unset',
+  'visibility': 'visible',
+  'backgroundColor': 'transparent',
+}
 const Wrapper = styled.div<WrapperProps>`
   display: ${(props)=> props.active.third? 'block': 'none'};
   animation-name: ${showElement({ start, end })};

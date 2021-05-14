@@ -1,24 +1,23 @@
 import React, {FC, ReactElement, useState} from 'react'
 import styled from "styled-components"
-import { IntroduceBtnGroupProps } from './IntroduceType'
+import { IntroduceBtnGroupProps } from '../../types/IntroduceType'
 import {cssBreakPoint} from "../../styles/constant";
 import { swipeUp } from '../Styled/Animation'
 
 const ButtonGroup = styled.div`
-  //opacity: 0;
+  opacity: 0;
   display: flex;
   justify-content: center;
   text-align: center;
-  @media (max-width: ${cssBreakPoint.mobileMd}) {
-    flex-direction: column;
-    width: 85%;
-    margin: 0 auto;
-    margin-top: 3rem;
-  }
   animation-name: ${swipeUp};
   animation-delay: 0.5s;
   animation-duration: 1s;
   animation-fill-mode: forwards;
+  @media (max-width: ${cssBreakPoint.mobileMd}) {
+    flex-direction: column;
+    width: 85%;
+    margin: 3rem auto 0;
+  }
 `
 const Button = styled.div`
   border: 1px solid var(--light-periwinkle);
@@ -33,15 +32,15 @@ const Button = styled.div`
   font-weight: normal;
   letter-spacing: -0.9px;
   color: var(--greyish-brown);
+  &.activeToggle {
+    background-color: var(--cornflower);
+    color: var(--white);
+  }
   @media (max-width: ${cssBreakPoint.mobileMd}) {
     margin: 0.3rem 0;
     width: auto;
   }
 `
-const activeToogle = {
-  backgroundColor: '#5c6aff',
-  color: 'white',
-}
 const IntroduceBtnGroup: FC<IntroduceBtnGroupProps> = ({
   active,
   setActive,
@@ -49,9 +48,9 @@ const IntroduceBtnGroup: FC<IntroduceBtnGroupProps> = ({
   second,
   third
 }): ReactElement => {
-  const handleClick = (): void => {
+  const handleClick = (event: React.MouseEvent): void => {
     const clicked = (event.target as HTMLElement);
-    if(clicked.innerText === '디지털 마케팅 자동화') {
+    if(clicked.innerText === `${first}`) {
       setActive({
         ...active,
         'first': true,
@@ -59,7 +58,7 @@ const IntroduceBtnGroup: FC<IntroduceBtnGroupProps> = ({
         'third': false,
       })
     }
-    else if(clicked.innerText === '보고서 형태') {
+    else if(clicked.innerText === `${second}`) {
       setActive({
         ...active,
         'first': false,
@@ -78,9 +77,9 @@ const IntroduceBtnGroup: FC<IntroduceBtnGroupProps> = ({
   }
   return (
     <ButtonGroup>
-      <Button style={active['first']? activeToogle: null} onClick={handleClick}>{first}</Button>
-      <Button style={active['second']? activeToogle: null} onClick={handleClick}>{second}</Button>
-      <Button style={active['third']? activeToogle: null} onClick={handleClick}>{third}</Button>
+      <Button className={active['first']? 'activeToggle': undefined} onClick={handleClick}>{first}</Button>
+      <Button className={active['second']? 'activeToggle': undefined} onClick={handleClick}>{second}</Button>
+      <Button className={active['third']? 'activeToggle': undefined} onClick={handleClick}>{third}</Button>
     </ButtonGroup>
   )
 }

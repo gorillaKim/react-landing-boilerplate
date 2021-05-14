@@ -7,6 +7,7 @@ const Wrapper = styled.div`
   text-align: center;
 `
 const H1 = styled.h1`
+  opacity: 0;
   font-size: 50px;
   font-weight: bold;
   letter-spacing: -2.5px;
@@ -17,6 +18,7 @@ const H1 = styled.h1`
   animation-fill-mode: forwards;
 `
 const P = styled.p`
+  opacity: 0;
   margin-top: 0.5rem;
   font-size: 18px;
   font-weight: normal;

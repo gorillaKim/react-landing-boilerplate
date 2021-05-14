@@ -6,7 +6,7 @@ import IntroduceBtnGroup from './IntroduceBtnGroup'
 import IntroItem1 from './IntroItem1'
 import IntroItem2 from './IntroItem2'
 import IntroItem3 from './IntroItem3'
-import { activeStateProps } from './IntroduceType'
+import { activeStateProps } from '../../types/IntroduceType'
 
 const IntroduceContainer = styled(Container)`
   padding-top: 8rem;
