@@ -1,7 +1,8 @@
-import React, {FC, useEffect, useState} from 'react'
+import React, {FC} from 'react'
 import styled from "styled-components"
 import {Container} from '../Styled/Layout'
-import MainContainer from "./MainContainer";
+import {MainContainer} from "./Styled";
+import useScrollFadeIn from "../../hooks/useScrollFadeIn";
 
 const ContentBox = styled.div`
   display: flex;
@@ -13,10 +14,6 @@ const ContentBox = styled.div`
 `
 
 const TopContent = styled.div`
-  
-  animation-name: swipeUp;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
   
   p {
     font-weight: normal;
@@ -110,12 +107,19 @@ const ScrollIcon = styled.div`
 interface IMainA {
 }
 
-const MainB: FC<IMainA> = () => {
+const MainA: FC<IMainA> = () => {
+  const animation = [
+    useScrollFadeIn('up', 1, 0),
+    useScrollFadeIn('up', 1, 0.5),
+  ]
+
   return (
     <MainContainer id="main">
       <Container>
         <ContentBox>
-          <TopContent>
+          <TopContent
+            {...animation[0]}
+          >
             <p className={'large-title'}>
               Your Dreams, Our Goals
             </p>
@@ -123,7 +127,9 @@ const MainB: FC<IMainA> = () => {
               디지털 마케팅, 성공의 레버를 당기세요!
             </p>
           </TopContent>
-          <BottomContent>
+          <BottomContent
+            {...animation[1]}
+          >
             <p className={"xsm-text"}>
               매체운영, 소재제작, 성과 측정까지 <br/>
               당신의 디지털 마케팅, 레버가 지원합니다.
@@ -135,7 +141,7 @@ const MainB: FC<IMainA> = () => {
         </ContentBox>
         <AdditionalButton>
           <a href={"#success_story"}>
-            <ScrollIcon/>
+            <ScrollIcon />
           </a>
         </AdditionalButton>
       </Container>
@@ -143,4 +149,4 @@ const MainB: FC<IMainA> = () => {
   )
 }
 
-export default MainB
+export default MainA
