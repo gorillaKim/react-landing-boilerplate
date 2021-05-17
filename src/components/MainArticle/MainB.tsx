@@ -1,7 +1,7 @@
 import React, {FC, useEffect, useState} from 'react'
 import styled from "styled-components"
 import {Container} from '../Styled/Layout'
-import MainContainer from "./MainContainer";
+import {MainContainer} from "./Styled";
 
 const ContentContainer = styled(Container)`
   display: flex;

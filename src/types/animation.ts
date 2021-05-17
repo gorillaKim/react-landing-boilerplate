@@ -60,3 +60,14 @@ export interface Iheader {
     color: string
   }
 }
+
+export interface IswipeY {
+  start: {
+    value: number
+    opacity: number
+  }
+  end: {
+    value: number
+    opacity: number
+  }
+}

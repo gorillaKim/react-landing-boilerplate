@@ -1,5 +1,5 @@
 import { keyframes } from 'styled-components'
-import { IslideHeader, Irotate, IshowElement, Inavbar, Iheader } from '../../types/animation'
+import { IslideHeader, Irotate, IshowElement, Inavbar, Iheader, IswipeY } from '../../types/animation'
 
 /* animation */
 export const slideHeader = ({start, end}:IslideHeader) => keyframes`
@@ -15,7 +15,7 @@ export const rotate = ({start, end}:Irotate) => keyframes`
     top: ${start.top}; // 0
     bottom: ${start.bottom}; // unset
     height: ${start.height}; // 4
-    transform: rotate(${start.rotate}) // 0
+    transform: rotate(${start.rotate}); // 0
     background-color: ${start.backgroundColor};
   }
   100% {
@@ -44,24 +44,14 @@ export const showElement = ({start, end}:IshowElement) => keyframes`
     background-color: ${end.backgroundColor};
   }
 `
-export const swipeDown = keyframes`
+export const swipeY = ({start, end}:IswipeY) => keyframes`
   0% {
-    transform: translateY(-50px);
-    opacity: 0;
+    transform: translateY(${start.value}px); // 50
+    opacity: ${start.opacity}; // 0
   }
   100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-`
-export const swipeUp = keyframes`
-  0% {
-    transform: translateY(50px);
-  opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
+    transform: translateY(${end.value}px); // 0
+    opacity: ${start.opacity}; // 1
   }
 `
 export const swipeRight = keyframes`
