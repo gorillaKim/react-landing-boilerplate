@@ -2,7 +2,7 @@ import React from 'react'
 import styled from "styled-components"
 import {cssBreakPoint} from "../../styles/constant";
 
-const MainContainer = styled.section`
+export const MainContainer = styled.section`
   height: fit-content; 
   min-height: 444px; 
   margin-top: -101px;
@@ -26,5 +26,3 @@ const MainContainer = styled.section`
     z-index: 0;
   }
 `
-
-export default MainContainer

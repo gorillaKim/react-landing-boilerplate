@@ -3,6 +3,8 @@ import styled from "styled-components"
 import {Container} from '../Styled/Layout'
 import {MainContainer} from "./Styled";
 import useScrollFadeIn from "../../hooks/useScrollFadeIn";
+import {scrollBtn} from "../Styled/Animation";
+import {cssBreakPoint} from "../../styles/constant";
 
 const ContentBox = styled.div`
   display: flex;
@@ -11,6 +13,10 @@ const ContentBox = styled.div`
   align-items: center;
   height: 510px;
   padding: 230px 0 156px 0;
+  
+  @media (max-width: ${cssBreakPoint.tablet}) {
+    padding-bottom: 10px;
+  }
 `
 
 const TopContent = styled.div`
@@ -29,6 +35,17 @@ const TopContent = styled.div`
       font-size: 75px;
       font-weight: bold;
       letter-spacing: -3.75px;
+      margin-bottom: 20px;
+
+      @media (max-width: ${cssBreakPoint.tablet}) {
+         font-size: 57px;
+         letter-spacing: -1.71px;
+      }
+      @media (max-width: ${cssBreakPoint.mobileMd}) {
+        max-width: 326px;
+        min-width: unset;
+        font-size: 49px;
+      }
     }
     &.small-title {
       min-width: 304px;
@@ -37,6 +54,13 @@ const TopContent = styled.div`
       font-family: NotoSansKR;
       font-size: 20px;
       letter-spacing: -1px;
+      
+      @media (max-width: ${cssBreakPoint.mobileMd}) {
+        min-width: 284px;
+        height: 52px;
+        font-size: 18px;
+        letter-spacing: -0.9px;
+      }
     }
   }
 `
@@ -91,6 +115,11 @@ const AdditionalButton = styled.div`
   a {
     text-decoration: none;
   }
+  
+  @media (max-width: ${cssBreakPoint.tablet}) {
+    padding-top: 60px;
+    bottom: 0;
+  }
 `
 const ScrollIcon = styled.div`
   width: 34px;
@@ -98,7 +127,7 @@ const ScrollIcon = styled.div`
   background: url(${'../../../static/image/icon/down_arrow.svg'}) no-repeat;
   background-size: cover;
   border-radius: 17px;
-  animation-name: scrollBtn;
+  animation-name: ${scrollBtn};
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-duration: 1.2s;
