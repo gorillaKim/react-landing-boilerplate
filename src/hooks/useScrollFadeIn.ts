@@ -1,4 +1,4 @@
-import {useRef, useEffect, useCallback, Ref} from 'react';
+import {useRef, useEffect, useCallback} from 'react';
 
 const useScrollFadeIn = (direction = 'up', duration = 1, delay = 0) => {
   const dom = useRef<HTMLInputElement>(null);

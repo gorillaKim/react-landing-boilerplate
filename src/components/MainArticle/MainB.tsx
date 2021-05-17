@@ -1,18 +1,44 @@
 import React, {FC} from 'react'
 import styled from "styled-components"
 import {Container} from '../Styled/Layout'
-import {MainContainer} from "./Styled";
+import {MainFlexContainer as MainContainer} from "./Styled";
 import useScrollFadeIn from "../../hooks/useScrollFadeIn";
 import {scrollBtn} from "../Styled/Animation";
 import {cssBreakPoint} from "../../styles/constant";
 
+const FirstContainer = styled.div`
+  width: 55%;
+  position: relative;
+  padding-bottom: 386px;
+  background-image: url(${'../../../static/image/main/main_BG2.jpg'});
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  &::before {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    position: absolute;
+    content: "";
+    opacity: 0.5;
+    background-color: #0f0f14;
+    z-index: 0;
+`
+const SecontContainer = styled.div`
+  width: 45%;
+  max-width: 834px;
+  position: relative;
+  margin: 0 40px;
+  padding: 230px 0 156px 0;
+`
 const ContentBox = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 510px;
-  padding: 230px 0 156px 0;
+  height: 100%;
+  padding: 230px 0 168px 0;
   
   @media (max-width: ${cssBreakPoint.tablet}) {
     padding-bottom: 10px;
@@ -25,17 +51,21 @@ const TopContent = styled.div`
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
-    line-height: normal;      
-    text-align: center;
+    line-height: normal;
+    text-align: left;
     color: var(--white);
 
     &.large-title {
-      min-width: 725px;
+      width: fit-content;
+      margin-bottom: 20px;
+      min-width: 412px;
+      max-width: 480px;
+      min-height: 176px;
       font-family: Roboto;
+      padding-top: 10px;
       font-size: 75px;
       font-weight: bold;
       letter-spacing: -3.75px;
-      margin-bottom: 20px;
 
       @media (max-width: ${cssBreakPoint.tablet}) {
          font-size: 57px;
@@ -48,9 +78,8 @@ const TopContent = styled.div`
       }
     }
     &.small-title {
-      min-width: 304px;
+      width: fit-content;
       height: 29px;
-      margin: 0 auto;
       font-family: NotoSansKR;
       font-size: 20px;
       letter-spacing: -1px;
@@ -106,21 +135,6 @@ const BottomContent = styled.div`
     }
   }
 `
-const AdditionalButton = styled.div`
-  left: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  a {
-    text-decoration: none;
-  }
-  
-  @media (max-width: ${cssBreakPoint.tablet}) {
-    padding-top: 60px;
-    bottom: 0;
-  }
-`
 const ScrollIcon = styled.div`
   width: 34px;
   height: 55px;
@@ -144,11 +158,9 @@ const MainB: FC<IMainB> = () => {
 
   return (
     <MainContainer id="main">
-      <Container>
+      <FirstContainer>
         <ContentBox>
-          <TopContent
-            {...animation[0]}
-          >
+          <TopContent {...animation[0]}>
             <p className={'large-title'}>
               Your Dreams, Our Goals
             </p>
@@ -168,12 +180,9 @@ const MainB: FC<IMainB> = () => {
             </button>
           </BottomContent>
         </ContentBox>
-        <AdditionalButton>
-          <a href={"#success_story"}>
-            <ScrollIcon />
-          </a>
-        </AdditionalButton>
-      </Container>
+      </FirstContainer>
+      <SecontContainer>
+      </SecontContainer>
     </MainContainer>
   )
 }

@@ -26,3 +26,10 @@ export const MainContainer = styled.section`
     z-index: 0;
   }
 `
+
+export const MainFlexContainer = styled.div`
+  height: fit-content;
+  display: flex;
+  position: relative;
+  margin-top: -101px;
+`
