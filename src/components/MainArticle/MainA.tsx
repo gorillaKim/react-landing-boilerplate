@@ -13,9 +13,12 @@ const ContentBox = styled.div`
   align-items: center;
   height: 510px;
   padding: 230px 0 156px 0;
-  
+
   @media (max-width: ${cssBreakPoint.tablet}) {
-    padding-bottom: 10px;
+    padding: 310px 0 10px 0;
+  }
+  @media (max-width: ${cssBreakPoint.mobileMd}) {
+    padding: 230px 0 10px 0;
   }
 `
 
