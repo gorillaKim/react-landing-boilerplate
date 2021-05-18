@@ -6,13 +6,10 @@ import guidGenerator from "../../utils/guidGenerator";
 const FormBoxContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 45px;
   width: 265px;
   font-family: NotoSansKR;
+  margin: 0 15px 45px 15px;
   
-  &:nth-child(2n + 1) {
-    margin-right: 30px;
-  }
   label {
     margin-bottom: 18px;
     letter-spacing: -0.8px;
@@ -27,21 +24,34 @@ const FormBoxContainer = styled.div`
 `
 
 interface IFormBox {
-  inputValue: string
+  id: string
+  inputValue: string|undefined
   placeholder?: string
   isRequired?: boolean
-  onChange: ()=> void
+  type?: string
+  onChange: (event:React.ChangeEvent<HTMLInputElement>) => void
   label: string
 }
 
-const FormBox = ({inputValue='0', placeholder='', onChange, label='입력 폼', isRequired=false}:IFormBox) => {
+const FormBox = (
+  {
+     id=guidGenerator(),
+     type='text',
+     inputValue='',
+     placeholder='',
+     onChange,
+     label='입력 폼',
+     isRequired=false
+  }:IFormBox) => {
 
   return (
     <FormBoxContainer>
       <label>{label}</label>
       <input
+        id={id}
         value={inputValue}
         placeholder={placeholder}
+        type={type}
         onChange={onChange}
         required={isRequired}
       />
