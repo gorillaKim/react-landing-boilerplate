@@ -1,13 +1,13 @@
-import React, {FC} from 'react'
+import React, {FC, useState} from 'react'
 import styled from "styled-components"
-import {Container} from '../Styled/Layout'
 import {MainFlexContainer as MainContainer} from "./Styled";
 import useScrollFadeIn from "../../hooks/useScrollFadeIn";
-import {scrollBtn} from "../Styled/Animation";
 import {cssBreakPoint} from "../../styles/constant";
+import {FormBox} from "../Form";
 
 const FirstContainer = styled.div`
-  width: 55%;
+  width: 50%;
+  min-width: 50%;
   position: relative;
   padding-bottom: 386px;
   background-image: url(${'../../../static/image/main/main_BG2.jpg'});
@@ -24,13 +24,31 @@ const FirstContainer = styled.div`
     background-color: #0f0f14;
     z-index: 0;
 `
-const SecontContainer = styled.div`
-  width: 45%;
-  max-width: 834px;
+const SecondContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
   position: relative;
+  overflow: hidden;
+  width: 50%;
+  max-width: 834px;
+  height: 100%;
   margin: 0 40px;
   padding: 230px 0 156px 0;
+  
+  @media (max-width: ${cssBreakPoint.mobileMd}) {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: fit-content;
+    max-height: 180vh;
+  }
+  @media (max-width: ${cssBreakPoint.mobileXs}) {
+    max-height: unset;
+  }
 `
+
 const ContentBox = styled.div`
   display: flex;
   position: relative;
@@ -45,7 +63,7 @@ const ContentBox = styled.div`
   }
 `
 
-const TopContent = styled.div`
+const FirstContent = styled.div`
   
   p {
     font-weight: normal;
@@ -93,59 +111,11 @@ const TopContent = styled.div`
     }
   }
 `
-const BottomContent = styled.div`
 
-  animation-name: swipeUp;
-  animation-duration: 1s;
-  animation-delay: 0.5s;
-  animation-fill-mode: forwards;
+const initInputs = {
+  contactCompany: undefined,
 
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  font-family: NotoSansKR;
-  
-  p {
-    margin-bottom: 20px;
-    
-    &.xsm-text {
-      width: 466px;
-      height: 46px;
-      font-size: 16px;
-      letter-spacing: -0.8px;
-      text-align: center;
-      color: var(--white);
-    }
-  }
-  button {
-    &.link-btn {
-      display: block;
-      min-width: 295px;
-      height: 68px;
-      margin: 0 auto;
-      border-radius: 7px;
-      background-color: var(--white);
-      font-size: 17px;
-      letter-spacing: -0.85px;
-      text-align: center;
-      color: var(--black);
-      border: unset;
-      cursor: pointer;
-    }
-  }
-`
-const ScrollIcon = styled.div`
-  width: 34px;
-  height: 55px;
-  background: url(${'../../../static/image/icon/down_arrow.svg'}) no-repeat;
-  background-size: cover;
-  border-radius: 17px;
-  animation-name: ${scrollBtn};
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  animation-duration: 1.2s;
-`
+}
 
 interface IMainB {
 }
@@ -155,34 +125,80 @@ const MainB: FC<IMainB> = () => {
     useScrollFadeIn('up', 1, 0),
     useScrollFadeIn('up', 1, 0.5),
   ]
+  const [inputs, setInputs] = useState(initInputs)
+  const { contactCompany } = inputs;
+  const onChangeInput = (event:React.ChangeEvent<HTMLInputElement>) => {
+    const {target}: any = event
+    setInputs({
+      ...inputs,
+      [target.id]: target.value
+    })
+  }
 
   return (
     <MainContainer id="main">
       <FirstContainer>
         <ContentBox>
-          <TopContent {...animation[0]}>
+          <FirstContent {...animation[0]}>
             <p className={'large-title'}>
               Your Dreams, Our Goals
             </p>
             <p className={'small-title'}>
               디지털 마케팅, 성공의 레버를 당기세요!
             </p>
-          </TopContent>
-          <BottomContent
-            {...animation[1]}
-          >
-            <p className={"xsm-text"}>
-              매체운영, 소재제작, 성과 측정까지 <br/>
-              당신의 디지털 마케팅, 레버가 지원합니다.
-            </p>
-            <button className={"link-btn"}>
-              무료로 자동화 체험하기
-            </button>
-          </BottomContent>
+          </FirstContent>
         </ContentBox>
       </FirstContainer>
-      <SecontContainer>
-      </SecontContainer>
+      <SecondContainer>
+        <FormBox
+          id={'contactCompany'}
+          inputValue={contactCompany}
+          placeholder={'예) 매드업'}
+          onChange={onChangeInput}
+          label={'회사명'}
+          isRequired={true}
+        />
+        <FormBox
+          id={'contactCompany'}
+          inputValue={contactCompany}
+          placeholder={'예) 매드업'}
+          onChange={onChangeInput}
+          label={'회사명'}
+          isRequired={true}
+        />
+        <FormBox
+          id={'contactCompany'}
+          inputValue={contactCompany}
+          placeholder={'예) 매드업'}
+          onChange={onChangeInput}
+          label={'회사명'}
+          isRequired={true}
+        />
+        <FormBox
+          id={'contactCompany'}
+          inputValue={contactCompany}
+          placeholder={'예) 매드업'}
+          onChange={onChangeInput}
+          label={'회사명'}
+          isRequired={true}
+        />
+        <FormBox
+          id={'contactCompany'}
+          inputValue={contactCompany}
+          placeholder={'예) 매드업'}
+          onChange={onChangeInput}
+          label={'회사명'}
+          isRequired={true}
+        />
+        <FormBox
+          id={'contactCompany'}
+          inputValue={contactCompany}
+          placeholder={'예) 매드업'}
+          onChange={onChangeInput}
+          label={'회사명'}
+          isRequired={true}
+        />
+      </SecondContainer>
     </MainContainer>
   )
 }
