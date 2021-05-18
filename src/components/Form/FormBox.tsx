@@ -6,7 +6,8 @@ import guidGenerator from "../../utils/guidGenerator";
 const FormBoxContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 265px;
+  max-width: 265px;
+  width: 100%;
   font-family: NotoSansKR;
   margin: 0 15px 45px 15px;
   
@@ -21,6 +22,7 @@ const FormBoxContainer = styled.div`
     outline: none;
     font-size: 18px;
   }
+  
 `
 
 interface IFormBox {
@@ -43,7 +45,6 @@ const FormBox = (
      label='입력 폼',
      isRequired=false
   }:IFormBox) => {
-
   return (
     <FormBoxContainer>
       <label>{label}</label>
