@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react'
 import styled from "styled-components"
-import { WrapperProps } from '../../types/IntroduceType'
+import { IswpeYComponent, WrapperProps } from '../../types/introduce'
 import { cssBreakPoint } from "../../styles/constant";
-import { showElement, swipeRight, swipeUp } from '../Styled/Animation'
+import { showElement, swipeRight, swipeLeft ,swipeY } from '../Styled/Animation'
 
 const start = {
   'top': '0px',
@@ -56,38 +56,42 @@ const InnerPc =  styled.div`
   align-items: center;
   margin-bottom: 2.5rem;
   & .circle {
-    animation-name: ${swipeRight};
     animation-duration: 0.7s;
     animation-fill-mode: forwards;
   }
-  &.up {
-    .circle:nth-child(3) {
+  & .up {
+    animation-name: ${swipeRight};
+    :nth-child(3) {
       animation-delay: .5s;
     }
-    .circle:nth-child(5) {
+    :nth-child(5) {
       animation-delay: 1s;
     }
   }
-  &.down {
-    .circle:nth-child(5) {
+  & .down {
+    animation-name: ${swipeLeft};
+    :nth-child(5) {
       animation-delay: 1.5s;
     }
-    .circle:nth-child(3) {
+    :nth-child(3) {
       animation-delay: 2s;
     }
-    .circle:nth-child(1) {
+    :nth-child(1) {
       animation-delay: 2.5s;
     }
   }
   @media (max-width: ${cssBreakPoint.tablet}) {
+    & .down {
+      animation-name: ${swipeRight} !important;
+    }
     &.down {
       flex-direction: row-reverse;
     }
   }
 `
-const InnerMobile = styled.div`
+const InnerMobile = styled(({ swipeYProps, ...restProps }: IswpeYComponent) => <div {...restProps} />)`
   display: none;
-  animation-name: ${swipeUp};
+  animation-name: ${props => swipeY(props.swipeYProps)};
   animation-duration: 1s;
   animation-fill-mode: forwards;
   & div:nth-child(n) {
@@ -146,42 +150,52 @@ const ArrowDown = styled(Arrow)`
   top: 100%;
 `
 const IntroItem3 = ({ active }: any): ReactElement => {
+  const swipeYProps = {
+    start: {
+      value: -50,
+      opacity: 0,
+    },
+    end: {
+      value: 0,
+      opacity: 1,
+    },
+  }
   return(
     <Wrapper active={active}>
       <InnerPc className={"pc-view up"}>
-        <Circle className={'circle'}>
+        <Circle className={'circle up'}>
           <span>STEP 01</span>
           <p>레버 문의하기</p>
         </Circle>
         <ArrowRight />
-        <Circle className={'circle'}>
+        <Circle className={'circle up'}>
           <span>STEP 02</span>
           <p>세일즈팀과 미팅</p>
         </Circle>
         <ArrowRight />
-        <Circle className={'circle'}>
+        <Circle className={'circle up'}>
           <span>STEP 03</span>
           <p>담당 매니저 배정<br/>및 컨설팅</p>
           <ArrowDown />
         </Circle>
       </InnerPc>
       <InnerPc className={"pc-view down"} id="reverse-order">
-        <Circle className={'circle'}>
+        <Circle className={'circle down'}>
           <span>STEP 06</span>
           <p>마케팅 시작하기</p>
         </Circle>
         <ArrowLeft />
-        <Circle className={'circle'}>
+        <Circle className={'circle down'}>
           <span>STEP 05</span>
           <p>마케팅 인사이트 도출<br/>및 최적화</p>
         </Circle>
         <ArrowLeft />
-        <Circle className={'circle'}>
+        <Circle className={'circle down'}>
           <span>STEP 04</span>
           <p>알고리즘을 통한<br/>광고 최적화</p>
         </Circle>
       </InnerPc>
-      <InnerMobile className="inner__mobile">
+      <InnerMobile className="inner__mobile" swipeYProps={swipeYProps}>
         <Circle>
           <span>STEP 01</span>
           <p>레버 문의하기</p>

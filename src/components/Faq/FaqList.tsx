@@ -1,15 +1,6 @@
-import React, { ReactElement, useState } from 'react'
+import React, {FC, ReactElement, useState} from 'react'
 import styled from "styled-components"
-import { Container } from '../Styled/Layout';
-import { cssBreakPoint } from '../../styles/constant'
-
-interface ListProps {
-  contents: {
-    id: string,
-    title: string,
-    description: string,
-  }[]
-}
+import { ListProps, StateProps } from "../../types/faq";
 
 const List = styled.div`
   font-family: NotoSansKR;
@@ -43,33 +34,52 @@ const Detail = styled.div`
     color: var(--cornflower);
     margin-top: 1.5rem;
   }
+  &.show {
+    display: block;
+  }
 `
-const FaqList = ({ contents }: ListProps) => {
-  const handleClick = (e: React.MouseEvent): void =>  {
-    const clicked = e.target as HTMLElement
+const Div = styled.div`
+  &:not(:first-child) .register {
+    display: none;
+  }
+`
+const FaqList: FC<ListProps> = ({ contents}): ReactElement => {
+  const [showDescription,setShowDescription] = useState<StateProps>({})
+  const handleClick = (e: React.MouseEvent): void => {
+    const clicked = e.currentTarget as HTMLElement
+    showDescription[clicked.id] && setShowDescription({
+      ...showDescription,
+      [clicked.id]: undefined
+    })
+    showDescription[clicked.id] || setShowDescription({
+      ...showDescription,
+      [clicked.id]: true
+    })
   }
   return(
-    contents.map((item, index)=>
-      <div key={item.id}>
-        <List className="list" onClick={handleClick} id={item.id}>
-          <div className="title">
-            <span className="number">Q{index + 1}</span>
-            <span>{item.title}</span>
-          </div>
-          <div>
-            <img src="./static/image/faq/Slice%2024.svg" alt="아래 화살표 아이콘"/>
-          </div>
-        </List>
-        <Detail>
-          <p>
-            {item.description}<br/>
-          </p>
-          <p>
-            <a href="https://biz.lever.me/signup" className="lever-signup">회원가입 하러가기</a>
-          </p>
-        </Detail>
-      </div>
-    )
+    <>
+      {contents.map((item, index)=>
+        <Div key={item.id} id={item.id}>
+          <List className={'list'} onClick={handleClick} id={item.id}>
+            <div className={'title'}>
+              <span className={'number'}>Q{index + 1}</span>
+              <span>{item.title}</span>
+            </div>
+            <div>
+              <img src="./static/image/faq/Slice%2024.svg" alt="아래 화살표 아이콘"/>
+            </div>
+          </List>
+          <Detail className={showDescription[item.id] && 'show'}>
+            <p>
+              {item.description}<br/>
+            </p>
+            <p className={'register'}>
+              <a href="https://biz.lever.me/signup" className={'lever-signup'}>회원가입 하러가기</a>
+            </p>
+          </Detail>
+        </Div>
+      )}
+    </>
   )
 }
 

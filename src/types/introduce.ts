@@ -1,3 +1,6 @@
+import {IswipeY} from "./animation";
+import React from "react";
+
 export interface activeStateProps {
   first: boolean,
   second: boolean,
@@ -19,4 +22,9 @@ export interface DescBoxProps {
 }
 export interface WrapperProps {
   active: any,
+}
+export interface IswpeYComponent {
+  swipeYProps: IswipeY
+  children: React.ReactNode
+  className?: string
 }

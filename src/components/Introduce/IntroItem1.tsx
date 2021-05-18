@@ -1,8 +1,9 @@
 import React, { ReactElement } from 'react'
 import styled from "styled-components"
-import { WrapperProps } from '../../types/IntroduceType'
+import { WrapperProps } from '../../types/introduce'
 import { cssBreakPoint } from '../../styles/constant'
 import { showElement } from '../Styled/Animation'
+import useScrollFadeIn from "../../hooks/useScrollFadeIn";
 
 const start = {
   'top': '0px',
@@ -23,15 +24,15 @@ const end = {
   'backgroundColor': 'transparent',
 }
 const Wrapper = styled.div<WrapperProps>`
-  display: ${(props) => props.active.first? 'flex': 'none'};
+  display: ${props => props.active.first? 'flex': 'none'};
   justify-content: space-around;
-  @media (max-width: ${cssBreakPoint.tablet}) {
-    display: ${(props) => props.active.first? 'block': 'none'};
-    margin-top: 4rem;
-  }
   animation-name: ${showElement({ start, end })};
   animation-duration: 0.5s;
   animation-timing-function: ease-in;
+  @media (max-width: ${cssBreakPoint.tablet}) {
+    display: ${props => props.active.first? 'block': 'none'};
+    margin-top: 4rem;
+  }
 `
 const Left = styled.div``
 const Right = styled.div`
@@ -134,8 +135,9 @@ const MobileBlock = styled.span`
   }
 `
 const IntroItem1 = ({ active }: any): ReactElement => {
+  const animation = useScrollFadeIn('up', 1, 0)
   return (
-    <Wrapper active={active}>
+    <Wrapper active={active} {...animation}>
       <Left>
         <ContentImg src="./static/image/introduce/Group%2016.svg" alt="introduce automation"/>
       </Left>

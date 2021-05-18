@@ -1,14 +1,18 @@
 import React, { ReactElement, useState } from 'react'
 import styled from "styled-components"
-import { Container } from '../Styled/Layout'
 import IntroduceTitle from './IntroduceTitle'
 import IntroduceBtnGroup from './IntroduceBtnGroup'
 import IntroItem1 from './IntroItem1'
 import IntroItem2 from './IntroItem2'
 import IntroItem3 from './IntroItem3'
-import { activeStateProps } from '../../types/IntroduceType'
+import { activeStateProps } from '../../types/introduce'
 
-const IntroduceContainer = styled(Container)`
+const IntroduceContainer = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  overflow: hidden;
   padding-top: 8rem;
   padding-bottom: 6rem;
   text-align: center;
@@ -28,6 +32,7 @@ const Introduce = (): ReactElement => {
     'third': false,
   }
   const [options,setOptions] = useState<activeStateProps>(initialOptions)
+
   const onClickActive = (e: React.MouseEvent) =>  {
     const clicked = e.target as HTMLElement
     setOptions({
@@ -38,8 +43,8 @@ const Introduce = (): ReactElement => {
   }
   return (
     <IntroduceSection>
-      <IntroduceContainer >
-        <IntroduceTitle />
+      <IntroduceContainer>
+        <IntroduceTitle/>
         <IntroduceBtnGroup
           onClickActive={onClickActive}
           active={options}
@@ -47,7 +52,7 @@ const Introduce = (): ReactElement => {
           second={'보고서 형태'}
           third={'레버 프로세스'}
         />
-        <IntroItem1 active={options}/>
+        <IntroItem1 active={options} />
         <IntroItem2 active={options} />
         <IntroItem3 active={options}/>
       </IntroduceContainer>

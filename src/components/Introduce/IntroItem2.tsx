@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react'
 import styled from "styled-components"
-import { WrapperProps, DescBoxProps} from '../../types/IntroduceType'
-import {cssBreakPoint} from "../../styles/constant";
-import { showElement, swipeUp } from '../Styled/Animation'
+import { WrapperProps, DescBoxProps} from '../../types/introduce'
+import { cssBreakPoint } from "../../styles/constant";
+import { showElement, swipeY } from '../Styled/Animation'
 
 const start = {
   'top': '0px',
@@ -21,6 +21,16 @@ const end = {
   'display': 'unset',
   'visibility': 'visible',
   'backgroundColor': 'transparent',
+}
+const swipeYProps = {
+  start: {
+    value: '50',
+    opacity: 0,
+  },
+  end: {
+    value: '0',
+    opacity: 1,
+  },
 }
 const imgUrl = {
   google: './static/image/introduce/Slice%2086.svg',
@@ -198,7 +208,7 @@ const ListTitle  = styled.li`
   letter-spacing: -0.75px;
   text-align: left;
   margin-bottom: 1rem;
-  animation-name: ${swipeUp};
+  animation-name: ${swipeY(swipeYProps)};
   animation-duration: 1s;
   animation-fill-mode: forwards;
 `
@@ -207,16 +217,16 @@ const IntroItem2 = ({ active }: any): ReactElement => {
     <Wrapper active={active}>
       <InnerWrapper className="banner2">
         <div>
-          <Date className="date">
+          <Date>
             2021.01.01 ~ 2021.02.01
             <img src="./static/image/introduce/Slice%2085.svg" alt="calendar icon"/>
           </Date>
-          <DescBox className="desc-box" imgUrl={imgUrl}>
-            <DateDesc className="date__desc" id="desc1">
+          <DescBox imgUrl={imgUrl}>
+            <DateDesc id="desc1">
               <div>총 광고비</div>
               <div>집행 매체</div>
             </DateDesc>
-            <DescBox2 className="desc-box2">
+            <DescBox2>
               <div>9,616,352원</div>
               <div>
                 <span className="google">구글</span>

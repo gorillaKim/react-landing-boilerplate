@@ -1,16 +1,10 @@
-import React, { ReactElement, FC } from 'react'
+import React, { ReactElement  } from 'react'
 import styled from "styled-components"
 import { Container } from '../Styled/Layout';
 import { cssBreakPoint } from '../../styles/constant'
 import FaqList from "./FaqList";
-
-interface FaqProps {
-  contents: {
-    id: string,
-    title: string,
-    description: string,
-  }[]
-}
+import { FaqProps } from "../../types/faq";
+import useScrollFadeIn from "../../hooks/useScrollFadeIn";
 
 const FaqSection = styled.div``
 const FaqContainer = styled(Container)`
@@ -62,16 +56,20 @@ const InnerRight = styled.div`
   }
 `
 const Faq = ({ contents }: FaqProps): ReactElement => {
+  const animation = [
+    useScrollFadeIn('up', 1, 0),
+    useScrollFadeIn('up', 1, 0.5)
+  ]
   return (
     <FaqSection id="faq">
       <FaqContainer>
-        <InnerLeft>
+        <InnerLeft {...animation[0]}>
           <p>Digital Marketing Solution LEVER</p>
           <h1>자주하는 질문</h1>
           <p>레버에 자주 질문하시는 내용을 확인해보세요.</p>
         </InnerLeft>
-        <InnerRight>
-          <FaqList contents={contents}/>
+        <InnerRight {...animation[1]}>
+          <FaqList contents={contents} />
         </InnerRight>
       </FaqContainer>
     </FaqSection>

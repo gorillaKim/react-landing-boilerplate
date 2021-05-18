@@ -51,7 +51,7 @@ export const swipeY = ({start, end}:IswipeY) => keyframes`
   }
   100% {
     transform: translateY(${end.value}px); // 0
-    opacity: ${start.opacity}; // 1
+    opacity: ${end.opacity}; // 1
   }
 `
 export const swipeRight = keyframes`
