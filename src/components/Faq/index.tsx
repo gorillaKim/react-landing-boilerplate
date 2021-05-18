@@ -6,7 +6,6 @@ import FaqList from "./FaqList";
 import { FaqProps } from "../../types/faq";
 import useScrollFadeIn from "../../hooks/useScrollFadeIn";
 
-const FaqSection = styled.div``
 const FaqContainer = styled(Container)`
   display: flex;
   padding-top: 10rem;
@@ -58,10 +57,10 @@ const InnerRight = styled.div`
 const Faq = ({ contents }: FaqProps): ReactElement => {
   const animation = [
     useScrollFadeIn('up', 1, 0),
-    useScrollFadeIn('up', 1, 0.5)
+    useScrollFadeIn('up', 1, 0)
   ]
   return (
-    <FaqSection id="faq">
+    <div id="faq">
       <FaqContainer>
         <InnerLeft {...animation[0]}>
           <p>Digital Marketing Solution LEVER</p>
@@ -72,7 +71,7 @@ const Faq = ({ contents }: FaqProps): ReactElement => {
           <FaqList contents={contents} />
         </InnerRight>
       </FaqContainer>
-    </FaqSection>
+    </div>
   )
 }
 

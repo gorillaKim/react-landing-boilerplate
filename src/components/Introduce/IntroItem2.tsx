@@ -74,22 +74,22 @@ const DescBox = styled.div<DescBoxProps>`
   color: var(--warm-grey);
   letter-spacing: -0.7px;
   flex-grow: 0;
-  & span {
+  span {
     margin-right: .2rem;
   }
-  & .google::before {
+  .google::before {
     content: "co";
     color: transparent;
     background: url(${(props: any):string => props.imgUrl.google
     }) center no-repeat;
   }
-  & .facebook::before {
+  .facebook::before {
     content: "con";
     color: transparent;
     background: url(${(props: any):string => props.imgUrl.facebook
     }) center no-repeat;
   }
-  & .naver::before {
+  .naver::before {
     content: "con";
     color: transparent;
     background: url(${(props: any):string => props.imgUrl.naver
@@ -99,13 +99,13 @@ const DescBox = styled.div<DescBoxProps>`
 `
 const Bottom = styled.div`
   padding-top: 3rem;
-  & h1 {
+  h1 {
     font-size: 20px;
     color: var(--greyish-brown);
     letter-spacing: -1px;
     margin-bottom: 1rem;
   }
-  & p {
+  p {
     font-size: 15px;
     color: var(--warm-grey);
     letter-spacing: -0.75px;
@@ -135,12 +135,12 @@ const ReportBox = styled.div`
   display: flex;
   justify-content: space-around;
   @media (max-width: ${cssBreakPoint.tablet}) {
-    & div :last-child {
+    div :last-child {
       display: none;
     }
   }
   @media (max-width: ${cssBreakPoint.mobileMd}) {
-    & div :nth-child(2) {
+    div :nth-child(2) {
       display: none;
     }
   }
@@ -151,47 +151,53 @@ const ReportImg = styled.div`
   &.first, &.third {
     position: relative;
   }
-  &.first img:nth-child(1) {
-    width: 11rem;
+  &.first img{
+    :nth-child(1) {
+      width: 11rem;
+    }
+    :nth-child(2) {
+      height: 14px;
+      margin-top: 1rem;
+    }
+    :nth-child(3) {
+      position: absolute;
+      top: -3rem;
+      left: 3rem;
+    }
   }
-  &.first img:nth-child(2) {
-    height: 14px;
-    margin-top: 1rem;
+  &.second img {
+    :nth-child(1) {
+      width: 9rem;
+    }
+    :nth-child(2) {
+      height: 14px;
+      margin-top: 1rem;
+    }
   }
-  &.first img:nth-child(3) {
-    position: absolute;
-    top: -3rem;
-    left: 3rem;
-  }
-  &.second img:nth-child(1) {
-    width: 9rem;
-  }
-  &.second img:nth-child(2) {
-    height: 14px;
-    margin-top: 1rem;
-  }
-  &.third img:nth-child(1) {
-    width: 14rem;
-  }
-  &.third img:nth-child(2) {
-    height: 14px;
-    margin-top: 1rem;
-  }
-  &.third img:nth-child(3) {
-    position: absolute;
-    top: -3.5rem;
-    left: 6.6rem;
+  &.third img {
+    :nth-child(1) {
+      width: 14rem;
+    }
+    :nth-child(2) {
+      height: 14px;
+      margin-top: 1rem;
+    }
+    :nth-child(3) {
+      position: absolute;
+      top: -3.5rem;
+      left: 6.6rem;
+    }
   }
 `
 const List = styled.ul`
   padding-left: 1.5rem;
   font-size: 15px;
-  & li:not(:first-child) {
+  li:not(:first-child) {
     line-height: 2.2;
     letter-spacing: -0.75px;
     text-align: left;
     color: var(--greyish-brown);
-    &::before {
+    ::before {
       content: "✓ ";
     }
   }

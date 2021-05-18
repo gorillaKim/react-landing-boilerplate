@@ -27,13 +27,13 @@ const Wrapper = styled.div<WrapperProps>`
   animation-name: ${showElement({ start, end })};
   animation-duration: 0.5s;
   animation-timing-function: ease-in;
-  & span {
+  span {
     font-family: Roboto;
     font-size: 16px;
     letter-spacing: -0.8px;
     color: var(--cornflower);
   }
-  & p {
+  p {
     font-size: 18px;
     letter-spacing: -0.9px;
     color: var(--greyish-brown);
@@ -55,11 +55,11 @@ const InnerPc =  styled.div`
   text-align: center;
   align-items: center;
   margin-bottom: 2.5rem;
-  & .circle {
+  .circle {
     animation-duration: 0.7s;
     animation-fill-mode: forwards;
   }
-  & .up {
+  .up {
     animation-name: ${swipeRight};
     :nth-child(3) {
       animation-delay: .5s;
@@ -68,7 +68,7 @@ const InnerPc =  styled.div`
       animation-delay: 1s;
     }
   }
-  & .down {
+  .down {
     animation-name: ${swipeLeft};
     :nth-child(5) {
       animation-delay: 1.5s;
@@ -81,7 +81,7 @@ const InnerPc =  styled.div`
     }
   }
   @media (max-width: ${cssBreakPoint.tablet}) {
-    & .down {
+    .down {
       animation-name: ${swipeRight} !important;
     }
     &.down {
@@ -89,12 +89,12 @@ const InnerPc =  styled.div`
     }
   }
 `
-const InnerMobile = styled(({ swipeYProps, ...restProps }: IswpeYComponent) => <div {...restProps} />)`
+const InnerMobile = styled.div<IswpeYComponent>`
   display: none;
   animation-name: ${props => swipeY(props.swipeYProps)};
   animation-duration: 1s;
   animation-fill-mode: forwards;
-  & div:nth-child(n) {
+  div:nth-child(n) {
     opacity: 1;
   }
   @media (max-width: ${cssBreakPoint.mobileMd}) {
@@ -152,11 +152,11 @@ const ArrowDown = styled(Arrow)`
 const IntroItem3 = ({ active }: any): ReactElement => {
   const swipeYProps = {
     start: {
-      value: -50,
+      value: '50',
       opacity: 0,
     },
     end: {
-      value: 0,
+      value: '0',
       opacity: 1,
     },
   }
@@ -222,7 +222,6 @@ const IntroItem3 = ({ active }: any): ReactElement => {
         </Circle>
       </InnerMobile>
     </Wrapper>
-
   )
 }
 
