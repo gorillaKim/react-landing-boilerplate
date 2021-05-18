@@ -69,7 +69,7 @@ const FaqList: FC<ListProps> = ({ contents}): ReactElement => {
               <img src="./static/image/faq/Slice%2024.svg" alt="아래 화살표 아이콘"/>
             </div>
           </List>
-          <Detail className={showDescription[item.id] && 'show'}>
+          <Detail className={showDescription[item.id]? 'show': undefined}>
             <p>
               {item.description}<br/>
             </p>
