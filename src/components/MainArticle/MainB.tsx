@@ -4,6 +4,7 @@ import {MainFlexContainer as MainContainer} from "./Styled";
 import useScrollFadeIn from "../../hooks/useScrollFadeIn";
 import {cssBreakPoint} from "../../styles/constant";
 import {FormBox} from "../Form";
+import ContactForm from "./ContactForm";
 
 const FirstContainer = styled.div`
   width: 50%;
@@ -22,7 +23,11 @@ const FirstContainer = styled.div`
     content: "";
     opacity: 0.5;
     background-color: #0f0f14;
-    z-index: 0;
+  }
+
+  @media (max-width: ${cssBreakPoint.tablet}) {
+    padding: unset;
+  }
 `
 const SecondContainer = styled.div`
   display: flex;
@@ -36,13 +41,14 @@ const SecondContainer = styled.div`
   height: 100%;
   margin: 0 40px;
   padding: 230px 0 156px 0;
-  
-  @media (max-width: ${cssBreakPoint.mobileMd}) {
+
+  @media (max-width: ${cssBreakPoint.tablet}) {
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
+    margin: unset;
+    padding: 30px 0;
     height: fit-content;
-    max-height: 180vh;
   }
   @media (max-width: ${cssBreakPoint.mobileXs}) {
     max-height: unset;
@@ -59,7 +65,8 @@ const ContentBox = styled.div`
   padding: 230px 0 168px 0;
   
   @media (max-width: ${cssBreakPoint.tablet}) {
-    padding-bottom: 10px;
+    padding: 170px 0 0 0;
+    height: unset;
   }
 `
 
@@ -86,8 +93,12 @@ const FirstContent = styled.div`
       letter-spacing: -3.75px;
 
       @media (max-width: ${cssBreakPoint.tablet}) {
-         font-size: 57px;
-         letter-spacing: -1.71px;
+        width: 100%;
+        max-width: 100%;
+        height: 53px;
+        font-size: 45px;
+        letter-spacing: -1.71px;
+        text-align: center;
       }
       @media (max-width: ${cssBreakPoint.mobileMd}) {
         max-width: 326px;
@@ -101,7 +112,13 @@ const FirstContent = styled.div`
       font-family: NotoSansKR;
       font-size: 20px;
       letter-spacing: -1px;
-      
+
+      @media (max-width: ${cssBreakPoint.tablet}) {
+        width: fit-content;
+        height: 29px;
+        text-align: center;
+        margin: 0 auto;
+      }
       @media (max-width: ${cssBreakPoint.mobileMd}) {
         min-width: 284px;
         height: 52px;
@@ -112,11 +129,6 @@ const FirstContent = styled.div`
   }
 `
 
-const initInputs = {
-  contactCompany: undefined,
-
-}
-
 interface IMainB {
 }
 
@@ -125,15 +137,6 @@ const MainB: FC<IMainB> = () => {
     useScrollFadeIn('up', 1, 0),
     useScrollFadeIn('up', 1, 0.5),
   ]
-  const [inputs, setInputs] = useState(initInputs)
-  const { contactCompany } = inputs;
-  const onChangeInput = (event:React.ChangeEvent<HTMLInputElement>) => {
-    const {target}: any = event
-    setInputs({
-      ...inputs,
-      [target.id]: target.value
-    })
-  }
 
   return (
     <MainContainer id="main">
@@ -150,54 +153,7 @@ const MainB: FC<IMainB> = () => {
         </ContentBox>
       </FirstContainer>
       <SecondContainer>
-        <FormBox
-          id={'contactCompany'}
-          inputValue={contactCompany}
-          placeholder={'예) 매드업'}
-          onChange={onChangeInput}
-          label={'회사명'}
-          isRequired={true}
-        />
-        <FormBox
-          id={'contactCompany'}
-          inputValue={contactCompany}
-          placeholder={'예) 매드업'}
-          onChange={onChangeInput}
-          label={'회사명'}
-          isRequired={true}
-        />
-        <FormBox
-          id={'contactCompany'}
-          inputValue={contactCompany}
-          placeholder={'예) 매드업'}
-          onChange={onChangeInput}
-          label={'회사명'}
-          isRequired={true}
-        />
-        <FormBox
-          id={'contactCompany'}
-          inputValue={contactCompany}
-          placeholder={'예) 매드업'}
-          onChange={onChangeInput}
-          label={'회사명'}
-          isRequired={true}
-        />
-        <FormBox
-          id={'contactCompany'}
-          inputValue={contactCompany}
-          placeholder={'예) 매드업'}
-          onChange={onChangeInput}
-          label={'회사명'}
-          isRequired={true}
-        />
-        <FormBox
-          id={'contactCompany'}
-          inputValue={contactCompany}
-          placeholder={'예) 매드업'}
-          onChange={onChangeInput}
-          label={'회사명'}
-          isRequired={true}
-        />
+        <ContactForm/>
       </SecondContainer>
     </MainContainer>
   )

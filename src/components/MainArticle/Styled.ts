@@ -11,7 +11,6 @@ export const MainContainer = styled.section`
   background-size: cover;
   position: relative;
 
-
   @media (max-width: ${cssBreakPoint.tablet}) {
     margin-top: -73px;
   }
@@ -27,9 +26,22 @@ export const MainContainer = styled.section`
   }
 `
 
-export const MainFlexContainer = styled.div`
+export const MainFlexContainer = styled.section`
   height: fit-content;
   display: flex;
   position: relative;
   margin-top: -101px;
+  
+  @media (max-width: ${cssBreakPoint.tablet}) {
+    flex-direction: column;
+    margin-top: -73px;
+    align-items: center;
+    &>div {
+      width: 100%;
+      min-width: unset;
+      &:first-child {
+        height: 539px;
+      }
+    }
+  }
 `
