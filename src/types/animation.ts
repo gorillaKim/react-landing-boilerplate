@@ -63,11 +63,11 @@ export interface Iheader {
 
 export interface IswipeY {
   start: {
-    value: number
+    value: number|string
     opacity: number
   }
   end: {
-    value: number
+    value: number|string
     opacity: number
   }
 }
