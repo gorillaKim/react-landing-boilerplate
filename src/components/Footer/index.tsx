@@ -42,11 +42,6 @@ const Terms = styled.div`
     color: var(--white);
     :last-child {
       margin-right: 0;
-      font-family: NotoSansKR;
-      font-size: 15px;
-      letter-spacing: -0.75px;
-      text-align: center;
-      color: var(--white);
     }
   }
   @media (max-width: ${cssBreakPoint.mobileMd}) {
