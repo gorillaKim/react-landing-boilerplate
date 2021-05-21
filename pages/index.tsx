@@ -5,6 +5,8 @@ import Navbar from "../src/components/Navbar";
 import {Container} from "../src/components/Styled/Layout";
 import MainA from "../src/components/MainArticle/MainA";
 import type { AppContext } from 'next/app'
+import Introduce from "../src/components/Introduce";
+import FaqContainer from "../src/containers/Faq/FaqContainer";
 
 const PageContainer = styled.div`
   position: relative;
@@ -22,15 +24,11 @@ const Index = (props:IIndex) => {
       <Container style={{backgroundColor: "orange", height: "fit-content", minHeight: '444px'}}>
         성공스토리
       </Container>
-      <Container style={{backgroundColor: "skyblue", height: "fit-content", minHeight: '444px'}}>
-        소개
-      </Container>
+      <Introduce/>
       <Container style={{backgroundColor: "orange", height: "fit-content", minHeight: '444px'}}>
         노하우
       </Container>
-      <Container style={{backgroundColor: "skyblue", height: "fit-content", minHeight: '444px'}}>
-        FAQ
-      </Container>
+      <FaqContainer/>
       <Container style={{backgroundColor: "orange", height: "fit-content", minHeight: '444px'}}>
         미션
       </Container>
