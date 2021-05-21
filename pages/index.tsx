@@ -1,10 +1,10 @@
 import styled from "styled-components"
 import GlobalStyle from "../src/styles/GlobalStyle";
+import {Container} from "../src/components/Styled/Layout";
+import type { AppContext } from 'next/app'
+import MainA from "../src/components/MainArticle/MainA";
 import BannerContainer from "../src/containers/banner/BannerContainer";
 import Navbar from "../src/components/Navbar";
-import {Container} from "../src/components/Styled/Layout";
-import MainA from "../src/components/MainArticle/MainA";
-import type { AppContext } from 'next/app'
 import Introduce from "../src/components/Introduce";
 import FaqContainer from "../src/containers/Faq/FaqContainer";
 import Footer from "../src/components/Footer";

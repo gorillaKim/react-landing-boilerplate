@@ -1,10 +1,13 @@
 import styled from "styled-components"
 import GlobalStyle from "../src/styles/GlobalStyle"
+import {Container} from "../src/components/Styled/Layout"
+import type { AppContext } from 'next/app'
+import MainB from "../src/components/MainArticle/MainB"
 import BannerContainer from "../src/containers/banner/BannerContainer"
 import Navbar from "../src/components/Navbar"
-import {Container} from "../src/components/Styled/Layout"
-import MainB from "../src/components/MainArticle/MainB"
-import type { AppContext } from 'next/app'
+import Introduce from "../src/components/Introduce";
+import FaqContainer from "../src/containers/Faq/FaqContainer";
+import Footer from "../src/components/Footer";
 
 const PageContainer = styled.div`
   position: relative;
@@ -22,23 +25,15 @@ const Index = (props:IIndex) => {
       <Container style={{backgroundColor: "orange", height: "fit-content", minHeight: '444px'}}>
         성공스토리
       </Container>
-      <Container style={{backgroundColor: "skyblue", height: "fit-content", minHeight: '444px'}}>
-        소개
-      </Container>
+      <Introduce/>
       <Container style={{backgroundColor: "orange", height: "fit-content", minHeight: '444px'}}>
         노하우
       </Container>
-      <Container style={{backgroundColor: "skyblue", height: "fit-content", minHeight: '444px'}}>
-        FAQ
-      </Container>
+      <FaqContainer/>
       <Container style={{backgroundColor: "orange", height: "fit-content", minHeight: '444px'}}>
         미션
       </Container>
-      <div>
-        <Container style={{backgroundColor: "gray", height: "fit-content", minHeight: '100px'}}>
-          Footer
-        </Container>
-      </div>
+      <Footer/>
     </PageContainer>
   );
 };
