@@ -33,9 +33,7 @@ const Index = (props:IIndex) => {
       <Container style={{backgroundColor: "orange", height: "fit-content", minHeight: '444px'}}>
         미션
       </Container>
-      <div>
-        <Footer/>
-      </div>
+      <Footer/>
     </PageContainer>
   );
 };
