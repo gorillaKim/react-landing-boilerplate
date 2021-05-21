@@ -7,6 +7,7 @@ import MainA from "../src/components/MainArticle/MainA";
 import type { AppContext } from 'next/app'
 import Introduce from "../src/components/Introduce";
 import FaqContainer from "../src/containers/Faq/FaqContainer";
+import Footer from "../src/components/Footer";
 
 const PageContainer = styled.div`
   position: relative;
@@ -33,9 +34,7 @@ const Index = (props:IIndex) => {
         미션
       </Container>
       <div>
-        <Container style={{backgroundColor: "gray", height: "fit-content", minHeight: '100px'}}>
-          Footer
-        </Container>
+        <Footer/>
       </div>
     </PageContainer>
   );
