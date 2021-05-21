@@ -76,7 +76,7 @@ const Footer = ():ReactElement => {
           <ul>
             <li><a href="https://biz.lever.me/terms/use" target="_blank">이용약관</a></li>
             <li><a href="https://biz.lever.me/terms/privacy" target="_blank">개인정보처리방침</a></li>
-            <li><a href="https://biz.lever.me/terms/credit" target="_blank">취소 및 환불정책</a></li>
+            <li><a href="https://biz.lever.me/terms/refund" target="_blank">취소 및 환불정책</a></li>
           </ul>
         </Terms>
         <CopyRight>
