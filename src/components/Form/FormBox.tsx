@@ -1,16 +1,30 @@
 import React from 'react'
 import styled from "styled-components"
-import guidGenerator from "../../utils/guidGenerator";
 
 
-const FormBoxContainer = styled.div`
+const FormBox = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 265px;
   width: 100%;
   font-family: NotoSansKR;
   margin: 0 15px 45px 15px;
-  
+  &.wide {
+    max-width: unset;
+    .radioOptions {
+      display: inline-flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      width: 100%;
+      .radio {
+        margin: 7px 5px;
+        input {
+          transform: scale(1.3);
+          margin-top: 0;
+        }
+      }
+    }
+  }
   label {
     margin-bottom: 18px;
     letter-spacing: -0.8px;
@@ -19,45 +33,29 @@ const FormBoxContainer = styled.div`
   input {
     border: 0;
     border-bottom: 1px solid #8e8e8e;
-    outline: none;
     font-size: 18px;
+    outline: none;
   }
-  
+  select {
+    height: 39px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    color: var(--black);
+    background-color: white;
+    border: 0.5px solid var(--warm-grey);
+    font-size: 18px;
+    letter-spacing: -0.9px;
+    outline: none;
+  }
+  textarea {
+    height: 54px;
+    padding-left: 0.7rem;
+    padding-top: 0.5rem;
+    border: 1px solid var(--warm-grey);
+    color: var(--warm-grey);
+    font-size: 18px;
+    letter-spacing: -0.9px;
+  }
 `
-
-interface IFormBox {
-  id: string
-  inputValue: string|undefined
-  placeholder?: string
-  isRequired?: boolean
-  type?: string
-  onChange: (event:React.ChangeEvent<HTMLInputElement>) => void
-  label: string
-}
-
-const FormBox = (
-  {
-     id=guidGenerator(),
-     type='text',
-     inputValue='',
-     placeholder='',
-     onChange,
-     label='입력 폼',
-     isRequired=false
-  }:IFormBox) => {
-  return (
-    <FormBoxContainer>
-      <label>{label}</label>
-      <input
-        id={id}
-        value={inputValue}
-        placeholder={placeholder}
-        type={type}
-        onChange={onChange}
-        required={isRequired}
-      />
-    </FormBoxContainer>
-  )
-}
 
 export default FormBox

@@ -1,9 +1,8 @@
-import React, {FC, useState} from 'react'
+import React, {FC} from 'react'
 import styled from "styled-components"
 import {MainFlexContainer as MainContainer} from "./Styled";
 import useScrollFadeIn from "../../hooks/useScrollFadeIn";
 import {cssBreakPoint} from "../../styles/constant";
-import {FormBox} from "../Form";
 import ContactForm from "./ContactForm";
 
 const FirstContainer = styled.div`
@@ -31,13 +30,13 @@ const FirstContainer = styled.div`
 `
 const SecondContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: start;
   flex-wrap: wrap;
   align-items: center;
   position: relative;
   overflow: hidden;
   width: 50%;
-  max-width: 834px;
+  max-width: 640px;
   height: 100%;
   margin: 0 40px;
   padding: 230px 0 156px 0;
