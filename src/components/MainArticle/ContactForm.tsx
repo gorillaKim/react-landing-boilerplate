@@ -2,8 +2,19 @@ import React, {ChangeEventHandler, FC, ReactElement, useState} from 'react'
 import {FormBox} from "../Form";
 import styled from "styled-components";
 import {cssBreakPoint} from "../../styles/constant";
+import PrivacyTermModal from "./PrivacyTermModal"
 
-const initInputs = {
+interface IinitInputs {
+  contactCompany: undefined|string
+  contactUrl: undefined|string
+  contactName: undefined|string
+  contactEmail: undefined|string
+  contactMobile: undefined|string
+  adPurpose: undefined|string
+  contactContent: undefined|string
+  contactTerm: undefined|boolean,
+}
+const initInputs: IinitInputs = {
   contactCompany: undefined,
   contactUrl: undefined,
   contactName: undefined,
@@ -74,7 +85,9 @@ interface ContactForm {
 
 const ContactForm: FC<ContactForm> = ():ReactElement => {
 
-  const [inputs, setInputs] = useState(initInputs);
+  const [inputs, setInputs] = useState(initInputs)
+  const [modal, setModal] = useState(false)
+
   const {
     contactCompany,
     contactUrl,
@@ -82,7 +95,8 @@ const ContactForm: FC<ContactForm> = ():ReactElement => {
     contactEmail,
     contactMobile,
     adPurpose,
-  } = inputs;
+    contactTerm,
+  } = inputs
   const onChangeInput:ChangeEventHandler<HTMLElement> = (event:React.ChangeEvent<HTMLInputElement>) => {
     const {target}: any = event
     setInputs({
@@ -104,8 +118,17 @@ const ContactForm: FC<ContactForm> = ():ReactElement => {
       [target.id]: target.checked
     })
   }
+  const onClickModal = () => setModal(!modal)
+  const onClickConfirm = () => {
+    setModal(false)
+    setInputs({
+      ...inputs,
+      contactTerm: true,
+    })
+  }
 
-  console.log(inputs)
+    console.log(inputs)
+  // PrivacyTerm
   return (
     <>
       <FormBox>
@@ -292,12 +315,17 @@ const ContactForm: FC<ContactForm> = ():ReactElement => {
               name={"checkPolicy"}
               id={"contactTerm"}
               onChange={onChangeChecked}
+              checked={contactTerm}
             />
           </CheckBox>
-          <span className={'view-term'}>약관보기</span>
+          <span className={'view-term'} onClick={onClickModal}>약관보기</span>
         </div>
         <button>문의하기</button>
       </FormCheck>
+      <PrivacyTermModal
+        isOpen={modal}
+        onClickConfirm={onClickConfirm}
+      />
     </>
   )
 }
