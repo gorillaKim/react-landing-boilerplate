@@ -3,7 +3,7 @@ import styled from "styled-components"
 import {MainFlexContainer as MainContainer} from "./Styled";
 import useScrollFadeIn from "../../hooks/useScrollFadeIn";
 import {cssBreakPoint} from "../../styles/constant";
-import ContactForm from "./ContactForm";
+import ContactFormContainer from "../../containers/MainArticle/ContactFormContainer";
 
 const FirstContainer = styled.div`
   width: 50%;
@@ -152,7 +152,7 @@ const MainB: FC<IMainB> = () => {
         </ContentBox>
       </FirstContainer>
       <SecondContainer>
-        <ContactForm/>
+        <ContactFormContainer/>
       </SecondContainer>
     </MainContainer>
   )

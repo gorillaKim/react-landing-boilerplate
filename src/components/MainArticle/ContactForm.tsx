@@ -3,27 +3,7 @@ import {FormBox} from "../Form";
 import styled from "styled-components";
 import {cssBreakPoint} from "../../styles/constant";
 import PrivacyTermModal from "./PrivacyTermModal"
-
-interface IinitInputs {
-  contactCompany: undefined|string
-  contactUrl: undefined|string
-  contactName: undefined|string
-  contactEmail: undefined|string
-  contactMobile: undefined|string
-  adPurpose: undefined|string
-  contactContent: undefined|string
-  contactTerm: undefined|boolean,
-}
-const initInputs: IinitInputs = {
-  contactCompany: undefined,
-  contactUrl: undefined,
-  contactName: undefined,
-  contactEmail: undefined,
-  contactMobile: undefined,
-  adPurpose: undefined,
-  contactContent: undefined,
-  contactTerm: undefined,
-}
+import {IinitInputs} from "../../types/mainArticle";
 
 const FormCheck = styled.div`
   width: 100%;
@@ -51,6 +31,13 @@ const FormCheck = styled.div`
     color: var(--black);
     border: 0;
     background-color: var(--white);
+    cursor: unset;
+    
+    &.active {
+      color: var(--white);
+      background-color: var(--cornflower);
+      cursor: pointer;
+    }
 
     @media (max-width: ${cssBreakPoint.mobileMd}) {
        width: 335px;
@@ -81,53 +68,28 @@ const CheckBox = styled.div`
 `
 
 interface ContactForm {
+  inputs: IinitInputs
+  modal: boolean
+  onClickModal: () => void
+  onChangeInput: (event:React.ChangeEvent)=>void
+  onChangeRadio: (event:React.ChangeEvent)=>void
+  onChangeChecked: (event:React.ChangeEvent)=>void
+  onClickTermConfirm: ()=>void
+  submitDisabled: boolean
 }
 
-const ContactForm: FC<ContactForm> = ():ReactElement => {
+const ContactForm: FC<ContactForm> = ({
+  inputs,
+  modal,
+  onChangeInput,
+  onChangeRadio,
+  onChangeChecked,
+  onClickTermConfirm,
+  onClickModal,
+  submitDisabled
+}):ReactElement => {
+  console.log(inputs)
 
-  const [inputs, setInputs] = useState(initInputs)
-  const [modal, setModal] = useState(false)
-
-  const {
-    contactCompany,
-    contactUrl,
-    contactName,
-    contactEmail,
-    contactMobile,
-    adPurpose,
-    contactTerm,
-  } = inputs
-  const onChangeInput:ChangeEventHandler<HTMLElement> = (event:React.ChangeEvent<HTMLInputElement>) => {
-    const {target}: any = event
-    setInputs({
-      ...inputs,
-      [target.id]: target.value
-    })
-  }
-  const onChangeRadio:ChangeEventHandler<HTMLElement> = (event:React.ChangeEvent<HTMLInputElement>) => {
-    const {target}: any = event
-    setInputs({
-      ...inputs,
-      [target.name]: target.value
-    })
-  }
-  const onChangeChecked:ChangeEventHandler<HTMLElement> = (event:React.ChangeEvent<HTMLInputElement>) => {
-    const {target}: any = event
-    setInputs({
-      ...inputs,
-      [target.id]: target.checked
-    })
-  }
-  const onClickModal = () => setModal(!modal)
-  const onClickConfirm = () => {
-    setModal(false)
-    setInputs({
-      ...inputs,
-      contactTerm: true,
-    })
-  }
-
-    console.log(inputs)
   // PrivacyTerm
   return (
     <>
@@ -136,7 +98,7 @@ const ContactForm: FC<ContactForm> = ():ReactElement => {
         <input
           id={'contactCompany'}
           type={'text'}
-          value={contactCompany}
+          value={inputs?.contactCompany}
           placeholder={'예) 매드업'}
           onChange={onChangeInput}
           required={true}
@@ -147,7 +109,7 @@ const ContactForm: FC<ContactForm> = ():ReactElement => {
         <input
           id={'contactUrl'}
           type={'text'}
-          value={contactUrl}
+          value={inputs?.contactUrl}
           placeholder={'예) http://lever.me'}
           onChange={onChangeInput}
           required={true}
@@ -158,7 +120,7 @@ const ContactForm: FC<ContactForm> = ():ReactElement => {
         <input
           id={'contactName'}
           type={'text'}
-          value={contactName}
+          value={inputs?.contactName}
           placeholder={'예) 홍길동'}
           onChange={onChangeInput}
           required={true}
@@ -169,7 +131,7 @@ const ContactForm: FC<ContactForm> = ():ReactElement => {
         <input
           id={'contactEmail'}
           type={'email'}
-          value={contactEmail}
+          value={inputs?.contactEmail}
           placeholder={'예) ad@lever.me'}
           onChange={onChangeInput}
           required={true}
@@ -180,7 +142,7 @@ const ContactForm: FC<ContactForm> = ():ReactElement => {
         <input
           id={'contactMobile'}
           type={'text'}
-          value={contactMobile}
+          value={inputs?.contactMobile}
           placeholder={'010-7777-7777'}
           onChange={onChangeInput}
           required={true}
@@ -191,7 +153,7 @@ const ContactForm: FC<ContactForm> = ():ReactElement => {
         <select
           id={'adPurpose'}
           name="adPurpose"
-          value={adPurpose}
+          value={inputs?.adPurpose}
           onChange={onChangeInput}
           required={true}
         >
@@ -315,16 +277,21 @@ const ContactForm: FC<ContactForm> = ():ReactElement => {
               name={"checkPolicy"}
               id={"contactTerm"}
               onChange={onChangeChecked}
-              checked={contactTerm}
+              checked={inputs?.contactTerm}
             />
           </CheckBox>
           <span className={'view-term'} onClick={onClickModal}>약관보기</span>
         </div>
-        <button>문의하기</button>
+        <button
+          disabled={submitDisabled}
+          className={submitDisabled?'undefined':'active'}
+        >
+          문의하기
+        </button>
       </FormCheck>
       <PrivacyTermModal
         isOpen={modal}
-        onClickConfirm={onClickConfirm}
+        onClickConfirm={onClickTermConfirm}
       />
     </>
   )
