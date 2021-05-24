@@ -40,6 +40,9 @@ const KnowHowSection = styled.div`
   & .slick-next:before {
     color: var(--cornflower)
   }
+  & .slick-dots {
+     z-index: 1;
+  }
 `
 const KnowHow = () => {
   return (
