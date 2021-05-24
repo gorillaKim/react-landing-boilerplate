@@ -42,7 +42,7 @@ const Introduce = (): ReactElement => {
     })
   }
   return (
-    <IntroduceSection>
+    <IntroduceSection id={"introduce"}>
       <IntroduceContainer>
         <IntroduceTitle/>
         <IntroduceBtnGroup

@@ -1,8 +1,7 @@
 import React, { FC } from "react"
 import styled from "styled-components"
 import {cssBreakPoint} from "../../styles/constant";
-import {MenuProps} from "../../types/navbar";
-
+import {hrefProps, MenuProps} from "../../types/navbar";
 
 const MenuLayout = styled.div`
   display: flex;
@@ -79,7 +78,7 @@ const CenterItem = styled.li`
   text-decoration: none;
 `
 
-const CenterItemLink = styled(ItemLink)`
+const CenterItemLink = styled(ItemLink)<hrefProps>`
   @media (max-width: ${cssBreakPoint.tablet}) {
     font-size: 30px;
     letter-spacing: -1.5px;
@@ -153,6 +152,14 @@ const RightItemLink =  styled(ItemLink)`
 
 
 const Menu: FC<MenuProps> = ({isActive= false}) => {
+  const clickToMove = (e: React.MouseEvent) => {
+    const href = (e.target as HTMLInputElement).name
+    const position = document.querySelector(`#${href}`) as HTMLElement
+    window.scrollTo({
+      top: position.offsetTop,
+      behavior : 'smooth'
+    });
+  }
   return (
     <MenuLayout className={isActive ? 'active' : 'deactive'} >
       <Title>
@@ -165,16 +172,16 @@ const Menu: FC<MenuProps> = ({isActive= false}) => {
       </Title>
       <MenuCenter>
         <CenterItem>
-          <CenterItemLink href="#success_story">성공사례</CenterItemLink>
+          <CenterItemLink name="success_story" onClick={clickToMove}>성공사례</CenterItemLink>
         </CenterItem>
         <CenterItem>
-          <CenterItemLink href="#success_story">레버 서비스 소개</CenterItemLink>
+          <CenterItemLink name="introduce" onClick={clickToMove}>레버 서비스 소개</CenterItemLink>
         </CenterItem>
         <CenterItem>
-          <CenterItemLink href="#success_story">디지털 마케팅 노하우</CenterItemLink>
+          <CenterItemLink name="know_how" onClick={clickToMove}>디지털 마케팅 노하우</CenterItemLink>
         </CenterItem>
         <CenterItem>
-          <CenterItemLink href="#success_story">자주하는 질문</CenterItemLink>
+          <CenterItemLink name="faq" onClick={clickToMove}>자주하는 질문</CenterItemLink>
         </CenterItem>
       </MenuCenter>
       <MenuRight>

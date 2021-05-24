@@ -43,6 +43,10 @@ export interface MenuProps {
   isActive: boolean
 }
 
+export interface hrefProps {
+  name: string
+}
+
 export interface IToggleProps {
   top: string
   height: string
