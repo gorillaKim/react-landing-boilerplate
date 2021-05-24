@@ -22,7 +22,7 @@ const Index = (props:IIndex) => {
       <BannerContainer/>
       <Navbar/>
       <MainA />
-      <Container style={{backgroundColor: "orange", height: "fit-content", minHeight: '444px'}}>
+      <Container style={{backgroundColor: "orange", height: "fit-content", minHeight: '444px', maxWidth: '80vw', float:'right'}}>
         성공스토리
       </Container>
       <Introduce/>
