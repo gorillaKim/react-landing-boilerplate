@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import styled from "styled-components"
+import styled from 'styled-components'
 
 const Wrapper = styled.div`
   ul {
@@ -19,8 +19,8 @@ const Wrapper = styled.div`
     object-fit: contain;
   }
 `
-const SocialBox = ():ReactElement => {
-  return(
+const SocialBox = (): ReactElement => {
+  return (
     <Wrapper>
       <ul>
         <li>

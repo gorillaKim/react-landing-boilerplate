@@ -1,9 +1,9 @@
-import React, { ReactElement  } from 'react'
-import styled from "styled-components"
-import { Container } from '../Styled/Layout';
+import React, { ReactElement } from 'react'
+import styled from 'styled-components'
+import { Container } from '../Styled/Layout'
+import SocialBox from './SocialBox'
+import Address from './Address'
 import { cssBreakPoint } from '../../styles/constant'
-import SocialBox from "./SocialBox";
-import Address from "./Address";
 
 const FooterSection = styled.footer`
   background-color: #0f0b11;
@@ -66,17 +66,29 @@ const CopyRight = styled.div`
   text-align: center;
   color: var(--white);
 `
-const Footer = ():ReactElement => {
-  return(
+const Footer = (): ReactElement => {
+  return (
     <FooterSection>
       <FooterContainer>
         <SocialBox />
         <Address />
         <Terms>
           <ul>
-            <li><a href="https://biz.lever.me/terms/use" target="_blank">이용약관</a></li>
-            <li><a href="https://biz.lever.me/terms/privacy" target="_blank">개인정보처리방침</a></li>
-            <li><a href="https://biz.lever.me/terms/refund" target="_blank">취소 및 환불정책</a></li>
+            <li>
+              <a href="https://biz.lever.me/terms/use" target="_blank">
+                이용약관
+              </a>
+            </li>
+            <li>
+              <a href="https://biz.lever.me/terms/privacy" target="_blank">
+                개인정보처리방침
+              </a>
+            </li>
+            <li>
+              <a href="https://biz.lever.me/terms/refund" target="_blank">
+                취소 및 환불정책
+              </a>
+            </li>
           </ul>
         </Terms>
         <CopyRight>

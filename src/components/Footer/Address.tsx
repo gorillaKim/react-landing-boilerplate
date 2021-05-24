@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
-import styled from "styled-components"
-import {cssBreakPoint} from "../../styles/constant";
+import styled from 'styled-components'
+import { cssBreakPoint } from '../../styles/constant'
 
 const Wrapper = styled.div`
   width: 500px;
@@ -30,8 +30,8 @@ const Wrapper = styled.div`
     }
   }
 `
-const Address = ():ReactElement => {
-  return(
+const Address = (): ReactElement => {
+  return (
     <>
       <Wrapper className="desktop">
         <p>(주)매드업 / 대표이사 : 이주민, 이동호</p>
