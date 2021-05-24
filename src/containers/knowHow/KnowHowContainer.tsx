@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, {FC, ReactElement} from 'react';
 import KnowHow from "../../components/KnowHow";
 
-const KnowHowContainer = () => {
+const KnowHowContainer = (): ReactElement => {
   return(
     <KnowHow/>
   )

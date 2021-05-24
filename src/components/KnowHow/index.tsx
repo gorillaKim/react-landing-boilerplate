@@ -5,12 +5,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 function SimpleSlider() {
-  var settings = {
+  const settings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 1
+    slidesToScroll: 3
   };
   return (
     <Slider {...settings}>
@@ -38,13 +38,25 @@ function SimpleSlider() {
 const KnowHowSection = styled.div`
   & .slick-prev:before, 
   & .slick-next:before {
-    color: var(--cornflower)
+    color: var(--cornflower);
+    opacity: 1;
+  }
+  & .slick-dots {
+    z-index: 1;
+    li.slick-active button:before {
+      opacity: 1;
+      color: var(--cornflower);
+    }
+    li button:before {
+      opacity: .3;
+      color: var(--cornflower);
+    }
   }
   & .slick-dots {
      z-index: 1;
   }
 `
-const KnowHow = () => {
+const KnowHow = (): ReactElement => {
   return (
     <KnowHowSection>
 
