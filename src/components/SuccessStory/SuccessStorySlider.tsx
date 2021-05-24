@@ -161,7 +161,7 @@ const SuccessStorySlider: FC<ISuccessStorySlider> = ({items, slidesToShow, class
       {
         items.map((item: any)=>{
           return (
-            <SliderItem style={{width: '30%'}}>
+            <SliderItem>
               <div className={"content"}>
                 <img src={item.mainImg.desktop} alt="메인이미지_컴퓨터버전" className={"desktop"}/>
                 <img src={item.mainImg.mobile} alt="메인이미지_모바일버전" className={"mobile"}/>

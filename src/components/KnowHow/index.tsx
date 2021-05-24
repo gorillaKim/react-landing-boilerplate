@@ -1,10 +1,61 @@
-import React, { ReactElement, useState } from 'react'
+import React, {FC, ReactElement} from 'react'
 import styled from "styled-components"
-import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import {KnowHowProps} from "../../types/knowhow";
+import {Container} from "../Styled/Layout";
+import {cssBreakPoint} from "../../styles/constant";
+import KnowHowSlider from "./KnowHowSlider";
 
-function SimpleSlider() {
+const KnowHowSection = styled.div`
+  background-color: #fafafa;
+  overflow: hidden;
+`
+const KnowHowContainer = styled(Container)`
+  padding: 8rem 0;
+  text-align: center;
+  line-height: 1.3;
+  .title {
+    color: var(--black);
+    width: fit-content;
+    font-size: 50px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    font-family: NotoSansKR;
+    line-height: normal;
+    letter-spacing: -2.5px;
+    margin: 0 auto;
+    @media (max-width: ${cssBreakPoint.mobileMd}) {
+      font-size: 40px;
+    }
+    @media (max-width: ${cssBreakPoint.mobileXs}) {
+      font-size: 35px;
+    }
+    background: linear-gradient(
+      to bottom, 
+      #fafafa 0, 
+      #fafafa 53%, 
+      var(--cornflower) 0%, 
+      var(--cornflower) 84%, 
+      #fafafa 66%, 
+      #fafafa 100% 
+    );
+  }
+  .sub-title {
+    margin-top: 0.8rem;
+    font-size: 18px;
+    font-family: NotoSansKR;
+    color: var(--greyish-brown);
+    letter-spacing: -0.9px;
+    @media (max-width: ${cssBreakPoint.mobileMd}) {
+      span {
+        display: block;
+      }
+    }
+  }
+`
+const KnowHow: FC<KnowHowProps> = ({ demo }): ReactElement => {
   const settings = {
     dots: true,
     infinite: true,
@@ -13,56 +64,15 @@ function SimpleSlider() {
     slidesToScroll: 3
   };
   return (
-    <Slider {...settings}>
-      <div>
-        <h3 style={{backgroundColor: 'green'}}>1</h3>
-      </div>
-      <div >
-        <h3 style={{backgroundColor: 'orange'}}>2</h3>
-      </div>
-      <div >
-        <h3 style={{backgroundColor: 'green'}}>3</h3>
-      </div>
-      <div >
-        <h3 style={{backgroundColor: 'orange'}}>4</h3>
-      </div>
-      <div >
-        <h3 style={{backgroundColor: 'green'}}>5</h3>
-      </div>
-      <div >
-        <h3 style={{backgroundColor: 'orange'}}>6</h3>
-      </div>
-    </Slider>
-  );
-}
-const KnowHowSection = styled.div`
-  & .slick-prev:before, 
-  & .slick-next:before {
-    color: var(--cornflower);
-    opacity: 1;
-  }
-  & .slick-dots {
-    z-index: 1;
-    li.slick-active button:before {
-      opacity: 1;
-      color: var(--cornflower);
-    }
-    li button:before {
-      opacity: .3;
-      color: var(--cornflower);
-    }
-  }
-  & .slick-dots {
-     z-index: 1;
-  }
-`
-const KnowHow = (): ReactElement => {
-  return (
-    <KnowHowSection>
-
-      <div style={{width: '80%', margin: '0 auto'}}>
-        <SimpleSlider />
-      </div>
+    <KnowHowSection id="know_how">
+      <KnowHowContainer>
+        <h1 className="title">디지털 마케팅 노하우</h1>
+        <p className="sub-title">
+          <span>막연하고 어려운 디지털 마케팅,&nbsp;</span>
+          <span>레버가 함께 고민하고 노하우를 공유합니다.</span>
+        </p>
+       <KnowHowSlider settings={settings} demo={demo}/>
+      </KnowHowContainer>
     </KnowHowSection>
   )
 }
