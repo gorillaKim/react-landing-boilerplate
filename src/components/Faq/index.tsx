@@ -1,10 +1,10 @@
-import React, { ReactElement  } from 'react'
-import styled from "styled-components"
-import { Container } from '../Styled/Layout';
+import React, { ReactElement } from 'react'
+import styled from 'styled-components'
+import { Container } from '../Styled/Layout'
 import { cssBreakPoint } from '../../styles/constant'
-import FaqList from "./FaqList";
-import { FaqProps } from "../../types/faq";
-import useScrollFadeIn from "../../hooks/useScrollFadeIn";
+import FaqList from './FaqList'
+import { IFaqProps } from '../../types/faq'
+import useScrollFadeIn from '../../hooks/useScrollFadeIn'
 
 const FaqContainer = styled(Container)`
   display: flex;
@@ -29,36 +29,33 @@ const InnerLeft = styled.div`
     padding-left: 1.5rem;
     margin: 0;
   }
-  & p:nth-child(1) {
+  p:nth-child(1) {
     font-family: Roboto;
     font-size: 18px;
     font-weight: bold;
     color: var(--cornflower);
   }
-  & h1 {
+  h1 {
     font-family: NotoSansKR;
     font-size: 55px;
     font-weight: bold;
     letter-spacing: -2.75px;
     color: var(--black);
   }
-  & p:last-child {
+  p:last-child {
     font-family: NotoSansKR;
   }
 `
 const InnerRight = styled.div`
-  padding-top: 10rem;
   width: 65%;
+  padding-top: 10rem;
   @media (max-width: ${cssBreakPoint.tablet}) {
     width: 100%;
     padding-top: 5rem;
   }
 `
-const Faq = ({ contents }: FaqProps): ReactElement => {
-  const animation = [
-    useScrollFadeIn('up', 1, 0),
-    useScrollFadeIn('up', 1, 0)
-  ]
+const Faq = ({ contents }: IFaqProps): ReactElement => {
+  const animation = [useScrollFadeIn('up', 1, 0), useScrollFadeIn('up', 1, 0)]
   return (
     <div id="faq">
       <FaqContainer>
@@ -75,4 +72,4 @@ const Faq = ({ contents }: FaqProps): ReactElement => {
   )
 }
 
-export default Faq;
+export default Faq

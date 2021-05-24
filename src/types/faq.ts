@@ -1,17 +1,17 @@
-export interface ListProps {
+export interface IFaqListProps {
   contents: {
-    id: string,
-    title: string,
-    description: string,
+    id: string
+    title: string
+    description: string
   }[]
 }
-export interface StateProps {
+export interface IStateProps {
   [k: string]: boolean | undefined
 }
-export interface FaqProps {
+export interface IFaqProps {
   contents: {
-    id: string,
-    title: string,
-    description: string,
+    id: string
+    title: string
+    description: string
   }[]
 }
