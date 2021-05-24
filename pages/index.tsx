@@ -1,3 +1,4 @@
+import React from "react"
 import styled from "styled-components"
 import GlobalStyle from "../src/styles/GlobalStyle";
 import {Container} from "../src/components/Styled/Layout";
