@@ -8,6 +8,7 @@ import Navbar from "../src/components/Navbar";
 import Introduce from "../src/components/Introduce";
 import FaqContainer from "../src/containers/Faq/FaqContainer";
 import Footer from "../src/components/Footer";
+import SuccessStory from "../src/components/SuccessStory";
 
 const PageContainer = styled.div`
   position: relative;
@@ -22,9 +23,7 @@ const Index = (props:IIndex) => {
       <BannerContainer/>
       <Navbar/>
       <MainA />
-      <Container style={{backgroundColor: "orange", height: "fit-content", minHeight: '444px', maxWidth: '80vw', float:'right'}}>
-        성공스토리
-      </Container>
+      <SuccessStory/>
       <Introduce/>
       <Container style={{backgroundColor: "orange", height: "fit-content", minHeight: '444px'}}>
         노하우
