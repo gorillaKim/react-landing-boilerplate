@@ -97,6 +97,14 @@ const Navbar: FC<NavbarProps> = () => {
   }, [toggle])
 
   const onClickToggle = () => setToggle(toggle => !toggle)
+  const clickToMove = (e: React.MouseEvent) => {
+    let href = (e.target as HTMLInputElement).dataset.nav
+    const position = document.querySelector(`#${href}`) as HTMLElement
+    window.scrollTo({
+      top: position? position.offsetTop: 0,
+      behavior : 'smooth'
+    });
+  }
   return (
     <HeaderSection
       className= {`${toggle ? "active " : "deactive"} ${sticky ? 'sticky' : ''}`}
@@ -110,8 +118,8 @@ const Navbar: FC<NavbarProps> = () => {
       />
       <Container>
         <NavbarSection className={toggle ? "active" : "deactive"} navbarOption={navbarOption}>
-          <Logo isActive={toggle||sticky}/>
-          <Menu isActive={toggle}/>
+          <Logo isActive={toggle||sticky} clickToMove={clickToMove}/>
+          <Menu isActive={toggle} clickToMove={clickToMove}/>
         </NavbarSection>
       </Container>
     </HeaderSection>

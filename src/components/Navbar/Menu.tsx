@@ -1,7 +1,7 @@
 import React, { FC } from "react"
 import styled from "styled-components"
 import {cssBreakPoint} from "../../styles/constant";
-import {hrefProps, MenuProps} from "../../types/navbar";
+import {MenuProps} from "../../types/navbar";
 
 const MenuLayout = styled.div`
   display: flex;
@@ -78,7 +78,7 @@ const CenterItem = styled.li`
   text-decoration: none;
 `
 
-const CenterItemLink = styled(ItemLink)<hrefProps>`
+const CenterItemLink = styled(ItemLink)`
   @media (max-width: ${cssBreakPoint.tablet}) {
     font-size: 30px;
     letter-spacing: -1.5px;
@@ -151,15 +151,7 @@ const RightItemLink =  styled(ItemLink)`
 `
 
 
-const Menu: FC<MenuProps> = ({isActive= false}) => {
-  const clickToMove = (e: React.MouseEvent) => {
-    const href = (e.target as HTMLInputElement).name
-    const position = document.querySelector(`#${href}`) as HTMLElement
-    window.scrollTo({
-      top: position.offsetTop,
-      behavior : 'smooth'
-    });
-  }
+const Menu: FC<MenuProps> = ({isActive= false, clickToMove}) => {
   return (
     <MenuLayout className={isActive ? 'active' : 'deactive'} >
       <Title>
@@ -172,16 +164,16 @@ const Menu: FC<MenuProps> = ({isActive= false}) => {
       </Title>
       <MenuCenter>
         <CenterItem>
-          <CenterItemLink name="success_story" onClick={clickToMove}>성공사례</CenterItemLink>
+          <CenterItemLink data-nav="success_story" onClick={clickToMove}>성공사례</CenterItemLink>
         </CenterItem>
         <CenterItem>
-          <CenterItemLink name="introduce" onClick={clickToMove}>레버 서비스 소개</CenterItemLink>
+          <CenterItemLink data-nav="introduce" onClick={clickToMove}>레버 서비스 소개</CenterItemLink>
         </CenterItem>
         <CenterItem>
-          <CenterItemLink name="know_how" onClick={clickToMove}>디지털 마케팅 노하우</CenterItemLink>
+          <CenterItemLink data-nav="know_how" onClick={clickToMove}>디지털 마케팅 노하우</CenterItemLink>
         </CenterItem>
         <CenterItem>
-          <CenterItemLink name="faq" onClick={clickToMove}>자주하는 질문</CenterItemLink>
+          <CenterItemLink data-nav="faq" onClick={clickToMove}>자주하는 질문</CenterItemLink>
         </CenterItem>
       </MenuCenter>
       <MenuRight>

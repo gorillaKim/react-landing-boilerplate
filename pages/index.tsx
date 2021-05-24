@@ -10,6 +10,8 @@ import Introduce from "../src/components/Introduce";
 import FaqContainer from "../src/containers/Faq/FaqContainer";
 import Footer from "../src/components/Footer";
 import SuccessStory from "../src/components/SuccessStory";
+import React from "react";
+
 
 const PageContainer = styled.div`
   position: relative;

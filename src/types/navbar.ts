@@ -33,18 +33,17 @@ export interface INavbarSection {
   className: string
 }
 export interface NavbarProps {
+
 }
 
 export interface LogoProps {
   isActive: boolean
+  clickToMove: (e: React.MouseEvent) => void
 }
 
 export interface MenuProps {
   isActive: boolean
-}
-
-export interface hrefProps {
-  name: string
+  clickToMove: (e: React.MouseEvent) => void
 }
 
 export interface IToggleProps {
