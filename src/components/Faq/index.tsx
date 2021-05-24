@@ -57,7 +57,7 @@ const InnerRight = styled.div`
 const Faq = ({ contents }: IFaqProps): ReactElement => {
   const animation = [useScrollFadeIn('up', 1, 0), useScrollFadeIn('up', 1, 0)]
   return (
-    <div id="faq">
+    <section id="faq">
       <FaqContainer>
         <InnerLeft {...animation[0]}>
           <p>Digital Marketing Solution LEVER</p>
@@ -68,7 +68,7 @@ const Faq = ({ contents }: IFaqProps): ReactElement => {
           <FaqList contents={contents} />
         </InnerRight>
       </FaqContainer>
-    </div>
+    </section>
   )
 }
 
