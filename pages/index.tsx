@@ -9,8 +9,8 @@ import Navbar from "../src/components/Navbar";
 import Introduce from "../src/components/Introduce";
 import FaqContainer from "../src/containers/Faq/FaqContainer";
 import Footer from "../src/components/Footer";
-import SuccessStory from "../src/components/SuccessStory";
-import KnowHowContainer from "../src/containers/KnowHow/KnowHowContainer";
+import KnowHowContainer from "../src/containers/knowHow/KnowHowContainer";
+import SuccessStoryContainer from "../src/containers/successStory/SuccessStoryContainer";
 
 const PageContainer = styled.div`
   position: relative;
@@ -25,7 +25,7 @@ const Index = (props:IIndex) => {
       <BannerContainer/>
       <Navbar/>
       <MainA />
-      <SuccessStory/>
+      <SuccessStoryContainer/>
       <Introduce/>
       <KnowHowContainer/>
       <FaqContainer/>
