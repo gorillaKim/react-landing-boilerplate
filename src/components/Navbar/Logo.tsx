@@ -43,7 +43,7 @@ const BlackLogoIcon = styled(BlackLogoSVG)`
 const Logo: FC<LogoProps> = ({ isActive= false, clickToMove }) => {
   return (
     <LogoLayout>
-      <a data-nav="#" onClick={clickToMove}>
+      <a onClick={clickToMove}>
         {isActive ? <BlackLogoIcon/> : <WhiteLogoIcon/>}
       </a>
     </LogoLayout>
