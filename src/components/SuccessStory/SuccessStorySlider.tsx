@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
-import CustomSlider from 'components/CustomSlider'
 import { cssBreakPoint } from 'styles/constant'
+import SwiperCore, { Mousewheel } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 const SliderItem = styled.div`
   height: fit-content;
-  display: inline-block;
   overflow: hidden;
   border-radius: 15px;
   position: relative;
@@ -14,9 +14,7 @@ const SliderItem = styled.div`
   background: white;
 
   @media (max-width: ${cssBreakPoint.tablet}) {
-    width: 44vw;
-    margin-left: 40px;
-    margin-right: 0px;
+    margin: 0 auto;
     img {
       height: auto;
     }
@@ -32,9 +30,8 @@ const SliderItem = styled.div`
   }
 
   @media (max-width: ${cssBreakPoint.mobileMd}) {
-    width: 80vw;
     .content {
-      height: 214px;
+      height: fit-content;
     }
     .title {
       .top {
@@ -149,6 +146,26 @@ const ArrowIcon = styled.img`
   object-fit: contain;
   overflow: hidden;
 `
+const CustomSwiper = styled(Swiper)`
+  .swiper-wrapper {
+    display: inline-flex;
+    height: fit-content;
+  }
+  &.mobile {
+    display: none;
+  }
+  &.desktop {
+    display: block;
+  }
+  @media (max-width: ${cssBreakPoint.tablet}) {
+    &.mobile {
+      display: block;
+    }
+    &.desktop {
+      display: none;
+    }
+  }
+`
 
 interface ISuccessStorySlider {
   slidesToShow: number
@@ -156,31 +173,35 @@ interface ISuccessStorySlider {
   items: any
 }
 
+SwiperCore.use([Mousewheel])
+
 const SuccessStorySlider: FC<ISuccessStorySlider> = ({ items, slidesToShow, className }) => {
   return (
-    <CustomSlider className={className} slidesToShow={slidesToShow}>
-      {items.map((item: any) => {
+    <CustomSwiper className={className} slidesPerView={slidesToShow} mousewheel spaceBetween={30}>
+      {items.map((item: any, index: number) => {
         return (
-          <SliderItem style={{ width: '30%' }}>
-            <div className={'content'}>
-              <img src={item.mainImg.desktop} alt="메인이미지_컴퓨터버전" className={'desktop'} />
-              <img src={item.mainImg.mobile} alt="메인이미지_모바일버전" className={'mobile'} />
-            </div>
-            <div className={'bottom'}>
-              <div className={'title top'}>
-                <img src={item.titleImg} alt="제목이미지" />
+          <SwiperSlide virtualIndex={index}>
+            <SliderItem>
+              <div className={'content'}>
+                <img src={item.mainImg.desktop} alt="메인이미지_컴퓨터버전" className={'desktop'} />
+                <img src={item.mainImg.mobile} alt="메인이미지_모바일버전" className={'mobile'} />
               </div>
-              <div className={'title bottom'}>
-                <p>{item.text[0]}</p>
-                <p>{item.text[1]}</p>
-                <ArrowIcon src="./static/image/icon/arrow-sm.png" />
-                <b>{item.text[2]}</b>
+              <div className={'bottom'}>
+                <div className={'title top'}>
+                  <img src={item.titleImg} alt="제목이미지" />
+                </div>
+                <div className={'title bottom'}>
+                  <p>{item.text[0]}</p>
+                  <p>{item.text[1]}</p>
+                  <ArrowIcon src="./static/image/icon/arrow-sm.png" />
+                  <b>{item.text[2]}</b>
+                </div>
               </div>
-            </div>
-          </SliderItem>
+            </SliderItem>
+          </SwiperSlide>
         )
       })}
-    </CustomSlider>
+    </CustomSwiper>
   )
 }
 

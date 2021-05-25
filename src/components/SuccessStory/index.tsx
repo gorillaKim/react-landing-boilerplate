@@ -100,9 +100,11 @@ const Title = styled.div`
 const Content = styled.div`
   margin-top: 68px;
   width: 100%;
+
   @media (max-width: ${cssBreakPoint.tablet}) {
-    width: 100%;
-    margin-right: unset;
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
   }
 `
 const Bottom = styled.div`
@@ -137,7 +139,7 @@ const SuccessStory: FC<ISuccessStory> = ({ items }) => {
         </Title>
         <Content>
           <SuccessStorySlider items={items} className={'desktop'} slidesToShow={3} />
-          <SuccessStorySlider items={items} className={'mobile'} slidesToShow={2} />
+          <SuccessStorySlider items={items} className={'mobile'} slidesToShow={1} />
         </Content>
         <Bottom>
           <p>* 레버의 실제 고객사례입니다.</p>
