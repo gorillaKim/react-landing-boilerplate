@@ -6,6 +6,7 @@ import {KnowHowProps} from "../../types/knowhow";
 import {Container} from "../Styled/Layout";
 import {cssBreakPoint} from "../../styles/constant";
 import KnowHowSlider from "./KnowHowSlider";
+import useScrollFadeIn from "../../hooks/useScrollFadeIn";
 
 const KnowHowSection = styled.div`
   background-color: #fafafa;
@@ -56,6 +57,11 @@ const KnowHowContainer = styled(Container)`
   }
 `
 const KnowHow: FC<KnowHowProps> = ({ demo }): ReactElement => {
+  const animation = [
+    useScrollFadeIn('up', 1, 0),
+    useScrollFadeIn('up', 1, 0.5),
+    useScrollFadeIn('up', 1, 1),
+  ]
   const settings = {
     dots: true,
     infinite: true,
@@ -66,12 +72,15 @@ const KnowHow: FC<KnowHowProps> = ({ demo }): ReactElement => {
   return (
     <KnowHowSection id="know_how">
       <KnowHowContainer>
-        <h1 className="title">디지털 마케팅 노하우</h1>
-        <p className="sub-title">
+        <h1 className="title" {...animation[0]}>디지털 마케팅 노하우</h1>
+        <p className="sub-title" {...animation[1]}>
           <span>막연하고 어려운 디지털 마케팅,&nbsp;</span>
           <span>레버가 함께 고민하고 노하우를 공유합니다.</span>
         </p>
-       <KnowHowSlider settings={settings} demo={demo}/>
+       <KnowHowSlider
+         settings={settings}
+         demo={demo}
+       />
       </KnowHowContainer>
     </KnowHowSection>
   )
