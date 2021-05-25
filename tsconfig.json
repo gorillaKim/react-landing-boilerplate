@@ -1,26 +1,43 @@
 {
   "compilerOptions": {
+    "experimentalDecorators": true,
     "target": "es5",
     "lib": [
+      "es5",
       "dom",
       "dom.iterable",
       "esnext"
     ],
+    "types": [
+      "cypress",
+      "jest"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "noEmit": true,
+    "jsx": "preserve",
+    "rootDirs": [
+      "src"
+    ],
+    "baseUrl": "src",
+    "strictNullChecks": true,
+    "strictFunctionTypes": true
   },
-  "typeRoots" : ["node_modules/@types", "src/types"],
+  "typeRoots": [
+    "node_modules/@types",
+    "src/types"
+  ],
   "include": [
     "next-env.d.ts",
     "**/*.ts",
