@@ -3,6 +3,7 @@ import styled from "styled-components"
 import CustomSlider from "../CustomSlider";
 import {cssBreakPoint} from "../../styles/constant";
 import {KnowHowSlideProps} from "../../types/knowhow";
+import useScrollFadeIn from "../../hooks/useScrollFadeIn";
 
 const SliderWrapper = styled.div`
   .slick-slide {
@@ -82,13 +83,13 @@ const SliderWrapper = styled.div`
     font-size: 18px;
     letter-spacing: -0.9px;
     font-family: NotoSansKR;
-    & :nth-child(1) {
+    p {
       font-family: Roboto;
       color: var(--cornflower);
       font-size: 14px;
       font-weight: bold;
     }
-    & :nth-child(2) {
+    & div:nth-child(2) {
       margin-top: 0.5rem;
       color: var(--greyish-brown);
     }
