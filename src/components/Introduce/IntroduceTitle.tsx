@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
-import styled from "styled-components"
-import { cssBreakPoint } from '../../styles/constant'
-import useScrollFadeIn from "../../hooks/useScrollFadeIn";
+import styled from 'styled-components'
+import { cssBreakPoint } from 'styles/constant'
+import useScrollFadeIn from 'hooks/useScrollFadeIn'
 
 const Wrapper = styled.div`
   text-align: center;
@@ -27,11 +27,14 @@ const Span = styled.span`
 `
 const IntroduceTitle = (): ReactElement => {
   const animation = useScrollFadeIn('up', 1, 0)
-  return(
+  return (
     <Wrapper {...animation}>
       <H1>레버 서비스 소개</H1>
-      <P>디지털 마케팅의 어려움을 잘 알고 있는 레버<br/>
-        <Span>AI 알고리즘+마케팅 전문가로&nbsp;</Span><Span>여러분의 어려움을 해결해드립니다.</Span>
+      <P>
+        디지털 마케팅의 어려움을 잘 알고 있는 레버
+        <br />
+        <Span>AI 알고리즘+마케팅 전문가로&nbsp;</Span>
+        <Span>여러분의 어려움을 해결해드립니다.</Span>
       </P>
     </Wrapper>
   )

@@ -1,5 +1,5 @@
 // #region Global Imports
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.div`
   position: relative;
@@ -7,4 +7,4 @@ export const Container = styled.div`
   max-width: 1280px;
   margin: 0 auto;
   overflow: hidden;
-`;
+`

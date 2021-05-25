@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import { cssBreakPoint } from '../../styles/constant'
+import { cssBreakPoint } from 'styles/constant'
 
 const Wrapper = styled.div`
   width: 500px;

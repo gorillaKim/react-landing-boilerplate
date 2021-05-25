@@ -13,15 +13,15 @@ interface Props {
 const Modal: React.FC<Props> = ({
   children,
   ariaLabel = 'Alert Modal',
-  isOpen=false,
-  customStyle
+  isOpen = false,
+  customStyle,
 }) => {
   const customStyles = {
     overlay: {
       zIndex: 999,
       backgroundColor: 'rgba(0, 0, 0, 0.75)',
 
-      ...customStyle?.overlay
+      ...customStyle?.overlay,
     },
     content: {
       top: '50%',
@@ -34,11 +34,11 @@ const Modal: React.FC<Props> = ({
       transform: 'translate(-50%, -50%)',
       backgroundColor: 'transparent',
 
-      ...customStyle?.content
-    }
+      ...customStyle?.content,
+    },
   }
 
-  if (typeof(window) !== 'undefined') {
+  if (typeof window !== 'undefined') {
     ReactModal.setAppElement('#__next')
   }
 
@@ -55,5 +55,3 @@ const Modal: React.FC<Props> = ({
 }
 
 export default Modal
-
-

@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import SuccessStory from "../../components/SuccessStory";
+import React from 'react'
+import SuccessStory from '../../components/SuccessStory'
 
 const SuccessStoryContainer = () => {
   const items = [
@@ -9,11 +9,7 @@ const SuccessStoryContainer = () => {
         mobile: './static/image/succeeStory/success_slide-1-m.png',
       },
       titleImg: './static/image/succeeStory/success_slide_title-1.png',
-      text: [
-        '광고수익률(ROAS)',
-        '557%',
-        '1,486%',
-      ]
+      text: ['광고수익률(ROAS)', '557%', '1,486%'],
     },
     {
       mainImg: {
@@ -21,11 +17,7 @@ const SuccessStoryContainer = () => {
         mobile: './static/image/succeeStory/success_slide-2-m.png',
       },
       titleImg: './static/image/succeeStory/success_slide_title-2.png',
-      text: [
-        '광고수익률(ROAS)',
-        '29%',
-        '302%',
-      ]
+      text: ['광고수익률(ROAS)', '29%', '302%'],
     },
     {
       mainImg: {
@@ -33,11 +25,7 @@ const SuccessStoryContainer = () => {
         mobile: './static/image/succeeStory/success_slide-3-m.png',
       },
       titleImg: './static/image/succeeStory/success_slide_title-3.png',
-      text: [
-        '광고수익률(ROAS)',
-        '120%',
-        '427%',
-      ]
+      text: ['광고수익률(ROAS)', '120%', '427%'],
     },
     {
       mainImg: {
@@ -45,11 +33,7 @@ const SuccessStoryContainer = () => {
         mobile: './static/image/succeeStory/success_slide-4-m.png',
       },
       titleImg: './static/image/succeeStory/success_slide_title-4.png',
-      text: [
-        '광고수익률(ROAS)',
-        '376%',
-        '494%',
-      ]
+      text: ['광고수익률(ROAS)', '376%', '494%'],
     },
     {
       mainImg: {
@@ -57,17 +41,11 @@ const SuccessStoryContainer = () => {
         mobile: './static/image/succeeStory/success_slide-5-m.png',
       },
       titleImg: './static/image/succeeStory/success_slide_title-5.png',
-      text: [
-        '광고수익률(ROAS)',
-        '0.66%',
-        '26.65%',
-      ]
+      text: ['광고수익률(ROAS)', '0.66%', '26.65%'],
     },
   ]
 
-  return(
-    <SuccessStory items={items}/>
-  )
+  return <SuccessStory items={items} />
 }
 
 export default SuccessStoryContainer

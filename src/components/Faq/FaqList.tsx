@@ -1,6 +1,6 @@
 import React, { FC, ReactElement, useState } from 'react'
 import styled from 'styled-components'
-import { IFaqListProps, IStateProps } from '../../types/faq'
+import { IFaqListProps, IStateProps } from 'types/faq'
 
 const List = styled.div`
   font-family: NotoSansKR;

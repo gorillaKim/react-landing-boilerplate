@@ -1,25 +1,25 @@
-import React, {FC} from 'react'
-import styled from "styled-components"
-import {MainFlexContainer as MainContainer} from "./Styled";
-import useScrollFadeIn from "../../hooks/useScrollFadeIn";
-import {cssBreakPoint} from "../../styles/constant";
-import ContactFormContainer from "../../containers/mainArticle/ContactFormContainer";
+import React, { FC } from 'react'
+import styled from 'styled-components'
+import ContactFormContainer from 'containers/mainArticle/ContactFormContainer'
+import useScrollFadeIn from 'hooks/useScrollFadeIn'
+import { cssBreakPoint } from 'styles/constant'
+import { MainFlexContainer as MainContainer } from './Styled'
 
 const FirstContainer = styled.div`
   width: 50%;
   min-width: 50%;
   position: relative;
   padding-bottom: 386px;
-  background-image: url(${'../../../static/image/main/main_BG2.jpg'});
+  background-image: url(${'./static/image/main/main_BG2.jpg'});
   background-repeat: no-repeat;
   background-size: cover;
-  
-  &::before {
+
+  ::before {
     height: 100%;
     width: 100%;
     top: 0;
     position: absolute;
-    content: "";
+    content: '';
     opacity: 0.5;
     background-color: #0f0f14;
   }
@@ -62,7 +62,7 @@ const ContentBox = styled.div`
   align-items: center;
   height: 100%;
   padding: 230px 0 168px 0;
-  
+
   @media (max-width: ${cssBreakPoint.tablet}) {
     padding: 170px 0 0 0;
     height: unset;
@@ -70,7 +70,6 @@ const ContentBox = styled.div`
 `
 
 const FirstContent = styled.div`
-  
   p {
     font-weight: normal;
     font-stretch: normal;
@@ -128,31 +127,23 @@ const FirstContent = styled.div`
   }
 `
 
-interface IMainB {
-}
+interface IMainB {}
 
 const MainB: FC<IMainB> = () => {
-  const animation = [
-    useScrollFadeIn('up', 1, 0),
-    useScrollFadeIn('up', 1, 0.5),
-  ]
+  const animation = [useScrollFadeIn('up', 1, 0), useScrollFadeIn('up', 1, 0.5)]
 
   return (
     <MainContainer id="main">
       <FirstContainer>
         <ContentBox>
           <FirstContent {...animation[0]}>
-            <p className={'large-title'}>
-              Your Dreams, Our Goals
-            </p>
-            <p className={'small-title'}>
-              디지털 마케팅, 성공의 레버를 당기세요!
-            </p>
+            <p className={'large-title'}>Your Dreams, Our Goals</p>
+            <p className={'small-title'}>디지털 마케팅, 성공의 레버를 당기세요!</p>
           </FirstContent>
         </ContentBox>
       </FirstContainer>
       <SecondContainer>
-        <ContactFormContainer/>
+        <ContactFormContainer />
       </SecondContainer>
     </MainContainer>
   )

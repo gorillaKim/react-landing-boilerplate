@@ -1,7 +1,7 @@
-import React, { FC } from "react"
-import styled from "styled-components"
-import {cssBreakPoint} from "../../styles/constant";
-import {MenuProps} from "../../types/navbar";
+import React, { FC } from 'react'
+import styled from 'styled-components'
+import { cssBreakPoint } from 'styles/constant'
+import { MenuProps } from 'types/navbar'
 
 const MenuLayout = styled.div`
   display: flex;
@@ -13,7 +13,7 @@ const MenuLayout = styled.div`
   @media (max-width: ${cssBreakPoint.tablet}) {
     display: none;
     height: 100%;
-    
+
     &.active {
       display: flex;
       flex-direction: column;
@@ -105,12 +105,12 @@ const MenuRight = styled.ul`
 const RightItem = styled.li`
   margin: 5px;
   color: var(--greyish-brown);
-  
-  &:first-child {
+
+  :first-child {
     margin-right: 16.4px;
   }
-  
-  &:last-child > a{
+
+  :last-child > a {
     border-radius: 25px;
     border: unset;
     cursor: pointer;
@@ -124,13 +124,13 @@ const RightItem = styled.li`
     align-items: center;
     margin: 0;
     border-top: 1px solid var(--light-periwinkle);
-    
-    &:first-child {
+
+    :first-child {
       margin-right: 0;
       border-right: 1px solid var(--light-periwinkle);
       background-color: var(--white);
     }
-    &:last-child > a{
+    :last-child > a {
       border-radius: 0px;
       padding: 18px 61.7px;
       color: var(--white);
@@ -138,7 +138,7 @@ const RightItem = styled.li`
   }
 `
 
-const RightItemLink =  styled(ItemLink)`
+const RightItemLink = styled(ItemLink)`
   @media (max-width: ${cssBreakPoint.tablet}) {
     width: 100%;
     padding: 18px 61.7px;
@@ -150,46 +150,44 @@ const RightItemLink =  styled(ItemLink)`
   }
 `
 
-
-const Menu: FC<MenuProps> = ({isActive= false, clickToMove}) => {
+const Menu: FC<MenuProps> = ({ isActive = false, clickToMove }) => {
   return (
-    <MenuLayout className={isActive ? 'active' : 'deactive'} >
+    <MenuLayout className={isActive ? 'active' : 'deactive'}>
       <Title>
         <TitleList>
-          <TitleListLink
-            href="https://biz.lever.me/login"
-            className="lever-login"
-          />
+          <TitleListLink href="https://biz.lever.me/login" className="lever-login" />
         </TitleList>
       </Title>
       <MenuCenter>
         <CenterItem>
-          <CenterItemLink data-nav="success_story" onClick={clickToMove}>성공사례</CenterItemLink>
+          <CenterItemLink data-nav="success_story" onClick={clickToMove}>
+            성공사례
+          </CenterItemLink>
         </CenterItem>
         <CenterItem>
-          <CenterItemLink data-nav="introduce" onClick={clickToMove}>레버 서비스 소개</CenterItemLink>
+          <CenterItemLink data-nav="introduce" onClick={clickToMove}>
+            레버 서비스 소개
+          </CenterItemLink>
         </CenterItem>
         <CenterItem>
-          <CenterItemLink data-nav="know_how" onClick={clickToMove}>디지털 마케팅 노하우</CenterItemLink>
+          <CenterItemLink data-nav="know_how" onClick={clickToMove}>
+            디지털 마케팅 노하우
+          </CenterItemLink>
         </CenterItem>
         <CenterItem>
-          <CenterItemLink data-nav="faq" onClick={clickToMove}>자주하는 질문</CenterItemLink>
+          <CenterItemLink data-nav="faq" onClick={clickToMove}>
+            자주하는 질문
+          </CenterItemLink>
         </CenterItem>
       </MenuCenter>
       <MenuRight>
         <RightItem>
-          <RightItemLink
-            href="https://biz.lever.me/login"
-            className="lever-login"
-          >
+          <RightItemLink href="https://biz.lever.me/login" className="lever-login">
             로그인
           </RightItemLink>
         </RightItem>
         <RightItem>
-          <RightItemLink
-            href="https://biz.lever.me/signup"
-            className="lever-signup"
-          >
+          <RightItemLink href="https://biz.lever.me/signup" className="lever-signup">
             회원가입
           </RightItemLink>
         </RightItem>

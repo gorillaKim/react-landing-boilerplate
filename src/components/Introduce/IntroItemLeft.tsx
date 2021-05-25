@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
-import styled from "styled-components"
-import { cssBreakPoint } from '../../styles/constant'
+import styled from 'styled-components'
+import { cssBreakPoint } from 'styles/constant'
 
 const ContentImg = styled.img`
   width: 85%;
@@ -12,9 +12,9 @@ const ContentImg = styled.img`
   }
 `
 const IntroItemLeft = (): ReactElement => {
-  return(
+  return (
     <div>
-      <ContentImg src="./static/image/introduce/Group%2016.svg" alt="introduce automation"/>
+      <ContentImg src="./static/image/introduce/Group%2016.svg" alt="introduce automation" />
     </div>
   )
 }

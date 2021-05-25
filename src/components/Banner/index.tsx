@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
-import styled from "styled-components";
-import {Container} from '../Styled/Layout';
-import {cssBreakPoint} from "../../styles/constant";
+import styled from 'styled-components'
+import { Container } from 'components/Styled/Layout'
 
 const BannerSection = styled.section`
   font-family: NotoSansKR;
@@ -13,7 +12,7 @@ const BannerSection = styled.section`
   letter-spacing: -0.9px;
   background-color: var(--cornflower);
   color: var(--white);
-`;
+`
 
 const BannerContent = styled.div`
   display: flex;
@@ -22,22 +21,19 @@ const BannerContent = styled.div`
   height: fit-content;
   min-height: 41px;
   margin: 0 auto;
-  padding: 5px 0;  
-`;
+  padding: 5px 0;
+`
 interface BannerProps {
-  children: JSX.Element[] | JSX.Element;
+  children: JSX.Element[] | JSX.Element
 }
-const Banner: FC<BannerProps> = ({children}) => {
+const Banner: FC<BannerProps> = ({ children }) => {
   return (
     <BannerSection>
       <Container>
-        <BannerContent>
-          {children}
-        </BannerContent>
+        <BannerContent>{children}</BannerContent>
       </Container>
     </BannerSection>
   )
 }
 
 export default Banner
-

@@ -1,26 +1,26 @@
 import React, { ReactElement } from 'react'
-import styled from "styled-components"
-import { WrapperProps, DescBoxProps} from '../../types/introduce'
-import { cssBreakPoint } from "../../styles/constant";
-import { showElement, swipeY } from '../Styled/Animation'
+import styled from 'styled-components'
+import { WrapperProps, DescBoxProps } from 'types/introduce'
+import { cssBreakPoint } from 'styles/constant'
+import { showElement, swipeY } from 'components/Styled/Animation'
 
 const start = {
-  'top': '0px',
-  'height': '2.2px',
-  'opacity': '0',
-  'zIndex': '-1',
-  'display': 'unset',
-  'visibility': 'hidden',
-  'backgroundColor': 'transparent',
+  top: '0px',
+  height: '2.2px',
+  opacity: '0',
+  zIndex: '-1',
+  display: 'unset',
+  visibility: 'hidden',
+  backgroundColor: 'transparent',
 }
 const end = {
-  'top': '11px',
-  'height': '0px',
-  'opacity': '1',
-  'zIndex': '1',
-  'display': 'unset',
-  'visibility': 'visible',
-  'backgroundColor': 'transparent',
+  top: '11px',
+  height: '0px',
+  opacity: '1',
+  zIndex: '1',
+  display: 'unset',
+  visibility: 'visible',
+  backgroundColor: 'transparent',
 }
 const swipeYProps = {
   start: {
@@ -38,7 +38,7 @@ const imgUrl = {
   naver: './static/image/introduce/Slice%2088.svg',
 }
 const Wrapper = styled.div<WrapperProps>`
-  display: ${(props): string => props.active.second? 'flex': 'none'};
+  display: ${(props): string => (props.active.second ? 'flex' : 'none')};
   flex-direction: column;
   height: 100%;
   animation-name: ${showElement({ start, end })};
@@ -80,20 +80,17 @@ const DescBox = styled.div<DescBoxProps>`
   .google::before {
     content: "co";
     color: transparent;
-    background: url(${(props: any):string => props.imgUrl.google
-    }) center no-repeat;
+    background: url(${(props: any): string => props.imgUrl.google}) center no-repeat;
   }
   .facebook::before {
     content: "con";
     color: transparent;
-    background: url(${(props: any):string => props.imgUrl.facebook
-    }) center no-repeat;
+    background: url(${(props: any): string => props.imgUrl.facebook}) center no-repeat;
   }
   .naver::before {
     content: "con";
     color: transparent;
-    background: url(${(props: any):string => props.imgUrl.naver
-    }) center no-repeat;
+    background: url(${(props: any): string => props.imgUrl.naver}) center no-repeat;
   }
   }
 `
@@ -148,10 +145,11 @@ const ReportBox = styled.div`
 const ReportImg = styled.div`
   display: flex;
   flex-direction: column;
-  &.first, &.third {
+  &.first,
+  &.third {
     position: relative;
   }
-  &.first img{
+  &.first img {
     :nth-child(1) {
       width: 11rem;
     }
@@ -198,7 +196,7 @@ const List = styled.ul`
     text-align: left;
     color: var(--greyish-brown);
     ::before {
-      content: "✓ ";
+      content: '✓ ';
     }
   }
   @media (max-width: ${cssBreakPoint.mobileMd}) {
@@ -206,7 +204,7 @@ const List = styled.ul`
     padding: 0;
   }
 `
-const ListTitle  = styled.li`
+const ListTitle = styled.li`
   width: auto;
   height: auto;
   font-size: 15px;
@@ -219,13 +217,13 @@ const ListTitle  = styled.li`
   animation-fill-mode: forwards;
 `
 const IntroItem2 = ({ active }: any): ReactElement => {
-  return(
+  return (
     <Wrapper active={active}>
       <InnerWrapper className="banner2">
         <div>
           <Date>
             2021.01.01 ~ 2021.02.01
-            <img src="./static/image/introduce/Slice%2085.svg" alt="calendar icon"/>
+            <img src="./static/image/introduce/Slice%2085.svg" alt="calendar icon" />
           </Date>
           <DescBox imgUrl={imgUrl}>
             <DateDesc id="desc1">
@@ -241,14 +239,18 @@ const IntroItem2 = ({ active }: any): ReactElement => {
               </div>
             </DescBox2>
           </DescBox>
-          <Dot className="dot">.<br/><br/>.<br/><br/>.</Dot>
+          <Dot className="dot">
+            .<br />
+            <br />.<br />
+            <br />.
+          </Dot>
         </div>
         <ReportBox className="report-box">
           <Inner className="inner">
             <ReportImg className="report-img first">
-              <img src="./static/image/introduce/Slice%2097.svg" alt="introduce summary"/>
-              <img src="./static/image/introduce/Slice%2094.svg" alt="introduce summary bar"/>
-              <img src="./static/image/introduce/Slice%2082.svg" alt="introduce tooltip"/>
+              <img src="./static/image/introduce/Slice%2097.svg" alt="introduce summary" />
+              <img src="./static/image/introduce/Slice%2094.svg" alt="introduce summary bar" />
+              <img src="./static/image/introduce/Slice%2082.svg" alt="introduce tooltip" />
             </ReportImg>
             <List className="list">
               <ListTitle className="title">요 약</ListTitle>
@@ -259,8 +261,8 @@ const IntroItem2 = ({ active }: any): ReactElement => {
           </Inner>
           <Inner className="inner">
             <ReportImg className="report-img second">
-              <img src="./static/image/introduce/Slice%2091.svg" alt="introduce medium"/>
-              <img src="./static/image/introduce/Slice%2092.svg" alt="introduce medium bar"/>
+              <img src="./static/image/introduce/Slice%2091.svg" alt="introduce medium" />
+              <img src="./static/image/introduce/Slice%2092.svg" alt="introduce medium bar" />
             </ReportImg>
             <List className="list">
               <ListTitle className="title">매체별</ListTitle>
@@ -273,9 +275,9 @@ const IntroItem2 = ({ active }: any): ReactElement => {
           </Inner>
           <Inner className="inner">
             <ReportImg className="report-img third">
-              <img src="./static/image/introduce/Slice%2093.svg" alt="introduce weekly daily"/>
-              <img src="./static/image/introduce/Slice%2094.svg" alt="introduce weekly daily"/>
-              <img src="./static/image/introduce/Slice%2095.svg" alt="introduce weekly daily"/>
+              <img src="./static/image/introduce/Slice%2093.svg" alt="introduce weekly daily" />
+              <img src="./static/image/introduce/Slice%2094.svg" alt="introduce weekly daily" />
+              <img src="./static/image/introduce/Slice%2095.svg" alt="introduce weekly daily" />
             </ReportImg>
             <List className="list">
               <ListTitle className="title">주별/요일별</ListTitle>
@@ -287,8 +289,13 @@ const IntroItem2 = ({ active }: any): ReactElement => {
         </ReportBox>
       </InnerWrapper>
       <Bottom className="bottom">
-        <h1>여러분의 광고 데이터들을&nbsp;
-          <span className="mobile-block">한 곳에서 한 번에 모두 확인 가능하고,<br/>엑셀 다운로드까지 레버에서 가능합니다.</span>
+        <h1>
+          여러분의 광고 데이터들을&nbsp;
+          <span className="mobile-block">
+            한 곳에서 한 번에 모두 확인 가능하고,
+            <br />
+            엑셀 다운로드까지 레버에서 가능합니다.
+          </span>
         </h1>
         <p>* 위 화면은 이해를 돕기 위한 화면입니다.</p>
         <p>실제 화면과 차이가 있을 수 있습니다.</p>

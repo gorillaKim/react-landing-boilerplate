@@ -1,10 +1,10 @@
-import React, {FC} from 'react'
-import styled from "styled-components"
-import {Container} from '../Styled/Layout'
-import {MainContainer} from "./Styled";
-import useScrollFadeIn from "../../hooks/useScrollFadeIn";
-import {scrollBtn} from "../Styled/Animation";
-import {cssBreakPoint} from "../../styles/constant";
+import React, { FC } from 'react'
+import styled from 'styled-components'
+import { Container } from 'components/Styled/Layout'
+import { scrollBtn } from 'components/Styled/Animation'
+import useScrollFadeIn from 'hooks/useScrollFadeIn'
+import { cssBreakPoint } from 'styles/constant'
+import { MainContainer } from './Styled'
 
 const ContentBox = styled.div`
   display: flex;
@@ -23,12 +23,11 @@ const ContentBox = styled.div`
 `
 
 const TopContent = styled.div`
-  
   p {
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
-    line-height: normal;      
+    line-height: normal;
     text-align: center;
     color: var(--white);
 
@@ -41,8 +40,8 @@ const TopContent = styled.div`
       margin-bottom: 20px;
 
       @media (max-width: ${cssBreakPoint.tablet}) {
-         font-size: 57px;
-         letter-spacing: -1.71px;
+        font-size: 57px;
+        letter-spacing: -1.71px;
       }
       @media (max-width: ${cssBreakPoint.mobileMd}) {
         max-width: 326px;
@@ -57,7 +56,7 @@ const TopContent = styled.div`
       font-family: NotoSansKR;
       font-size: 20px;
       letter-spacing: -1px;
-      
+
       @media (max-width: ${cssBreakPoint.mobileMd}) {
         min-width: 284px;
         height: 52px;
@@ -68,7 +67,6 @@ const TopContent = styled.div`
   }
 `
 const BottomContent = styled.div`
-
   animation-name: swipeUp;
   animation-duration: 1s;
   animation-delay: 0.5s;
@@ -79,10 +77,10 @@ const BottomContent = styled.div`
   font-style: normal;
   line-height: normal;
   font-family: NotoSansKR;
-  
+
   p {
     margin-bottom: 20px;
-    
+
     &.xsm-text {
       width: 466px;
       height: 46px;
@@ -118,7 +116,7 @@ const AdditionalButton = styled.div`
   a {
     text-decoration: none;
   }
-  
+
   @media (max-width: ${cssBreakPoint.tablet}) {
     padding-top: 60px;
     bottom: 0;
@@ -136,43 +134,29 @@ const ScrollIcon = styled.div`
   animation-duration: 1.2s;
 `
 
-interface IMainA {
-}
+interface IMainA {}
 
 const MainA: FC<IMainA> = () => {
-  const animation = [
-    useScrollFadeIn('up', 1, 0),
-    useScrollFadeIn('up', 1, 0.5),
-  ]
+  const animation = [useScrollFadeIn('up', 1, 0), useScrollFadeIn('up', 1, 0.5)]
 
   return (
     <MainContainer id="main">
       <Container>
         <ContentBox>
-          <TopContent
-            {...animation[0]}
-          >
-            <p className={'large-title'}>
-              Your Dreams, Our Goals
-            </p>
-            <p className={'small-title'}>
-              디지털 마케팅, 성공의 레버를 당기세요!
-            </p>
+          <TopContent {...animation[0]}>
+            <p className={'large-title'}>Your Dreams, Our Goals</p>
+            <p className={'small-title'}>디지털 마케팅, 성공의 레버를 당기세요!</p>
           </TopContent>
-          <BottomContent
-            {...animation[1]}
-          >
-            <p className={"xsm-text"}>
-              매체운영, 소재제작, 성과 측정까지 <br/>
+          <BottomContent {...animation[1]}>
+            <p className={'xsm-text'}>
+              매체운영, 소재제작, 성과 측정까지 <br />
               당신의 디지털 마케팅, 레버가 지원합니다.
             </p>
-            <button className={"link-btn"}>
-              무료로 자동화 체험하기
-            </button>
+            <button className={'link-btn'}>무료로 자동화 체험하기</button>
           </BottomContent>
         </ContentBox>
         <AdditionalButton>
-          <a href={"#success_story"}>
+          <a href={'#success_story'}>
             <ScrollIcon />
           </a>
         </AdditionalButton>

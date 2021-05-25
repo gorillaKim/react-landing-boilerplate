@@ -1,8 +1,7 @@
-import React, {FC, useEffect, useState} from 'react'
-import styled from "styled-components"
-import {Container} from '../Styled/Layout'
-import {cssBreakPoint} from "../../styles/constant";
-import SuccessStorySlider from "./SuccessStorySlider";
+import React, { FC } from 'react'
+import styled from 'styled-components'
+import { cssBreakPoint } from 'styles/constant'
+import SuccessStorySlider from './SuccessStorySlider'
 
 const Section = styled.section`
   width: 100%;
@@ -22,9 +21,9 @@ const ContentLayout = styled.div`
   justify-content: center;
   align-items: flex-start;
   overflow: hidden;
-  
-  height: fit-content; 
-  min-height: 444px; 
+
+  height: fit-content;
+  min-height: 444px;
   max-width: 80vw;
   min-width: 1025px;
   width: 100%;
@@ -37,7 +36,7 @@ const ContentLayout = styled.div`
 const Title = styled.div`
   font-stretch: normal;
   font-style: normal;
-  line-height: normal;    
+  line-height: normal;
   font-family: Roboto;
   text-align: left;
   margin: 0 5%;
@@ -45,7 +44,7 @@ const Title = styled.div`
   @media (max-width: ${cssBreakPoint.mobileXs}) {
     margin: unset;
   }
-  
+
   .sm {
     font-family: NotoSansKR;
     font-size: 18px;
@@ -61,14 +60,13 @@ const Title = styled.div`
       font-size: 15px;
       width: fit-content;
     }
-
   }
   .xsm {
     font-size: 18px;
     font-weight: bold;
     letter-spacing: -0.54px;
     color: var(--cornflower);
-    
+
     @media (max-width: ${cssBreakPoint.mobileMd}) {
       min-width: 252px;
       height: 21px;
@@ -98,13 +96,10 @@ const Title = styled.div`
       width: fit-content;
     }
   }
-  
 `
 const Content = styled.div`
   margin-top: 68px;
-  margin-right: 10%;
-  height: 450px;
-  width: 110%;
+  width: 100%;
   @media (max-width: ${cssBreakPoint.tablet}) {
     width: 100%;
     margin-right: unset;
@@ -129,24 +124,20 @@ interface ISuccessStory {
   items: any
 }
 
-const SuccessStory: FC<ISuccessStory> = ({items}) => {
+const SuccessStory: FC<ISuccessStory> = ({ items }) => {
   return (
-    <Section id={"success_story"}>
+    <Section id={'success_story'}>
       <ContentLayout>
         <Title>
-          <p className="xsm">
-            Digital Marketing Solution LEVER
-          </p>
-          <p className="xlg">
-            SUCCESS STORY
-          </p>
+          <p className="xsm">Digital Marketing Solution LEVER</p>
+          <p className="xlg">SUCCESS STORY</p>
           <p className="sm">
             성공을 꿈꾸는 기업들과 함께<span>꿈이 현실이 되는 성공 사례를 만들고 있습니다.</span>
           </p>
         </Title>
         <Content>
-          <SuccessStorySlider items={items} className={"desktop"} slidesToShow={3}/>
-          <SuccessStorySlider items={items} className={"mobile"} slidesToShow={2}/>
+          <SuccessStorySlider items={items} className={'desktop'} slidesToShow={3} />
+          <SuccessStorySlider items={items} className={'mobile'} slidesToShow={2} />
         </Content>
         <Bottom>
           <p>* 레버의 실제 고객사례입니다.</p>

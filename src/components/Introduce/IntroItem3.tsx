@@ -1,29 +1,29 @@
 import React, { ReactElement } from 'react'
-import styled from "styled-components"
-import { IswpeYComponent, WrapperProps } from '../../types/introduce'
-import { cssBreakPoint } from "../../styles/constant";
-import { showElement, swipeRight, swipeLeft ,swipeY } from '../Styled/Animation'
+import styled from 'styled-components'
+import { IswpeYComponent, WrapperProps } from 'types/introduce'
+import { cssBreakPoint } from 'styles/constant'
+import { showElement, swipeRight, swipeLeft, swipeY } from 'components/Styled/Animation'
 
 const start = {
-  'top': '0px',
-  'height': '2.2px',
-  'opacity': '0',
-  'zIndex': '-1',
-  'display': 'unset',
-  'visibility': 'hidden',
-  'backgroundColor': 'transparent',
+  top: '0px',
+  height: '2.2px',
+  opacity: '0',
+  zIndex: '-1',
+  display: 'unset',
+  visibility: 'hidden',
+  backgroundColor: 'transparent',
 }
 const end = {
-  'top': '11px',
-  'height': '0px',
-  'opacity': '1',
-  'zIndex': '1',
-  'display': 'unset',
-  'visibility': 'visible',
-  'backgroundColor': 'transparent',
+  top: '11px',
+  height: '0px',
+  opacity: '1',
+  zIndex: '1',
+  display: 'unset',
+  visibility: 'visible',
+  backgroundColor: 'transparent',
 }
 const Wrapper = styled.div<WrapperProps>`
-  display: ${(props)=> props.active.third? 'block': 'none'};
+  display: ${props => (props.active.third ? 'block' : 'none')};
   animation-name: ${showElement({ start, end })};
   animation-duration: 0.5s;
   animation-timing-function: ease-in;
@@ -49,7 +49,7 @@ const Wrapper = styled.div<WrapperProps>`
     }
   }
 `
-const InnerPc =  styled.div`
+const InnerPc = styled.div`
   display: flex;
   justify-content: center;
   text-align: center;
@@ -62,7 +62,7 @@ const InnerPc =  styled.div`
   .up {
     animation-name: ${swipeRight};
     :nth-child(3) {
-      animation-delay: .5s;
+      animation-delay: 0.5s;
     }
     :nth-child(5) {
       animation-delay: 1s;
@@ -160,9 +160,9 @@ const IntroItem3 = ({ active }: any): ReactElement => {
       opacity: 1,
     },
   }
-  return(
+  return (
     <Wrapper active={active}>
-      <InnerPc className={"pc-view up"}>
+      <InnerPc className={'pc-view up'}>
         <Circle className={'circle up'}>
           <span>STEP 01</span>
           <p>레버 문의하기</p>
@@ -175,11 +175,14 @@ const IntroItem3 = ({ active }: any): ReactElement => {
         <ArrowRight />
         <Circle className={'circle up'}>
           <span>STEP 03</span>
-          <p>담당 매니저 배정<br/>및 컨설팅</p>
+          <p>
+            담당 매니저 배정
+            <br />및 컨설팅
+          </p>
           <ArrowDown />
         </Circle>
       </InnerPc>
-      <InnerPc className={"pc-view down"} id="reverse-order">
+      <InnerPc className={'pc-view down'} id="reverse-order">
         <Circle className={'circle down'}>
           <span>STEP 06</span>
           <p>마케팅 시작하기</p>
@@ -187,12 +190,19 @@ const IntroItem3 = ({ active }: any): ReactElement => {
         <ArrowLeft />
         <Circle className={'circle down'}>
           <span>STEP 05</span>
-          <p>마케팅 인사이트 도출<br/>및 최적화</p>
+          <p>
+            마케팅 인사이트 도출
+            <br />및 최적화
+          </p>
         </Circle>
         <ArrowLeft />
         <Circle className={'circle down'}>
           <span>STEP 04</span>
-          <p>알고리즘을 통한<br/>광고 최적화</p>
+          <p>
+            알고리즘을 통한
+            <br />
+            광고 최적화
+          </p>
         </Circle>
       </InnerPc>
       <InnerMobile className="inner__mobile" swipeYProps={swipeYProps}>
@@ -206,15 +216,25 @@ const IntroItem3 = ({ active }: any): ReactElement => {
         </Circle>
         <Circle>
           <span>STEP 03</span>
-          <p>담당 매니저 배정<br/>및 컨설팅</p>
+          <p>
+            담당 매니저 배정
+            <br />및 컨설팅
+          </p>
         </Circle>
         <Circle>
           <span>STEP 04</span>
-          <p>알고리즘을 통한<br/>광고 최적화</p>
+          <p>
+            알고리즘을 통한
+            <br />
+            광고 최적화
+          </p>
         </Circle>
         <Circle>
           <span>STEP 05</span>
-          <p>마케팅 인사이트 도출<br/>및 최적화</p>
+          <p>
+            마케팅 인사이트 도출
+            <br />및 최적화
+          </p>
         </Circle>
         <Circle>
           <span>STEP 06</span>

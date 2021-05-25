@@ -1,9 +1,9 @@
-import React, { FC } from "react"
-import styled from "styled-components"
-import {cssBreakPoint} from "../../styles/constant"
+import React, { FC } from 'react'
+import styled from 'styled-components'
+import { cssBreakPoint } from 'styles/constant'
+import { LogoProps } from 'types/navbar'
 import WhiteLogoSVG from '../../../public/static/image/icon/lever_new_logo_w.svg'
 import BlackLogoSVG from '../../../public/static/image/icon/lever_new_logo.svg'
-import {LogoProps} from "../../types/navbar";
 
 const LogoLayout = styled.div`
   width: fit-content;
@@ -25,7 +25,7 @@ const WhiteLogoIcon = styled(WhiteLogoSVG)`
   width: 80px;
   height: auto;
   margin: 0 auto;
-  
+
   @media (max-width: ${cssBreakPoint.tablet}) {
     margin: 0 0 0 25px;
   }
@@ -35,19 +35,17 @@ const BlackLogoIcon = styled(BlackLogoSVG)`
   width: 80px;
   height: auto;
   margin: 0 auto;
-  
+
   @media (max-width: ${cssBreakPoint.tablet}) {
     margin: 0 0 0 25px;
   }
 `
-const Logo: FC<LogoProps> = ({ isActive= false, clickToMove }) => {
+const Logo: FC<LogoProps> = ({ isActive = false, clickToMove }) => {
   return (
     <LogoLayout>
-      <a onClick={clickToMove}>
-        {isActive ? <BlackLogoIcon/> : <WhiteLogoIcon/>}
-      </a>
+      <a onClick={clickToMove}>{isActive ? <BlackLogoIcon /> : <WhiteLogoIcon />}</a>
     </LogoLayout>
   )
 }
 
-export default Logo;
+export default Logo

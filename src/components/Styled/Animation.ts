@@ -1,8 +1,8 @@
 import { keyframes } from 'styled-components'
-import { IslideHeader, Irotate, IshowElement, Inavbar, Iheader, IswipeY } from '../../types/animation'
+import { IslideHeader, Irotate, IshowElement, Inavbar, Iheader, IswipeY } from 'types/animation'
 
 /* animation */
-export const slideHeader = ({start, end}:IslideHeader) => keyframes`
+export const slideHeader = ({ start, end }: IslideHeader) => keyframes`
   0% {
     right: ${start.right}; // -210%;
   }
@@ -10,7 +10,7 @@ export const slideHeader = ({start, end}:IslideHeader) => keyframes`
     right:${end.right}; // 0%
   }
 `
-export const rotate = ({start, end}:Irotate) => keyframes`
+export const rotate = ({ start, end }: Irotate) => keyframes`
   0% {
     top: ${start.top}; // 0
     bottom: ${start.bottom}; // unset
@@ -26,7 +26,7 @@ export const rotate = ({start, end}:Irotate) => keyframes`
     background-color: ${start.backgroundColor};
   }
 `
-export const showElement = ({start, end}:IshowElement) => keyframes`
+export const showElement = ({ start, end }: IshowElement) => keyframes`
   0% {
     top: ${start.top};
     height: ${start.height};
@@ -44,7 +44,7 @@ export const showElement = ({start, end}:IshowElement) => keyframes`
     background-color: ${end.backgroundColor};
   }
 `
-export const swipeY = ({start, end}:IswipeY) => keyframes`
+export const swipeY = ({ start, end }: IswipeY) => keyframes`
   0% {
     transform: translateY(${start.value}px); // 50
     opacity: ${start.opacity}; // 0
@@ -86,7 +86,7 @@ export const importText = keyframes`
     font-weight: bold;
   }
 `
-export const navbar = ({start, end}:Inavbar) => keyframes`
+export const navbar = ({ start, end }: Inavbar) => keyframes`
   0% {
     display: ${start.display};
   }
@@ -94,7 +94,7 @@ export const navbar = ({start, end}:Inavbar) => keyframes`
     display: ${end.display};
   }
 `
-export const header = ({start, end}:Iheader) => keyframes`
+export const header = ({ start, end }: Iheader) => keyframes`
   0% {
     background-color: ${start.backgroundColor};
     color: var(--black);

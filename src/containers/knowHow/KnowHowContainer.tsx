@@ -1,10 +1,8 @@
-import React, { FC } from 'react';
-import KnowHow from "../../components/KnowHow";
+import React, { FC } from 'react'
+import KnowHow from '../../components/KnowHow'
 
 const KnowHowContainer = () => {
-  return(
-    <KnowHow/>
-  )
+  return <KnowHow />
 }
 
 export default KnowHowContainer

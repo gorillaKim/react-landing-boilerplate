@@ -1,12 +1,11 @@
-import React from 'react'
-import styled from "styled-components"
-import {cssBreakPoint} from "../../styles/constant";
+import styled from 'styled-components'
+import { cssBreakPoint } from 'styles/constant'
 
 export const MainContainer = styled.section`
-  height: fit-content; 
-  min-height: 444px; 
+  height: fit-content;
+  min-height: 444px;
   margin-top: -101px;
-  background-image: url(${'../../../static/image/main/main_BG2.jpg'});
+  background-image: url(${'./static/image/main/main_BG2.jpg'});
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -14,12 +13,12 @@ export const MainContainer = styled.section`
   @media (max-width: ${cssBreakPoint.tablet}) {
     margin-top: -73px;
   }
-  &::before {
+  ::before {
     height: 100%;
     width: 100%;
     top: 0px;
     position: absolute;
-    content: "";
+    content: '';
     opacity: 0.5;
     background-color: #0f0f14;
     z-index: 0;
@@ -31,15 +30,15 @@ export const MainFlexContainer = styled.section`
   display: flex;
   position: relative;
   margin-top: -101px;
-  
+
   @media (max-width: ${cssBreakPoint.tablet}) {
     flex-direction: column;
     margin-top: -73px;
     align-items: center;
-    &>div {
+    & > div {
       width: 100%;
       min-width: unset;
-      &:first-child {
+      :first-child {
         height: 539px;
       }
     }

@@ -1,22 +1,22 @@
 import React, { ReactElement, useState } from 'react'
-import styled from "styled-components"
+import styled from 'styled-components'
+import { activeStateProps } from 'types/introduce'
 import IntroduceTitle from './IntroduceTitle'
 import IntroduceBtnGroup from './IntroduceBtnGroup'
 import IntroItem1 from './IntroItem1'
 import IntroItem2 from './IntroItem2'
 import IntroItem3 from './IntroItem3'
-import { activeStateProps } from '../../types/introduce'
 
 const IntroduceContainer = styled.div`
-  position: relative;
   width: 100%;
   max-width: 1280px;
+  min-height: 900px;
+  position: relative;
   margin: 0 auto;
-  overflow: hidden;
   padding-top: 8rem;
   padding-bottom: 6rem;
+  overflow: hidden;
   text-align: center;
-  min-height: 900px;
   line-height: 1.3;
 `
 const IntroduceSection = styled.div`
@@ -27,24 +27,24 @@ const IntroduceSection = styled.div`
 `
 const Introduce = (): ReactElement => {
   const initialOptions = {
-    'first': true,
-    'second': false,
-    'third': false,
+    first: true,
+    second: false,
+    third: false,
   }
-  const [options,setOptions] = useState<activeStateProps>(initialOptions)
+  const [options, setOptions] = useState<activeStateProps>(initialOptions)
 
-  const onClickActive = (e: React.MouseEvent) =>  {
+  const onClickActive = (e: React.MouseEvent) => {
     const clicked = e.target as HTMLElement
     setOptions({
       ...initialOptions,
-      ...(clicked.id !=="first" && {first: false}),
-      [clicked.id]: true
+      ...(clicked.id !== 'first' && { first: false }),
+      [clicked.id]: true,
     })
   }
   return (
-    <IntroduceSection id={"introduce"}>
+    <IntroduceSection id={'introduce'}>
       <IntroduceContainer>
-        <IntroduceTitle/>
+        <IntroduceTitle />
         <IntroduceBtnGroup
           onClickActive={onClickActive}
           active={options}
@@ -54,10 +54,10 @@ const Introduce = (): ReactElement => {
         />
         <IntroItem1 active={options} />
         <IntroItem2 active={options} />
-        <IntroItem3 active={options}/>
+        <IntroItem3 active={options} />
       </IntroduceContainer>
     </IntroduceSection>
   )
 }
 
-export default Introduce;
+export default Introduce

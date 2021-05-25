@@ -1,8 +1,8 @@
 import React, { FC, ReactElement } from 'react'
-import styled from "styled-components"
-import {cssBreakPoint} from "../../styles/constant"
-import useScrollFadeIn from "../../hooks/useScrollFadeIn";
-import {IntroduceBtnGroupProps} from '../../types/introduce'
+import styled from 'styled-components'
+import { cssBreakPoint } from 'styles/constant'
+import useScrollFadeIn from 'hooks/useScrollFadeIn'
+import { IntroduceBtnGroupProps } from 'types/introduce'
 
 const ButtonGroup = styled.div`
   display: flex;
@@ -46,9 +46,15 @@ const IntroduceBtnGroup: FC<IntroduceBtnGroupProps> = ({
   const animation = useScrollFadeIn('up', 1, 0.5)
   return (
     <ButtonGroup {...animation}>
-      <Button id='first' className={active['first'] && 'activeToggle'} onClick={onClickActive}>{first}</Button>
-      <Button id='second' className={active['second'] && 'activeToggle'} onClick={onClickActive}>{second}</Button>
-      <Button id='third' className={active['third'] && 'activeToggle'} onClick={onClickActive}>{third}</Button>
+      <Button id="first" className={active['first'] && 'activeToggle'} onClick={onClickActive}>
+        {first}
+      </Button>
+      <Button id="second" className={active['second'] && 'activeToggle'} onClick={onClickActive}>
+        {second}
+      </Button>
+      <Button id="third" className={active['third'] && 'activeToggle'} onClick={onClickActive}>
+        {third}
+      </Button>
     </ButtonGroup>
   )
 }

@@ -1,9 +1,9 @@
-import React, {ChangeEventHandler, FC, ReactElement, useState} from 'react'
-import {FormBox} from "../Form";
-import styled from "styled-components";
-import {cssBreakPoint} from "../../styles/constant";
-import PrivacyTermModal from "./PrivacyTermModal"
-import {IinitInputs} from "../../types/mainArticle";
+import React, { FC, ReactElement } from 'react'
+import { FormBox } from 'components/Form'
+import styled from 'styled-components'
+import { cssBreakPoint } from 'styles/constant'
+import { IinitInputs } from 'types/mainArticle'
+import PrivacyTermModal from './PrivacyTermModal'
 
 const FormCheck = styled.div`
   width: 100%;
@@ -19,7 +19,7 @@ const FormCheck = styled.div`
     color: var(--black);
     letter-spacing: -0.8px;
   }
-  &>button{
+  & > button {
     width: 100%;
     height: 89px;
     margin-bottom: 30px;
@@ -28,11 +28,11 @@ const FormCheck = styled.div`
     font-size: 22px;
     font-family: NotoSansKR;
     letter-spacing: -1.1px;
-    color: var(--black);
     border: 0;
+    color: var(--black);
     background-color: var(--white);
     cursor: unset;
-    
+
     &.active {
       color: var(--white);
       background-color: var(--cornflower);
@@ -40,8 +40,8 @@ const FormCheck = styled.div`
     }
 
     @media (max-width: ${cssBreakPoint.mobileMd}) {
-       width: 335px;
-       height: 60px;
+      width: 335px;
+      height: 60px;
     }
   }
   .view-term {
@@ -71,10 +71,10 @@ interface ContactForm {
   inputs: IinitInputs
   modal: boolean
   onClickModal: () => void
-  onChangeInput: (event:React.ChangeEvent)=>void
-  onChangeRadio: (event:React.ChangeEvent)=>void
-  onChangeChecked: (event:React.ChangeEvent)=>void
-  onClickTermConfirm: ()=>void
+  onChangeInput: (event: React.ChangeEvent) => void
+  onChangeRadio: (event: React.ChangeEvent) => void
+  onChangeChecked: (event: React.ChangeEvent) => void
+  onClickTermConfirm: () => void
   submitDisabled: boolean
 }
 
@@ -86,8 +86,8 @@ const ContactForm: FC<ContactForm> = ({
   onChangeChecked,
   onClickTermConfirm,
   onClickModal,
-  submitDisabled
-}):ReactElement => {
+  submitDisabled,
+}): ReactElement => {
   console.log(inputs)
 
   // PrivacyTerm
@@ -163,136 +163,130 @@ const ContactForm: FC<ContactForm> = ({
         </select>
       </FormBox>
 
-      <FormBox className={"wide"}>
+      <FormBox className={'wide'}>
         <label>월 광고 금액</label>
         <div className={'radioOptions'}>
-          <div className={"radio"}>
+          <div className={'radio'}>
             <input
-              type={"radio"}
-              name={"price"}
-              id={"price1"}
+              type={'radio'}
+              name={'price'}
+              id={'price1'}
               value={'price1'}
               onChange={onChangeRadio}
             />
-            <label >300 ~ 500만 원</label>
+            <label>300 ~ 500만 원</label>
           </div>
-          <div className={"radio"}>
+          <div className={'radio'}>
             <input
-              type={"radio"}
-              name={"price"}
-              id={"price2"}
+              type={'radio'}
+              name={'price'}
+              id={'price2'}
               value={'price2'}
               onChange={onChangeRadio}
             />
-            <label >500 ~ 1,000만 원</label>
+            <label>500 ~ 1,000만 원</label>
           </div>
-          <div className={"radio"}>
+          <div className={'radio'}>
             <input
-              type={"radio"}
-              name={"price"}
-              id={"price3"}
+              type={'radio'}
+              name={'price'}
+              id={'price3'}
               value={'price3'}
               onChange={onChangeRadio}
             />
-            <label >1,000 ~ 3,000만 원</label>
+            <label>1,000 ~ 3,000만 원</label>
           </div>
-          <div className={"radio"}>
+          <div className={'radio'}>
             <input
-              type={"radio"}
-              name={"price"}
-              id={"price4"}
+              type={'radio'}
+              name={'price'}
+              id={'price4'}
               value={'price4'}
               onChange={onChangeRadio}
             />
-            <label >3,000만 원 이상</label>
+            <label>3,000만 원 이상</label>
           </div>
         </div>
       </FormBox>
-      <FormBox className={"wide"}>
+      <FormBox className={'wide'}>
         <label>광고 집행 희망 시기</label>
         <div className={'radioOptions'}>
-          <div className={"radio"}>
+          <div className={'radio'}>
             <input
-              type={"radio"}
-              name={"time"}
-              id={"time1"}
+              type={'radio'}
+              name={'time'}
+              id={'time1'}
               value={'time1'}
               onChange={onChangeRadio}
             />
-            <label >1개월 이내</label>
+            <label>1개월 이내</label>
           </div>
-          <div className={"radio"}>
+          <div className={'radio'}>
             <input
-              type={"radio"}
-              name={"time"}
-              id={"time2"}
+              type={'radio'}
+              name={'time'}
+              id={'time2'}
               value={'time2'}
               onChange={onChangeRadio}
             />
-            <label >2개월 이내</label>
+            <label>2개월 이내</label>
           </div>
-          <div className={"radio"}>
+          <div className={'radio'}>
             <input
-              type={"radio"}
-              name={"time"}
-              id={"time3"}
+              type={'radio'}
+              name={'time'}
+              id={'time3'}
               value={'time3'}
               onChange={onChangeRadio}
             />
-            <label >3개월 이내</label>
+            <label>3개월 이내</label>
           </div>
-          <div className={"radio"}>
+          <div className={'radio'}>
             <input
-              type={"radio"}
-              name={"time"}
-              id={"time4"}
+              type={'radio'}
+              name={'time'}
+              id={'time4'}
               value={'time4'}
               onChange={onChangeRadio}
             />
-            <label >3개월 이후</label>
+            <label>3개월 이후</label>
           </div>
         </div>
       </FormBox>
 
-      <FormBox className={"wide"}>
+      <FormBox className={'wide'}>
         <label>문의 내용</label>
         <textarea
-          name={"content"}
-          placeholder={"문의내용을 최대 500자 한도 내에서 적어주세요."}
+          name={'content'}
+          placeholder={'문의내용을 최대 500자 한도 내에서 적어주세요.'}
           maxLength={500}
           id="contactContent"
           onChange={onChangeInput}
-        >
-        </textarea>
+        ></textarea>
       </FormBox>
       <FormCheck>
         <div className={'term-wrap'}>
           <CheckBox>
             <label>
-              <span>개인정보 처리방침</span>
-              에 동의합니다.
+              <span>개인정보 처리방침</span>에 동의합니다.
             </label>
             <input
-              type={"checkbox"}
-              name={"checkPolicy"}
-              id={"contactTerm"}
+              type={'checkbox'}
+              name={'checkPolicy'}
+              id={'contactTerm'}
               onChange={onChangeChecked}
               checked={inputs?.contactTerm}
             />
           </CheckBox>
-          <span className={'view-term'} onClick={onClickModal}>약관보기</span>
+          <span className={'view-term'} onClick={onClickModal}>
+            약관보기
+          </span>
         </div>
-        <button
-          disabled={submitDisabled}
-          className={submitDisabled?'undefined':'active'}
-        >
+        <button disabled={submitDisabled} className={submitDisabled ? 'undefined' : 'active'}>
           문의하기
         </button>
       </FormCheck>
-      <PrivacyTermModal
-        isOpen={modal}
-        onClickConfirm={onClickTermConfirm}
-      />
+      <PrivacyTermModal isOpen={modal} onClickConfirm={onClickTermConfirm} />
     </>
   )
 }

@@ -1,10 +1,10 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import { Container } from '../Styled/Layout'
-import { cssBreakPoint } from '../../styles/constant'
+import { Container } from 'components/Styled/Layout'
+import { cssBreakPoint } from 'styles/constant'
+import { IFaqProps } from 'types/faq'
+import useScrollFadeIn from 'hooks/useScrollFadeIn'
 import FaqList from './FaqList'
-import { IFaqProps } from '../../types/faq'
-import useScrollFadeIn from '../../hooks/useScrollFadeIn'
 
 const FaqContainer = styled(Container)`
   display: flex;

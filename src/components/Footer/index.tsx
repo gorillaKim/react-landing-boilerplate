@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import { Container } from '../Styled/Layout'
+import { Container } from 'components/Styled/Layout'
+import { cssBreakPoint } from 'styles/constant'
 import SocialBox from './SocialBox'
 import Address from './Address'
-import { cssBreakPoint } from '../../styles/constant'
 
 const FooterSection = styled.footer`
   background-color: #0f0b11;
