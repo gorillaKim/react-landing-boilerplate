@@ -9,7 +9,7 @@ const Section = styled.section`
   justify-content: flex-end;
   width: 100%;
   min-height: 444px;
-  height: 80vh;
+  height: 100vh;
   position: relative;
   background: linear-gradient(90deg, #ffffff 60%, #5c6aff 40%);
   @media (max-width: ${cssBreakPoint.tablet}) {
