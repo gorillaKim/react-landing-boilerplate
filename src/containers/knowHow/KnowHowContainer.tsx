@@ -25,12 +25,6 @@ const demo: {
     href: 'https://brunch.co.kr/@lever/5',
     content: '중소기업 마케터가 알아야 할 \n 디지털 마케팅 통계 49가지',
   },
-  {
-    id: '3',
-    url: './static/image/knowHow/9-1.jpg',
-    href: 'https://brunch.co.kr/@lever/5',
-    content: '중소기업 마케터가 알아야 할 \n 디지털 마케팅 통계 49가지',
-  },
 ]
 
 const KnowHowContainer = () => {

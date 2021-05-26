@@ -13,8 +13,10 @@ const CustomSwiper = styled(Swiper)`
     margin-top: 8rem;
     @media (max-width: ${cssBreakPoint.mobileMd}) {
       min-width: unset;
-      width: 90%;
-      margin-top: 3rem;
+      width: 80%;
+      padding: 0 10%;
+      max-width: 60%;
+      margin: 3rem auto 0 auto;
     }
     ul {
       width: 100vw;
@@ -34,8 +36,7 @@ const CustomSwiper = styled(Swiper)`
     }
   }
   .shadow {
-    width: 100%;
-    height: 100%;
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,14 +44,13 @@ const CustomSwiper = styled(Swiper)`
     font-size: 0;
     :hover {
       transition: all 0.4s;
-      width: 100%;
-      height: 100%;
       background: var(--greyish-brown);
       opacity: 50%;
       font-size: 14px;
     }
   }
   .img-box {
+    position: relative;
     width: 100%;
     height: 275px;
     border-radius: 5px;
@@ -58,6 +58,7 @@ const CustomSwiper = styled(Swiper)`
     background-repeat: no-repeat;
     background-size: 100% 275px;
     p {
+      position: absolute;
       flex-grow: 0;
       font-family: Roboto;
       font-weight: bold;
@@ -65,6 +66,9 @@ const CustomSwiper = styled(Swiper)`
       text-align: center;
       color: var(--white);
       z-index: 9999;
+    }
+    @media (max-width: ${cssBreakPoint.mobileMd}) {
+      height: 50vw;
     }
   }
   .img-desc {
@@ -102,9 +106,10 @@ const KnowHowSlider: FC<IKnowHowSlideProps> = ({
     >
       {demo.map((item: any, index: number) => (
         <SwiperSlide key={index}>
-          <div className="img-box" id={item.id} style={{ backgroundImage: `url(${item.url})` }}>
-            <a className="shadow" href={item.href} target="_blank">
-              <p>view more</p>
+          <div className="img-box shadow" id={item.id}>
+            <p>view more</p>
+            <a href={item.href} target="_blank">
+              <img src={item.url} />
             </a>
           </div>
           <div className="img-desc">
