@@ -153,16 +153,29 @@ const Menu: FC<MenuProps> = ({ isActive = false, clickToMove, mode }) => {
         )}
       </MenuCenter>
       <MenuRight>
-        <RightItem>
-          <RightItemLink href="https://biz.lever.me/login" className="lever-login">
-            로그인
-          </RightItemLink>
-        </RightItem>
-        <RightItem>
-          <RightItemLink href="https://biz.lever.me/signup" className="lever-signup">
-            회원가입
-          </RightItemLink>
-        </RightItem>
+        {mode === 'A' ? (
+          <>
+            <RightItem>
+              <RightItemLink href="https://biz.lever.me/login" className="lever-login">
+                로그인
+              </RightItemLink>
+            </RightItem>
+            <RightItem>
+              <RightItemLink
+                href="https://biz.lever.me/signup"
+                className="lever-signup color-white"
+              >
+                회원가입
+              </RightItemLink>
+            </RightItem>
+          </>
+        ) : (
+          <RightItem>
+            <RightItemLink href="https://biz.lever.me/login" className="lever-login color-white">
+              로그인
+            </RightItemLink>
+          </RightItem>
+        )}
       </MenuRight>
     </MenuLayout>
   )

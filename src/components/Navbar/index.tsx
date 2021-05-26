@@ -23,7 +23,7 @@ const HeaderSection = styled(
     li a {
       color: var(--black);
     }
-    .lever-signup {
+    .color-white {
       color: var(--white);
     }
   }
