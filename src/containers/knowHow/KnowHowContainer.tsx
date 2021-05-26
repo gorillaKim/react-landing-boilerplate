@@ -1,5 +1,5 @@
-import React, { FC } from 'react'
-import KnowHow from '../../components/KnowHow'
+import React from 'react'
+import KnowHow from 'components/KnowHow'
 
 const demo: {
   id: string
@@ -34,7 +34,7 @@ const demo: {
 ]
 
 const KnowHowContainer = () => {
-  return <KnowHow demo={demo}/>
+  return <KnowHow demo={demo} />
 }
 
 export default KnowHowContainer
