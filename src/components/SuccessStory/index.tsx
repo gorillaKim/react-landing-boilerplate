@@ -5,6 +5,7 @@ import SuccessStorySlider from './SuccessStorySlider'
 import useScrollFadeIn from '../../hooks/useScrollFadeIn'
 
 const Section = styled.section`
+  display: flex;
   width: 100%;
   min-height: 444px;
   height: 80vh;

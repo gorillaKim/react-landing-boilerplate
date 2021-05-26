@@ -31,7 +31,7 @@ interface IMission {}
 
 const Mission: FC<IMission> = ({ children }) => {
   return (
-    <Section>
+    <Section id={'mission'}>
       <Shadow>
         <MissionContainer>{children}</MissionContainer>
       </Shadow>

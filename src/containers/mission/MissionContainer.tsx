@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React from 'react'
 import Mission from 'components/Mission'
 import styled from 'styled-components'
 import { cssBreakPoint } from 'styles/constant'
@@ -171,9 +171,7 @@ const data = [
   },
 ]
 
-interface IMissionContainer {}
-
-const MissionContainer: FC<IMissionContainer> = () => {
+const MissionContainer = () => {
   const latency = 0.2
   const animations = [
     useScrollFadeIn('up', 1, 0),
