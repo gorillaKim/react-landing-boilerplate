@@ -19,7 +19,7 @@ const IntroduceContainer = styled.div`
   text-align: center;
   line-height: 1.3;
 `
-const IntroduceSection = styled.div`
+const IntroduceSection = styled.section`
   font-family: NotoSansKR;
   font-stretch: normal;
   font-style: normal;

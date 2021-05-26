@@ -1,9 +1,9 @@
-import React, {FC, ReactElement} from 'react'
-import styled from "styled-components"
-import {cssBreakPoint} from "../../styles/constant";
-import {KnowHowSlideProps} from "../../types/knowhow";
-import {Swiper, SwiperSlide} from "swiper/react";
-import SwiperCore, {Mousewheel} from "swiper";
+import React, { FC, ReactElement } from 'react'
+import styled from 'styled-components'
+import { cssBreakPoint } from 'styles/constant'
+import { IKnowHowSlideProps } from 'types/knowhow'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import SwiperCore, { Mousewheel } from 'swiper'
 SwiperCore.use([Mousewheel])
 
 const CustomSwiper = styled(Swiper)`
@@ -21,7 +21,7 @@ const CustomSwiper = styled(Swiper)`
       max-width: 1280px;
     }
   }
-  &.pc {
+  &.desktop {
     display: block;
     @media (max-width: ${cssBreakPoint.mobileMd}) {
       display: none;
@@ -41,7 +41,7 @@ const CustomSwiper = styled(Swiper)`
     justify-content: center;
     z-index: 9998;
     font-size: 0;
-    &:hover {
+    :hover {
       transition: all 0.4s;
       width: 100%;
       height: 100%;
@@ -86,13 +86,13 @@ const CustomSwiper = styled(Swiper)`
   }
 `
 
-const KnowHowSlider: FC<KnowHowSlideProps> = ({
-    className,
-    demo,
-    slidesToShow,
-    animation
-  }): ReactElement => {
-  return(
+const KnowHowSlider: FC<IKnowHowSlideProps> = ({
+  className,
+  demo,
+  slidesToShow,
+  animation,
+}): ReactElement => {
+  return (
     <CustomSwiper
       className={`inner ${className}`}
       mousewheel
@@ -100,25 +100,21 @@ const KnowHowSlider: FC<KnowHowSlideProps> = ({
       spaceBetween={10}
       {...animation}
     >
-      {demo.map((item: any, index: number) =>
+      {demo.map((item: any, index: number) => (
         <SwiperSlide key={index}>
-          <div
-            className="img-box"
-            id={item.id}
-            style={{backgroundImage: `url(${item.url})`}}
-            >
-              <a className="shadow" href={item.href} target="_blank">
-                <p>view more</p>
-              </a>
+          <div className="img-box" id={item.id} style={{ backgroundImage: `url(${item.url})` }}>
+            <a className="shadow" href={item.href} target="_blank">
+              <p>view more</p>
+            </a>
           </div>
           <div className="img-desc">
             <p>Blog</p>
-              { item.content.split('\n').map((line: string) =>
-                <div>{line}</div>
-              )}
+            {item.content.split('\n').map((line: string) => (
+              <div>{line}</div>
+            ))}
           </div>
         </SwiperSlide>
-      )}
+      ))}
     </CustomSwiper>
   )
 }

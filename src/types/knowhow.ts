@@ -1,4 +1,4 @@
-export interface KnowHowProps {
+export interface IKnowHowProps {
   demo: {
     id: string
     url: string
@@ -6,7 +6,7 @@ export interface KnowHowProps {
     content: string
   }[]
 }
-export interface KnowHowSlideProps {
+export interface IKnowHowSlideProps {
   demo: any
   slidesToShow: number
   animation: any
