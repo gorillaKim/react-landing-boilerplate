@@ -2,7 +2,7 @@ export interface IFaqListProps {
   contents: {
     id: string
     title: string
-    description: string
+    description: Array<string>
   }[]
 }
 export interface IStateProps {
@@ -12,6 +12,6 @@ export interface IFaqProps {
   contents: {
     id: string
     title: string
-    description: string
+    description: Array<string>
   }[]
 }

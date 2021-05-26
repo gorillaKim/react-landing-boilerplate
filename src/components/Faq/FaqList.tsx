@@ -9,7 +9,9 @@ const List = styled.div`
   border-bottom: 1px solid var(--white);
   display: flex;
   justify-content: space-between;
-
+  .rotate {
+    transform: rotate(180deg);
+  }
   .title {
     display: flex;
   }
@@ -31,7 +33,10 @@ const Detail = styled.div`
   font-family: NotoSansKR;
   color: var(--greyish-brown);
   display: none;
-
+  -webkit-transition: all 0.5s linear;
+  ul {
+    list-style: unset;
+  }
   &.show {
     display: block;
   }
@@ -69,15 +74,16 @@ const FaqList: FC<IFaqListProps> = ({ contents }): ReactElement => {
               <span className={'number'}>Q{index + 1}</span>
               <span>{item.title}</span>
             </div>
-            <div>
+            <div className={showDescription[item.id] ? 'rotate' : undefined}>
               <img src="./static/image/faq/Slice%2024.svg" alt="아래 화살표 아이콘" />
             </div>
           </List>
           <Detail className={showDescription[item.id] ? 'show' : undefined}>
-            <p>
-              {item.description}
-              <br />
-            </p>
+            <ul>
+              {item.description.map((contents: string) => (
+                <li>{contents}</li>
+              ))}
+            </ul>
             <p className={'register'}>
               <a href="https://biz.lever.me/signup" className={'lever-signup'}>
                 회원가입 하러가기
