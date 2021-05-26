@@ -1,46 +1,36 @@
 import React, {FC, ReactElement} from 'react'
 import styled from "styled-components"
-import CustomSlider from "../CustomSlider";
 import {cssBreakPoint} from "../../styles/constant";
 import {KnowHowSlideProps} from "../../types/knowhow";
-import useScrollFadeIn from "../../hooks/useScrollFadeIn";
+import {Swiper, SwiperSlide} from "swiper/react";
+import SwiperCore, {Mousewheel} from "swiper";
+SwiperCore.use([Mousewheel])
 
-const SliderWrapper = styled.div`
-  .slick-slide {
-    margin-left: unset;
-  }
-  .slick-list {
-    height: 400px;
-  }
-  .slick-prev:before,
-  .slick-next:before {
-    color: var(--cornflower);
-    opacity: 1;
-  }
-  .slick-dots {
-    z-index: 1;
-    li.slick-active button:before {
-      opacity: 1;
-      color: var(--cornflower);
-    }
-    li button:before {
-      opacity: .3;
-      color: var(--cornflower);
-    }
-  }
-  .inner {
-    width: 1280px;
+const CustomSwiper = styled(Swiper)`
+  &.inner {
+    max-width: 1280px;
+    width: 97%;
     margin-top: 8rem;
-    @media (max-width: ${cssBreakPoint.tablet}) {
-      width: 1000px;
-    }
     @media (max-width: ${cssBreakPoint.mobileMd}) {
-      width: 800px;
+      min-width: unset;
+      width: 90%;
       margin-top: 3rem;
     }
     ul {
       width: 100vw;
       max-width: 1280px;
+    }
+  }
+  &.pc {
+    display: block;
+    @media (max-width: ${cssBreakPoint.mobileMd}) {
+      display: none;
+    }
+  }
+  &.mobile {
+    display: none;
+    @media (max-width: ${cssBreakPoint.mobileMd}) {
+      display: block;
     }
   }
   .shadow {
@@ -61,8 +51,7 @@ const SliderWrapper = styled.div`
     }
   }
   .img-box {
-    margin: auto 10px;
-    max-width: 412px;
+    width: 100%;
     height: 275px;
     border-radius: 5px;
     overflow: hidden;
@@ -79,6 +68,7 @@ const SliderWrapper = styled.div`
     }
   }
   .img-desc {
+    text-align: center;
     margin-top: 1rem;
     font-size: 18px;
     letter-spacing: -0.9px;
@@ -95,31 +85,41 @@ const SliderWrapper = styled.div`
     }
   }
 `
-const KnowHowSlider: FC<KnowHowSlideProps> = ({ demo, settings }): ReactElement => {
+
+const KnowHowSlider: FC<KnowHowSlideProps> = ({
+    className,
+    demo,
+    slidesToShow,
+    animation
+  }): ReactElement => {
   return(
-    <SliderWrapper>
-      <CustomSlider className={'inner'} settings={settings}>
-        {demo.map((item: any) =>
-          <div>
-            <div
-              className="img-box"
-              id={item.id}
-              style={{backgroundImage: `url(${item.url})`}}
+    <CustomSwiper
+      className={`inner ${className}`}
+      mousewheel
+      slidesPerView={slidesToShow}
+      spaceBetween={10}
+      {...animation}
+    >
+      {demo.map((item: any, index: number) =>
+        <SwiperSlide key={index}>
+          <div
+            className="img-box"
+            id={item.id}
+            style={{backgroundImage: `url(${item.url})`}}
             >
               <a className="shadow" href={item.href} target="_blank">
                 <p>view more</p>
               </a>
-            </div>
-            <div className="img-desc">
-              <p>Blog</p>
+          </div>
+          <div className="img-desc">
+            <p>Blog</p>
               { item.content.split('\n').map((line: string) =>
                 <div>{line}</div>
               )}
-            </div>
           </div>
-        )}
-      </CustomSlider>
-    </SliderWrapper>
+        </SwiperSlide>
+      )}
+    </CustomSwiper>
   )
 }
 

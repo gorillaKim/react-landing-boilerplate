@@ -8,5 +8,7 @@ export interface KnowHowProps {
 }
 export interface KnowHowSlideProps {
   demo: any
-  settings: any
+  slidesToShow: number
+  animation: any
+  className: string
 }

@@ -137,7 +137,11 @@ const ScrollIcon = styled.div`
 interface IMainA {}
 
 const MainA: FC<IMainA> = () => {
-  const animation = [useScrollFadeIn('up', 1, 0), useScrollFadeIn('up', 1, 0.5)]
+  const animation = [
+    useScrollFadeIn('up', 1, 0),
+    useScrollFadeIn('up', 1, 0.5),
+    useScrollFadeIn('up', 1, 1)
+  ]
 
   return (
     <MainContainer id="main">
@@ -157,7 +161,7 @@ const MainA: FC<IMainA> = () => {
         </ContentBox>
         <AdditionalButton>
           <a href={'#success_story'}>
-            <ScrollIcon />
+            <ScrollIcon {...animation[2]}/>
           </a>
         </AdditionalButton>
       </Container>
