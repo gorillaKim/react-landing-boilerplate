@@ -14,4 +14,5 @@ export const Shadow = styled.div`
   width: 100%;
   min-height: inherit;
   min-width: inherit;
+  padding: inherit;
 `

@@ -10,7 +10,7 @@ import FaqContainer from 'containers/Faq/FaqContainer'
 import Footer from 'components/Footer'
 import KnowHowContainer from 'containers/knowHow/KnowHowContainer'
 import SuccessStoryContainer from 'containers/successStory/SuccessStoryContainer'
-import Mission from '../src/components/Mission'
+import MissionContainer from 'containers/mission/MissionContainer'
 
 const PageContainer = styled.div`
   position: relative;
@@ -28,7 +28,7 @@ const Index = (props: IIndex) => {
       <Introduce />
       <KnowHowContainer />
       <FaqContainer />
-      <Mission />
+      <MissionContainer />
       <Footer />
     </PageContainer>
   )

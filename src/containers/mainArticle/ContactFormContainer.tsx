@@ -1,6 +1,6 @@
-import React, {ChangeEventHandler, FC, useState} from 'react'
-import ContactForm from "../../components/MainArticle/ContactForm";
-import {IinitInputs} from "../../types/mainArticle";
+import React, { ChangeEventHandler, FC, useState } from 'react'
+import ContactForm from '../../components/MainArticle/ContactForm'
+import { IinitInputs } from '../../types/mainArticle'
 
 const initInputs: IinitInputs = {
   contactCompany: undefined,
@@ -8,14 +8,12 @@ const initInputs: IinitInputs = {
   contactName: undefined,
   contactEmail: undefined,
   contactMobile: undefined,
-  adPurpose: "purpose1",
+  adPurpose: 'purpose1',
   contactContent: undefined,
   contactTerm: undefined,
 }
 
-interface IContactFormContainer {
-
-}
+interface IContactFormContainer {}
 const ContactFormContainer: FC<IContactFormContainer> = () => {
   const [inputs, setInputs] = useState(initInputs)
   const [modal, setModal] = useState(false)
@@ -29,25 +27,25 @@ const ContactFormContainer: FC<IContactFormContainer> = () => {
     adPurpose,
     contactTerm,
   } = inputs
-  const onChangeInput:ChangeEventHandler = (event:React.ChangeEvent) => {
-    const {target}: any = event
+  const onChangeInput: ChangeEventHandler = (event: React.ChangeEvent) => {
+    const { target }: any = event
     setInputs({
       ...inputs,
-      [target.id]: target.value
+      [target.id]: target.value,
     })
   }
-  const onChangeRadio:ChangeEventHandler = (event:React.ChangeEvent) => {
-    const {target}: any = event
+  const onChangeRadio: ChangeEventHandler = (event: React.ChangeEvent) => {
+    const { target }: any = event
     setInputs({
       ...inputs,
-      [target.name]: target.value
+      [target.name]: target.value,
     })
   }
-  const onChangeChecked:ChangeEventHandler = (event:React.ChangeEvent) => {
-    const {target}: any = event
+  const onChangeChecked: ChangeEventHandler = (event: React.ChangeEvent) => {
+    const { target }: any = event
     setInputs({
       ...inputs,
-      [target.id]: target.checked
+      [target.id]: target.checked,
     })
   }
   const onClickTermConfirm = () => {
@@ -59,9 +57,7 @@ const ContactFormContainer: FC<IContactFormContainer> = () => {
   }
   const onClickModal = () => setModal(!modal)
 
-  const onClickSubmit = () => {
-
-  }
+  const onClickSubmit = () => {}
 
   const submitDisabled = !(
     contactCompany &&

@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import styled from 'styled-components'
 import { cssBreakPoint } from 'styles/constant'
 import SuccessStorySlider from './SuccessStorySlider'
+import useScrollFadeIn from '../../hooks/useScrollFadeIn'
 
 const Section = styled.section`
   width: 100%;
@@ -127,21 +128,26 @@ interface ISuccessStory {
 }
 
 const SuccessStory: FC<ISuccessStory> = ({ items }) => {
+  const animations = [
+    useScrollFadeIn('up', 1, 0),
+    useScrollFadeIn('up', 1, 0.5),
+    useScrollFadeIn('up', 1, 1),
+  ]
   return (
     <Section id={'success_story'}>
       <ContentLayout>
-        <Title>
+        <Title {...animations[0]}>
           <p className="xsm">Digital Marketing Solution LEVER</p>
           <p className="xlg">SUCCESS STORY</p>
           <p className="sm">
             성공을 꿈꾸는 기업들과 함께<span>꿈이 현실이 되는 성공 사례를 만들고 있습니다.</span>
           </p>
         </Title>
-        <Content>
+        <Content {...animations[1]}>
           <SuccessStorySlider items={items} className={'desktop'} slidesToShow={3} />
           <SuccessStorySlider items={items} className={'mobile'} slidesToShow={1} />
         </Content>
-        <Bottom>
+        <Bottom {...animations[2]}>
           <p>* 레버의 실제 고객사례입니다.</p>
         </Bottom>
       </ContentLayout>
