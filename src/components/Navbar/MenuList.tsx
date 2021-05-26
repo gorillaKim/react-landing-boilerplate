@@ -71,7 +71,7 @@ const MenuListB = (props: IMenuList) => {
   return (
     <>
       <CenterItem>
-        <CenterItemLink data-nav="logo" onClick={clickToMove}>
+        <CenterItemLink data-nav="main" onClick={clickToMove}>
           문의하기
         </CenterItemLink>
       </CenterItem>
