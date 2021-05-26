@@ -112,6 +112,9 @@ const RightItem = styled.li`
     margin: 0;
     border-top: 1px solid var(--light-periwinkle);
 
+    &.wide {
+      width: 100%;
+    }
     :first-child {
       margin-right: 0;
       border-right: 1px solid var(--light-periwinkle);
@@ -170,7 +173,7 @@ const Menu: FC<MenuProps> = ({ isActive = false, clickToMove, mode }) => {
             </RightItem>
           </>
         ) : (
-          <RightItem>
+          <RightItem className="wide">
             <RightItemLink href="https://biz.lever.me/login" className="lever-login color-white">
               로그인
             </RightItemLink>
