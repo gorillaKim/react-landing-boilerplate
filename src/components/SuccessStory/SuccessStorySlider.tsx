@@ -4,6 +4,27 @@ import { cssBreakPoint } from 'styles/constant'
 import SwiperCore, { Mousewheel } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
+const CustomSwiper = styled(Swiper)`
+  padding: 1rem 0;
+  .swiper-wrapper {
+    display: inline-flex;
+    height: fit-content;
+  }
+  &.mobile {
+    display: none;
+  }
+  &.desktop {
+    display: block;
+  }
+  @media (max-width: ${cssBreakPoint.tablet}) {
+    &.mobile {
+      display: block;
+    }
+    &.desktop {
+      display: none;
+    }
+  }
+`
 const SliderItem = styled.div`
   height: fit-content;
   overflow: hidden;
@@ -85,11 +106,12 @@ const SliderItem = styled.div`
       display: flex;
       flex-direction: row;
       position: absolute;
-      justify-content: center;
+      justify-content: space-around;
       align-items: center;
       width: fit-content;
       bottom: 0;
       right: 0;
+      margin-right: 1rem;
 
       font-weight: normal;
       font-stretch: normal;
@@ -101,7 +123,7 @@ const SliderItem = styled.div`
 
         :nth-child(1) {
           margin-right: 15px;
-          font-size: 17px;
+          font-size: 15px;
           font-family: NotoSansKR;
           letter-spacing: -0.85px;
           color: var(--greyish-brown);
@@ -125,7 +147,7 @@ const SliderItem = styled.div`
       b {
         flex-grow: 0;
         font-family: NotoSansKR;
-        font-size: 38px;
+        font-size: 35px;
         font-weight: bold;
         letter-spacing: -1.9px;
         color: var(--black);
@@ -141,30 +163,10 @@ const SliderItem = styled.div`
 const ArrowIcon = styled.img`
   width: 17px;
   height: 15px;
-  margin: 0px 15px 0px 10px;
+  margin: 0 8px;
   padding: 1px 0 0 2px;
   object-fit: contain;
   overflow: hidden;
-`
-const CustomSwiper = styled(Swiper)`
-  .swiper-wrapper {
-    display: inline-flex;
-    height: fit-content;
-  }
-  &.mobile {
-    display: none;
-  }
-  &.desktop {
-    display: block;
-  }
-  @media (max-width: ${cssBreakPoint.tablet}) {
-    &.mobile {
-      display: block;
-    }
-    &.desktop {
-      display: none;
-    }
-  }
 `
 
 interface ISuccessStorySlider {

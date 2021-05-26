@@ -1,5 +1,4 @@
-import 'swiper/swiper.scss'
-import 'swiper/components/scrollbar/scrollbar.scss'
+import 'swiper/swiper-bundle.min.css'
 
 export default function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />

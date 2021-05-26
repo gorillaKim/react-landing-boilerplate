@@ -24,7 +24,7 @@ const ContentLayout = styled.div`
 
   height: fit-content;
   min-height: 444px;
-  max-width: 80vw;
+  max-width: 85vw;
   min-width: 1025px;
   width: 100%;
   float: right;
