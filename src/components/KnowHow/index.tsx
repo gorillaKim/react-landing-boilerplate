@@ -57,7 +57,7 @@ const KnowHowContainer = styled(Container)`
   }
 `
 
-const KnowHow: FC<IKnowHowProps> = ({ demo }) => {
+const KnowHow: FC<IKnowHowProps> = ({ data }) => {
   const animation = [
     useScrollFadeIn('up', 1, 0),
     useScrollFadeIn('up', 1, 0.5),
@@ -76,13 +76,13 @@ const KnowHow: FC<IKnowHowProps> = ({ demo }) => {
         </p>
         <KnowHowSlider
           className={'desktop'}
-          demo={demo}
+          data={data}
           slidesToShow={3}
           animation={{ ...animation[2] }}
         />
         <KnowHowSlider
           className={'mobile'}
-          demo={demo}
+          data={data}
           slidesToShow={1}
           animation={{ ...animation[3] }}
         />
