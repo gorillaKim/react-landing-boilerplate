@@ -103,8 +103,9 @@ const Navbar: FC<NavbarProps> = () => {
   const onClickToggle = () => setToggle(toggle => !toggle)
   const clickToMove = (e: React.MouseEvent) => {
     let href = (e.target as HTMLInputElement).dataset.nav
+    const isLogo = href === 'logo' || href === undefined
     const position = document.querySelector(`#${href}`) as HTMLElement
-    onClickToggle()
+    !isLogo && onClickToggle()
     window.scrollTo({
       top: position ? position.offsetTop : 0,
       behavior: 'smooth',
