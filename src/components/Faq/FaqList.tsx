@@ -36,6 +36,9 @@ const Detail = styled.div`
   -webkit-transition: all 0.5s linear;
   ul {
     list-style: unset;
+    li {
+      margin-bottom: 0.2rem;
+    }
   }
   &.show {
     display: block;
