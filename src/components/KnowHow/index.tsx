@@ -63,6 +63,7 @@ const KnowHow: FC<IKnowHowProps> = ({ demo }) => {
     useScrollFadeIn('up', 1, 0.5),
     useScrollFadeIn('up', 1, 1),
     useScrollFadeIn('up', 1, 1),
+    useScrollFadeIn('up', 1, 1),
   ]
   return (
     <KnowHowSection>
