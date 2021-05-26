@@ -111,7 +111,7 @@ const SliderItem = styled.div`
       width: fit-content;
       bottom: 0;
       right: 0;
-      margin-right: 1rem;
+      margin: 0 1rem;
 
       font-weight: normal;
       font-stretch: normal;
@@ -130,7 +130,6 @@ const SliderItem = styled.div`
 
           @media (max-width: ${cssBreakPoint.mobileMd}) {
             font-size: 14px;
-            margin-right: unset;
           }
         }
         :nth-child(2) {

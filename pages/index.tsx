@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import GlobalStyle from 'styles/GlobalStyle'
-import { Container } from 'components/Styled/Layout'
 import type { AppContext } from 'next/app'
 import MainA from 'components/MainArticle/MainA'
 import BannerContainer from 'containers/banner/BannerContainer'
@@ -11,6 +10,7 @@ import FaqContainer from 'containers/Faq/FaqContainer'
 import Footer from 'components/Footer'
 import KnowHowContainer from 'containers/knowHow/KnowHowContainer'
 import SuccessStoryContainer from 'containers/successStory/SuccessStoryContainer'
+import Mission from '../src/components/Mission'
 
 const PageContainer = styled.div`
   position: relative;
@@ -28,9 +28,7 @@ const Index = (props: IIndex) => {
       <Introduce />
       <KnowHowContainer />
       <FaqContainer />
-      <Container style={{ backgroundColor: 'orange', height: 'fit-content', minHeight: '444px' }}>
-        미션
-      </Container>
+      <Mission />
       <Footer />
     </PageContainer>
   )

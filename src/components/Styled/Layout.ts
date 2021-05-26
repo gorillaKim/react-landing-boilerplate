@@ -8,3 +8,10 @@ export const Container = styled.div`
   margin: 0 auto;
   overflow: hidden;
 `
+export const Shadow = styled.div`
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100%;
+  width: 100%;
+  min-height: inherit;
+  min-width: inherit;
+`
