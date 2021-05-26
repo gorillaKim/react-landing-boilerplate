@@ -1,20 +1,20 @@
-import React from "react";
+import React from 'react'
 
 export interface IHeaderSection {
   headerOption: {
     start: {
-      backgroundColor: string;
-    },
+      backgroundColor: string
+    }
     end: {
-      backgroundColor: string;
+      backgroundColor: string
     }
   }
   slideHeaderOption: {
     start: {
-      right: string,
+      right: string
     }
     end: {
-      right: string,
+      right: string
     }
   }
   children: React.ReactNode
@@ -23,17 +23,17 @@ export interface IHeaderSection {
 export interface INavbarSection {
   navbarOption: {
     start: {
-      display: string;
-    },
-    end: {
-      display: string;
+      display: string
     }
-  },
-  children: React.ReactNode,
+    end: {
+      display: string
+    }
+  }
+  children: React.ReactNode
   className: string
 }
 export interface NavbarProps {
-
+  mode: string
 }
 
 export interface LogoProps {
@@ -42,6 +42,7 @@ export interface LogoProps {
 }
 
 export interface MenuProps {
+  mode: string
   isActive: boolean
   clickToMove: (e: React.MouseEvent) => void
 }
@@ -76,7 +77,7 @@ export interface ToggleProps {
   rotateReverseOption: IToggleRotateOption
   showElementOption: IShowElementOption
   children: React.ReactNode
-  onClick: ()=>void
+  onClick: () => void
 }
 export interface ToggleButtonProps {
   onClickToggle: () => void

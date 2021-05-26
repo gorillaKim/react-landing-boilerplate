@@ -6,12 +6,14 @@ import useScrollFadeIn from '../../hooks/useScrollFadeIn'
 
 const Section = styled.section`
   display: flex;
+  justify-content: flex-end;
   width: 100%;
   min-height: 444px;
   height: 80vh;
   position: relative;
   background: linear-gradient(90deg, #ffffff 60%, #5c6aff 40%);
   @media (max-width: ${cssBreakPoint.tablet}) {
+    justify-content: center;
     background: unset;
     height: fit-content;
   }

@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import styled from 'styled-components'
 import { cssBreakPoint } from 'styles/constant'
 import { MenuProps } from 'types/navbar'
+import { MenuListA, MenuListB } from './MenuList'
 
 const MenuLayout = styled.div`
   display: flex;
@@ -73,20 +74,6 @@ const MenuCenter = styled.ul`
   }
 `
 
-const CenterItem = styled.li`
-  padding: 35px 25px;
-  text-decoration: none;
-`
-
-const CenterItemLink = styled(ItemLink)`
-  @media (max-width: ${cssBreakPoint.tablet}) {
-    font-size: 30px;
-    letter-spacing: -1.5px;
-    text-align: left;
-    color: var(--black);
-  }
-`
-
 const MenuRight = styled.ul`
   display: flex;
   width: fit-content;
@@ -150,7 +137,7 @@ const RightItemLink = styled(ItemLink)`
   }
 `
 
-const Menu: FC<MenuProps> = ({ isActive = false, clickToMove }) => {
+const Menu: FC<MenuProps> = ({ isActive = false, clickToMove, mode }) => {
   return (
     <MenuLayout className={isActive ? 'active' : 'deactive'}>
       <Title>
@@ -159,26 +146,11 @@ const Menu: FC<MenuProps> = ({ isActive = false, clickToMove }) => {
         </TitleList>
       </Title>
       <MenuCenter>
-        <CenterItem>
-          <CenterItemLink data-nav="success_story" onClick={clickToMove}>
-            성공사례
-          </CenterItemLink>
-        </CenterItem>
-        <CenterItem>
-          <CenterItemLink data-nav="introduce" onClick={clickToMove}>
-            레버 서비스 소개
-          </CenterItemLink>
-        </CenterItem>
-        <CenterItem>
-          <CenterItemLink data-nav="know_how" onClick={clickToMove}>
-            디지털 마케팅 노하우
-          </CenterItemLink>
-        </CenterItem>
-        <CenterItem>
-          <CenterItemLink data-nav="faq" onClick={clickToMove}>
-            자주하는 질문
-          </CenterItemLink>
-        </CenterItem>
+        {mode === 'A' ? (
+          <MenuListA clickToMove={clickToMove} />
+        ) : (
+          <MenuListB clickToMove={clickToMove} />
+        )}
       </MenuCenter>
       <MenuRight>
         <RightItem>

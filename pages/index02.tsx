@@ -22,7 +22,7 @@ const Index = (props: IIndex) => {
     <PageContainer>
       <GlobalStyle />
       <BannerContainer />
-      <Navbar />
+      <Navbar mode={'B'} />
       <MainB />
       <SuccessStoryContainer />
       <Introduce />

@@ -40,6 +40,7 @@ const BlackLogoIcon = styled(BlackLogoSVG)`
     margin: 0 0 0 25px;
   }
 `
+
 const Logo: FC<LogoProps> = ({ isActive = false, clickToMove }) => {
   return (
     <LogoLayout data-nav="logo">

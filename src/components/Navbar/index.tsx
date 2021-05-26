@@ -62,7 +62,7 @@ const NavbarSection = styled(({ navbarOption, ...restProps }: INavbarSection) =>
   }
 `
 
-const Navbar: FC<NavbarProps> = () => {
+const Navbar: FC<NavbarProps> = ({ mode }) => {
   const [toggle, setToggle] = useState(false)
   const [sticky, setSticky] = useState(false)
 
@@ -105,7 +105,7 @@ const Navbar: FC<NavbarProps> = () => {
     let href = (e.target as HTMLInputElement).dataset.nav
     const isLogo = href === 'logo' || href === undefined
     const position = document.querySelector(`#${href}`) as HTMLElement
-    !isLogo && onClickToggle()
+    !isLogo && toggle && onClickToggle()
     window.scrollTo({
       top: position ? position.offsetTop : 0,
       behavior: 'smooth',
@@ -121,7 +121,7 @@ const Navbar: FC<NavbarProps> = () => {
       <Container>
         <NavbarSection className={toggle ? 'active' : 'deactive'} navbarOption={navbarOption}>
           <Logo isActive={toggle || sticky} clickToMove={clickToMove} />
-          <Menu isActive={toggle} clickToMove={clickToMove} />
+          <Menu isActive={toggle} clickToMove={clickToMove} mode={mode} />
         </NavbarSection>
       </Container>
     </HeaderSection>
