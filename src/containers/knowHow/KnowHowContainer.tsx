@@ -1,7 +1,7 @@
 import React from 'react'
 import KnowHow from 'components/KnowHow'
 
-const demo: {
+const data: {
   id: string
   url: string
   href: string
@@ -28,7 +28,7 @@ const demo: {
 ]
 
 const KnowHowContainer = () => {
-  return <KnowHow demo={demo} />
+  return <KnowHow data={data} />
 }
 
 export default KnowHowContainer

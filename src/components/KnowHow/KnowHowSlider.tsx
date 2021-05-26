@@ -92,7 +92,7 @@ const CustomSwiper = styled(Swiper)`
 
 const KnowHowSlider: FC<IKnowHowSlideProps> = ({
   className,
-  demo,
+  data,
   slidesToShow,
   animation,
 }): ReactElement => {
@@ -104,7 +104,7 @@ const KnowHowSlider: FC<IKnowHowSlideProps> = ({
       spaceBetween={10}
       {...animation}
     >
-      {demo.map((item: any, index: number) => (
+      {data.map((item: any, index: number) => (
         <SwiperSlide key={index}>
           <div className="img-box shadow" id={item.id}>
             <p>view more</p>
