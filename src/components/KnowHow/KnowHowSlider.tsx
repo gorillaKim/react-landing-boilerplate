@@ -36,7 +36,6 @@ const CustomSwiper = styled(Swiper)`
     }
   }
   .shadow {
-    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,15 +56,24 @@ const CustomSwiper = styled(Swiper)`
     overflow: hidden;
     background-repeat: no-repeat;
     background-size: 100% 275px;
+    img,
+    a {
+      width: 100%;
+      height: 100%;
+    }
     p {
       position: absolute;
       flex-grow: 0;
       font-family: Roboto;
       font-weight: bold;
       letter-spacing: -0.42px;
-      text-align: center;
       color: var(--white);
       z-index: 9999;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     @media (max-width: ${cssBreakPoint.mobileMd}) {
       height: 50vw;
@@ -107,8 +115,8 @@ const KnowHowSlider: FC<IKnowHowSlideProps> = ({
       {data.map((item: any, index: number) => (
         <SwiperSlide key={index}>
           <div className="img-box shadow" id={item.id}>
-            <p>view more</p>
             <a href={item.href} target="_blank">
+              <p>view more</p>
               <img src={item.url} />
             </a>
           </div>
