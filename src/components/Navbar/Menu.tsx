@@ -18,7 +18,7 @@ const MenuLayout = styled.div`
     &.active {
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
+      justify-content: space-between;
     }
     &.deactive {
       height: 100%;
@@ -81,8 +81,7 @@ const MenuRight = styled.ul`
 
   @media (max-width: ${cssBreakPoint.tablet}) {
     width: 100%;
-    position: fixed;
-    display: flex;
+    height: fit-content;
     justify-content: center;
     align-items: center;
     bottom: 0;

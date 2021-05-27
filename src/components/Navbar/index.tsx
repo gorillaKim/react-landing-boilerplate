@@ -11,9 +11,8 @@ import ToggleButton from './ToggleButton'
 const HeaderSection = styled(
   ({ headerOption, slideHeaderOption, ...restProps }: IHeaderSection) => <section {...restProps} />,
 )`
-  display: inline-block;
-  position: -webkit-sticky; /* Safari */
   position: sticky;
+  position: -webkit-sticky; /* Safari */
   top: 0;
   width: 100%;
   z-index: 998;
@@ -54,6 +53,9 @@ const NavbarSection = styled(({ navbarOption, ...restProps }: INavbarSection) =>
     justify-content: space-between;
     width: 100%;
 
+    &.active {
+      height: 100vh;
+    }
     &.deactive {
       animation-name: ${props => navbar(props.navbarOption)};
       animation-duration: 0.7s;
