@@ -122,8 +122,8 @@ const KnowHowSlider: FC<IKnowHowSlideProps> = ({
           </div>
           <div className="img-desc">
             <p>Blog</p>
-            {item.content.split('\n').map((line: string) => (
-              <div>{line}</div>
+            {item.content.split('\n').map((line: string, index: number) => (
+              <div key={index}>{line}</div>
             ))}
           </div>
         </SwiperSlide>

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import GlobalStyle from 'styles/GlobalStyle'
 import type { AppContext } from 'next/app'
 import MainA from 'components/MainArticle/MainA'
 import BannerContainer from 'containers/banner/BannerContainer'
@@ -20,7 +19,6 @@ interface IIndex {}
 const Index = (props: IIndex) => {
   return (
     <PageContainer>
-      <GlobalStyle />
       <BannerContainer />
       <Navbar mode={'A'} />
       <MainA />

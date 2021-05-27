@@ -83,8 +83,8 @@ const FaqList: FC<IFaqListProps> = ({ contents }): ReactElement => {
           </List>
           <Detail className={showDescription[item.id] ? 'show' : undefined}>
             <ul>
-              {item.description.map((contents: string) => (
-                <li>{contents}</li>
+              {item.description.map((contents: string, index) => (
+                <li key={index}>{contents}</li>
               ))}
             </ul>
             <p className={'register'}>

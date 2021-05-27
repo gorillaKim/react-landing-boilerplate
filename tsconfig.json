@@ -8,10 +8,6 @@
       "dom.iterable",
       "esnext"
     ],
-    "types": [
-      "cypress",
-      "jest"
-    ],
     "typeRoots": [
       "node_modules/@types"
     ],

@@ -190,10 +190,10 @@ const MissionContainer = () => {
           const animation = useScrollFadeIn('up', 1, 0 + latency * index)
 
           return (
-            <div {...animation}>
+            <div {...animation} key={index}>
               <Content className={className}>
-                {texts.map(text => (
-                  <li>{text}</li>
+                {texts.map((text, index) => (
+                  <li key={index}>{text}</li>
                 ))}
               </Content>
             </div>

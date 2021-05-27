@@ -181,7 +181,7 @@ const SuccessStorySlider: FC<ISuccessStorySlider> = ({ items, slidesToShow, clas
     <CustomSwiper className={className} slidesPerView={slidesToShow} mousewheel spaceBetween={30}>
       {items.map((item: any, index: number) => {
         return (
-          <SwiperSlide virtualIndex={index}>
+          <SwiperSlide key={index}>
             <SliderItem>
               <div className={'content'}>
                 <img src={item.mainImg.desktop} alt="메인이미지_컴퓨터버전" className={'desktop'} />

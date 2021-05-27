@@ -65,7 +65,7 @@ const KnowHow: FC<IKnowHowProps> = ({ data }) => {
     useScrollFadeIn('up', 1, 1),
   ]
   return (
-    <KnowHowSection>
+    <KnowHowSection id={'know_how'}>
       <KnowHowContainer>
         <h1 className="title" {...animation[0]}>
           디지털 마케팅 노하우
