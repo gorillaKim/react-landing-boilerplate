@@ -15,11 +15,12 @@ const PrivacyTermContainer = styled.div`
   background: #ffffff;
 
   .btn {
+    width: 30%;
+    height: 100%;
     margin-top: 1.4rem;
     margin-bottom: 1rem;
     padding: 0.7rem 1.5rem;
     border-radius: 25px;
-    width: 30%;
     background-color: var(--cornflower);
 
     font-size: 19px;
