@@ -19,6 +19,11 @@ const CustomSwiper = styled(Swiper)`
   @media (max-width: ${cssBreakPoint.tablet}) {
     &.mobile {
       display: block;
+
+      &.swiper-container {
+        overflow: unset;
+        width: 80%;
+      }
     }
     &.desktop {
       display: none;

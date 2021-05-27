@@ -13,6 +13,7 @@ const FirstContainer = styled.div`
   background-image: url(${'./static/image/main/main_BG2.jpg'});
   background-repeat: no-repeat;
   background-size: cover;
+  z-index: -1;
 
   ::before {
     height: 100%;
