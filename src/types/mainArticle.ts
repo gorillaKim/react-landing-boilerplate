@@ -1,10 +1,12 @@
 export interface IinitInputs {
-  contactCompany: undefined|string
-  contactUrl: undefined|string
-  contactName: undefined|string
-  contactEmail: undefined|string
-  contactMobile: undefined|string
-  adPurpose: undefined|string
-  contactContent: undefined|string
-  contactTerm: undefined|boolean,
+  company: undefined | string
+  url: undefined | string
+  name: undefined | string
+  email: undefined | string
+  mobile: undefined | string
+  budget: undefined | string
+  hope_time: undefined | string
+  purpose: undefined | string
+  content: undefined | string
+  agree_policy: undefined | boolean
 }

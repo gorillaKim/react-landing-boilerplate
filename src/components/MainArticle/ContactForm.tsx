@@ -75,6 +75,7 @@ interface ContactForm {
   onChangeRadio: (event: React.ChangeEvent) => void
   onChangeChecked: (event: React.ChangeEvent) => void
   onClickTermConfirm: () => void
+  onClickSubmit: () => void
   submitDisabled: boolean
 }
 
@@ -86,19 +87,17 @@ const ContactForm: FC<ContactForm> = ({
   onChangeChecked,
   onClickTermConfirm,
   onClickModal,
+  onClickSubmit,
   submitDisabled,
 }): ReactElement => {
-  console.log(inputs)
-
-  // PrivacyTerm
   return (
     <>
       <FormBox>
         <label>회사명</label>
         <input
-          id={'contactCompany'}
+          id={'company'}
           type={'text'}
-          value={inputs?.contactCompany}
+          value={inputs?.company}
           placeholder={'예) 매드업'}
           onChange={onChangeInput}
           required={true}
@@ -107,9 +106,9 @@ const ContactForm: FC<ContactForm> = ({
       <FormBox>
         <label>사이트 URL</label>
         <input
-          id={'contactUrl'}
+          id={'url'}
           type={'text'}
-          value={inputs?.contactUrl}
+          value={inputs?.url}
           placeholder={'예) http://lever.me'}
           onChange={onChangeInput}
           required={true}
@@ -118,9 +117,9 @@ const ContactForm: FC<ContactForm> = ({
       <FormBox>
         <label>담당자명</label>
         <input
-          id={'contactName'}
+          id={'name'}
           type={'text'}
-          value={inputs?.contactName}
+          value={inputs?.name}
           placeholder={'예) 홍길동'}
           onChange={onChangeInput}
           required={true}
@@ -129,9 +128,9 @@ const ContactForm: FC<ContactForm> = ({
       <FormBox>
         <label>답장 받을 이메일</label>
         <input
-          id={'contactEmail'}
+          id={'email'}
           type={'email'}
-          value={inputs?.contactEmail}
+          value={inputs?.email}
           placeholder={'예) ad@lever.me'}
           onChange={onChangeInput}
           required={true}
@@ -140,9 +139,9 @@ const ContactForm: FC<ContactForm> = ({
       <FormBox>
         <label>전화번호</label>
         <input
-          id={'contactMobile'}
+          id={'mobile'}
           type={'text'}
-          value={inputs?.contactMobile}
+          value={inputs?.mobile}
           placeholder={'010-7777-7777'}
           onChange={onChangeInput}
           required={true}
@@ -151,9 +150,9 @@ const ContactForm: FC<ContactForm> = ({
       <FormBox>
         <label>광고 목적</label>
         <select
-          id={'adPurpose'}
-          name="adPurpose"
-          value={inputs?.adPurpose}
+          id={'purpose'}
+          name="purpose"
+          value={inputs?.purpose}
           onChange={onChangeInput}
           required={true}
         >
@@ -169,7 +168,7 @@ const ContactForm: FC<ContactForm> = ({
           <div className={'radio'}>
             <input
               type={'radio'}
-              name={'price'}
+              name={'budget'}
               id={'price1'}
               value={'price1'}
               onChange={onChangeRadio}
@@ -179,7 +178,7 @@ const ContactForm: FC<ContactForm> = ({
           <div className={'radio'}>
             <input
               type={'radio'}
-              name={'price'}
+              name={'budget'}
               id={'price2'}
               value={'price2'}
               onChange={onChangeRadio}
@@ -189,7 +188,7 @@ const ContactForm: FC<ContactForm> = ({
           <div className={'radio'}>
             <input
               type={'radio'}
-              name={'price'}
+              name={'budget'}
               id={'price3'}
               value={'price3'}
               onChange={onChangeRadio}
@@ -199,7 +198,7 @@ const ContactForm: FC<ContactForm> = ({
           <div className={'radio'}>
             <input
               type={'radio'}
-              name={'price'}
+              name={'budget'}
               id={'price4'}
               value={'price4'}
               onChange={onChangeRadio}
@@ -214,7 +213,7 @@ const ContactForm: FC<ContactForm> = ({
           <div className={'radio'}>
             <input
               type={'radio'}
-              name={'time'}
+              name={'hope_time'}
               id={'time1'}
               value={'time1'}
               onChange={onChangeRadio}
@@ -224,7 +223,7 @@ const ContactForm: FC<ContactForm> = ({
           <div className={'radio'}>
             <input
               type={'radio'}
-              name={'time'}
+              name={'hope_time'}
               id={'time2'}
               value={'time2'}
               onChange={onChangeRadio}
@@ -234,7 +233,7 @@ const ContactForm: FC<ContactForm> = ({
           <div className={'radio'}>
             <input
               type={'radio'}
-              name={'time'}
+              name={'hope_time'}
               id={'time3'}
               value={'time3'}
               onChange={onChangeRadio}
@@ -244,7 +243,7 @@ const ContactForm: FC<ContactForm> = ({
           <div className={'radio'}>
             <input
               type={'radio'}
-              name={'time'}
+              name={'hope_time'}
               id={'time4'}
               value={'time4'}
               onChange={onChangeRadio}
@@ -260,7 +259,7 @@ const ContactForm: FC<ContactForm> = ({
           name={'content'}
           placeholder={'문의내용을 최대 500자 한도 내에서 적어주세요.'}
           maxLength={500}
-          id="contactContent"
+          id="content"
           onChange={onChangeInput}
         ></textarea>
       </FormBox>
@@ -272,17 +271,21 @@ const ContactForm: FC<ContactForm> = ({
             </label>
             <input
               type={'checkbox'}
-              name={'checkPolicy'}
-              id={'contactTerm'}
+              name={'agree_policy'}
+              id={'agree_policy'}
               onChange={onChangeChecked}
-              checked={inputs?.contactTerm}
+              checked={inputs['agree_policy']}
             />
           </CheckBox>
           <span className={'view-term'} onClick={onClickModal}>
             약관보기
           </span>
         </div>
-        <button disabled={submitDisabled} className={submitDisabled ? 'undefined' : 'active'}>
+        <button
+          disabled={submitDisabled}
+          className={submitDisabled ? 'undefined' : 'active'}
+          onClick={onClickSubmit}
+        >
           문의하기
         </button>
       </FormCheck>
